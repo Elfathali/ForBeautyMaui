@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:renders="clr-namespace:ForBeauty.Renders"
+    x:Class="ForBeautyMaui.ViewPages.SMSPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="ForBeauty" VerticalOptions="End" HorizontalTextAlignment="Center" FontSize="Large" Margin="0,0,0,5" FontFamily="times"/>
+            <Image Source="iconback" Grid.Row="0" HorizontalOptions="Start" HeightRequest="35" VerticalOptions="End" Margin="5,0,0,0">
+                 <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TabBackConfirmPage" Command="{Binding TabBackConfirmPage}"/>
+                </Image.GestureRecognizers>
+                </Image>
+            <BoxView BackgroundColor="#555555" HeightRequest="1" VerticalOptions="End"/>
+           
+            <StackLayout Grid.Row="1" BackgroundColor="White" Margin="10">
+               
+                <StackLayout Margin="0,40,0,0">
+                    <Label Text="تم إرسال رمز التأكيد على" FontFamily="times" FontSize="Medium" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                         <Label Text="واتس أب" FontFamily="times" FontSize="Medium" TextColor="Green" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Image Source="whatsapp" HeightRequest="25" WidthRequest="25" VerticalOptions="Center"/>
+
+                    </StackLayout>
+            <Label x:Name="LblNameConfirm"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+                    <StackLayout  HorizontalOptions="Center">
+                        <renders:BorderLessEntry x:Name="OtpEntryLessBorder"  FontSize="Large" CharacterSpacing="32" Margin="15,0,0,0" HorizontalOptions="FillAndExpand" BackgroundColor="White" 
+                                             Text="{Binding OtpText, Mode=TwoWay}"
+                                             Keyboard="Telephone"
+                                             HorizontalTextAlignment="Start"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                        <BoxView HeightRequest="1" BackgroundColor="{Binding BoxOtp1Color}" />
+                        <BoxView HeightRequest="1" BackgroundColor="{Binding BoxOtp2Color}" />
+                        <BoxView HeightRequest="1" BackgroundColor="{Binding BoxOtp3Color}" />
+                        <BoxView HeightRequest="1" BackgroundColor="{Binding BoxOtp4Color}" />
+
+                    </StackLayout>
+
+
+                    </StackLayout>
+                      <Label Text="{Binding IncorrectCodeMessage}"
+                   IsVisible="{Binding IsIncorrectCodeVisible}"
+                   FontSize="Medium"
+                   Margin="0,20,40,0"
+                   TextColor="Red"
+                   HorizontalOptions="EndAndExpand"/>
+
+            </StackLayout>
+                </StackLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

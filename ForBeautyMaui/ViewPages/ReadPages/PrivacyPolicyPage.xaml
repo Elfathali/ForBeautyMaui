@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeauty.Pages.ReadPages.PrivacyPolicyPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10"
+                     Padding="15"
+                     >
+            <ScrollView>
+                <StackLayout>
+                    <Label HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           FontAttributes="Bold"
+                           FontSize="Title"
+                           Text="سياسات الخصوصية
+                           For Beauty"/>
+                    <Label HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="ـــــــــــــــــــــــــــــــــــــــــــــــ"
+                           FontAttributes="Bold"/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="تحكم سياسة الخصوصية هذه الطريقة التي نجمع بها ForBeauty المعلومات التي نجمعها من مستخدمي تطبيق ForBeauty ونستخدمها ونحافظ عليها ونفصح عنها. تنطبق سياسة الخصوصية هذه على التطبيق وجميع المنتجات والخدمات ذات الصلة."/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="جمع المعلومات
+1.1 المعلومات الشخصية
+قد نقوم بجمع المعلومات الشخصية من المستخدمين بطرق مختلفة ، بما في ذلك على سبيل المثال لا الحصر وقت زيارة المستخدمين للتطبيق أو تسجيل حساب أو ملء نموذج أو إجراء عملية شراء أو التفاعل مع ميزات التطبيق وخدماته. قد تشمل المعلومات الشخصية التي نجمعها ما يلي:
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="اسم
+عنوان البريد الإلكتروني
+معلومات الاتصال
+الصوره الشخصيه
+معلومات الموقع
+خيارات المستخدم
+1.2 المعلومات غير الشخصية
+قد نقوم أيضًا بجمع معلومات غير شخصية عن المستخدمين كلما تفاعلوا مع التطبيق. قد تتضمن المعلومات غير الشخصية اسم المتصفح ونوع الجهاز المستخدم والمعلومات الفنية حول وسائل اتصال المستخدم بالتطبيق ومعلومات أخرى مماثلة.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="استخدام المعلومات
+2.1 المعلومات الشخصية
+قد نستخدم المعلومات الشخصية التي نجمعها من المستخدمين للأغراض التالية:
+
+لتخصيص تجربة المستخدم
+لتحسين خدمة العملاء
+لمعالجة المعاملات
+لإرسال رسائل بريد إلكتروني دورية أو دفع الإخطارات
+لتقديم دعم العملاء
+لإرسال مواد ترويجية أو رسائل إخبارية
+للرد على الاستفسارات أو الأسئلة أو الطلبات
+2.2 المعلومات غير الشخصية
+يمكن استخدام المعلومات غير الشخصية التي يتم جمعها من المستخدمين لتحليل الاتجاهات وإدارة التطبيق وتتبع تحركات المستخدمين وجمع المعلومات الديموغرافية. تساعدنا هذه المعلومات على تحسين التطبيق وتقديم تجربة مستخدم أفضل.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="حماية المعلومات
+نعتمد ممارسات مناسبة لجمع البيانات وتخزينها ومعالجتها ، بالإضافة إلى تدابير أمنية ، للحماية من الوصول غير المصرح به أو التعديل أو الكشف أو إتلاف المعلومات الشخصية للمستخدمين واسم المستخدم وكلمة المرور ومعلومات المعاملات والبيانات المخزنة في التطبيق."/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="مشاركة المعلومات
+4.1 مقدمو خدمات الطرف الثالث
+يجوز لنا مشاركة المعلومات الشخصية للمستخدمين مع موفري خدمات الجهات الخارجية الموثوق بهم لمساعدتنا في تشغيل التطبيق وإدارته وتحسينه. يلتزم مقدمو الخدمات هؤلاء باتفاقيات السرية ويحظر عليهم استخدام المعلومات الشخصية للمستخدمين لأي غرض آخر.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="4.2 الامتثال القانوني
+قد نكشف عن المعلومات الشخصية للمستخدمين إذا كان ذلك مطلوبًا بموجب القانون أو استجابة لطلبات صحيحة من قبل السلطات العامة (على سبيل المثال ، وكالات إنفاذ القانون)."/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="مواقع الطرف الثالث
+قد يحتوي التطبيق على روابط لمواقع أو منتجات أو خدمات تابعة لجهات خارجية. نحن لا نتحكم في المحتوى أو الروابط التي تظهر على مواقع الأطراف الثالثة ولسنا مسؤولين عن الممارسات التي يستخدمونها. يجب على المستخدمين مراجعة سياسات الخصوصية لمواقع الأطراف الثالثة قبل تقديم أي معلومات شخصية.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="خصوصية الأطفال
+حماية خصوصية الأطفال أمر ضروري. التطبيق غير مخصص للأطفال دون سن 13 عامًا. نحن لا نجمع عن قصد معلومات شخصية من الأطفال دون سن 13 عامًا. إذا كنت تعتقد أننا جمعنا معلومات شخصية من طفل دون سن 13 عامًا ، فيرجى الاتصال بنا ، وسنقوم بذلك إزالة هذه المعلومات على الفور من سجلاتنا.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="التغييرات على سياسة الخصوصية هذه
+نحتفظ بالحق في تحديث أو تغيير سياسة الخصوصية هذه في أي وقت. عندما نقوم بذلك ، سنقوم بمراجعة التاريخ المحدث في أسفل هذه الصفحة. نحن نشجع المستخدمين على التحقق من هذه الصفحة بشكل متكرر بحثًا عن أي تغييرات للبقاء على اطلاع حول كيفية قيامنا بالمساعدة في حماية المعلومات الشخصية التي نجمعها. يقر المستخدمون ويوافقون على أنه من مسؤوليتهم مراجعة سياسة الخصوصية هذه بشكل دوري والاطلاع على التعديلات.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="موافقتك على هذه الشروط
+باستخدام تطبيق ForBeauty ، فإنك تشير إلى موافقتك على سياسة الخصوصية هذه. إذا كنت لا توافق على سياسة الخصوصية هذه ، فيرجى عدم استخدام التطبيق. سيعتبر استمرار استخدامك للتطبيق بعد نشر التغييرات على سياسة الخصوصية هذه بمثابة موافقتك على هذه التغييرات.
+                           "/>
+                    <Label HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                 VerticalTextAlignment="Start"
+                 FlowDirection="RightToLeft"
+                           Text="الاتصال بنا
+إذا كان لديك أي أسئلة أو اقتراحات بخصوص سياسة الخصوصية هذه ، يرجى الاتصال بنا على [+218929500090]."/>
+                    </StackLayout>
+                </ScrollView>
+                    </StackLayout>
+           
+        
+    </ContentPage.Content>
+</ContentPage>
+

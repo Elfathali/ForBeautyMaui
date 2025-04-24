@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:renders="clr-namespace:ForBeauty.Renders"
+    NavigationPage.HasNavigationBar="True"
+    xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePage"
+
+    Title="𝓕𝓸𝓻𝓑𝓮𝓪𝓾𝓽𝔂" NavigationPage.BackButtonTitle=" "
+    BackgroundColor="White">
+    <ContentPage.Content>
+        
+    
+         
+         <Grid  BackgroundColor="White" IsVisible="true" RowSpacing="0">
+             <Grid.RowDefinitions>
+        <RowDefinition Height="*" /> <!-- Content -->
+    </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0" x:Name="mainHomePageScrollView">
+                <StackLayout FlowDirection="RightToLeft" Grid.Row="1" >
+                    <Grid HeightRequest="450">
+
+                        <Image Source="{Binding ImageMainPage}" HeightRequest="400" Grid.RowSpan="6" Grid.ColumnSpan="7"
+                                     Aspect="AspectFill"/>
+                        <Button IsVisible="{Binding ButtonNameExcVisible}" Text="{Binding ButtonNameExcText}" Grid.Row="4" FontFamily="times" CornerRadius="0"  TextColor="Black"
+                                          Grid.Column="2" BackgroundColor="White" Grid.ColumnSpan="3" FontSize="Large"
+                                          Command="{Binding BtnBoxTap}"/>
+                        <BoxView IsVisible="{Binding BoxViewMainImageVisiblity}" Grid.Row="0" BackgroundColor="Transparent" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="7">
+                            <BoxView.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="BoxTap" Command="{Binding BtnBoxTap}"/>
+
+                            </BoxView.GestureRecognizers>
+                        </BoxView>
+                    </Grid>
+                    <Label Text="{Binding LblWelcomeNameHomePage}" IsVisible="true" FontSize="22" Margin="2,5,5,5" FontFamily="times" FlowDirection="{Binding flowdirecation}"/>
+                    <StackLayout x:Name="StackOrderState" Margin="10,0,10,0" IsVisible="false">
+                        <Frame BackgroundColor="#fffff8" Padding="5">
+                            <!--StackLayout>
+
+
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <Label Text="رقم الطلب :" VerticalOptions="Center" Margin="0,0,10,0" FontFamily="times" FontSize="22"/>
+                                    <Label x:Name="lblOrderIdState" VerticalOptions="Center" FontFamily="times" FontSize="22"/>
+
+
+                                </StackLayout>
+                                <control:StepProgressBarControl x:Name="StepProgressBar" Steps="4" StepSelected="2" StepColor="Blue" IsEnabled="False" Margin="0,10,0,0"/>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="مراجعة طلبك" HorizontalOptions="FillAndExpand"  FontFamily="times" MaxLines="1" Margin="0,0,0,0"/>
+                                                <Label Text="إعداد طلبك" HorizontalOptions="FillAndExpand" FontFamily="times" Margin="0,0,30,0" MaxLines="1"/>
+                                                <Label Text="جاري التوصيل" HorizontalOptions="FillAndExpand" FontFamily="times" Margin="0,0,40,0" MaxLines="1"/>
+                                    <Label Text="تم التسليم" HorizontalOptions="Fill" FontFamily="times" Margin="0,0,40,0" MaxLines="1"/>
+
+                                </StackLayout>
+                    </StackLayout-->
+
+
+                    
+                    </Frame>
+
+            
+            </StackLayout>
+                                <StackLayout x:Name="StackOrderState1" Margin="10,0,10,0" IsVisible="false">
+                                   <Frame BackgroundColor="#fffff8" Padding="5">
+                                        <StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                            <Label Text="رقم الطلب :" VerticalOptions="Center" Margin="0,0,10,0" FontFamily="times"/>
+                                            <Label x:Name="lblOrderIdState1" VerticalOptions="Center" FontFamily="times"/>
+                                            
+                                        </StackLayout>
+                                             <StackLayout Orientation="Horizontal">
+                                           <Label Text="نوع الطلب :" VerticalOptions="Center" Margin="0,0,10,0" FontFamily="times" FontSize="18"/>
+                                            <Label Text="إستلام شخصي" VerticalOptions="Center" Margin="0,0,10,0" FontFamily="times" FontSize="18"/>
+                                            </StackLayout>
+                                            </StackLayout>
+                                       </Frame>
+                                            
+                                    
+                                </StackLayout>
+        <Grid Margin="5,5,7,0">
+
+         <Frame HasShadow="False" Padding="0"  CornerRadius="0" BackgroundColor="#E4E4E4">
+             <renders:BorderLessEntry x:Name="searchEntry" Placeholder="{x:Static Language:AppResources.SearchEntry}" FlowDirection="{Binding flowdirecation}" FontFamily="times" ReturnType="Search" Margin="0,0,10,0"
+            HeightRequest="41"/>
+         </Frame>
+    </Grid>
+        <StackLayout>
+
+        </StackLayout>
+       
+              
+        <StackLayout Margin="2,0,5,0" Spacing="17"  HeightRequest="100" BackgroundColor="Transparent" 
+                       FlowDirection="RightToLeft">
+            <Label Text="{x:Static Language:AppResources.BestSearch}" FlowDirection="{Binding flowdirecation}"  Margin="2,5,5,5"  x:Name="bestsearch"  FontFamily="times" FontSize="Large" />
+                <CollectionView ItemsSource="{Binding CollectionSearchProduct}" HorizontalScrollBarVisibility="Never"
+                                SelectedItem="{Binding BestSearchSelectedItems}" SelectionMode="Single" FlowDirection="{Binding flowdirecation}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Padding="1,0,0,5" Spacing="1" BackgroundColor="White">
+                                     <Frame CornerRadius="5" BackgroundColor="White" Padding="12" HasShadow="False" BorderColor="Black">
+                                     <Label Text="{Binding name}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="times" />
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            <BoxView HeightRequest="10" HorizontalOptions="FillAndExpand" BackgroundColor="White"/>
+        </StackLayout>
+        <StackLayout x:Name="StackRecentltyView" BackgroundColor="#F8F3F0" IsVisible="{Binding StackRecentltyView}" HeightRequest="300" >
+            <StackLayout>
+                 <Label Text="{x:Static Language:AppResources.RecentlyViewed}" FontFamily="times" FontSize="Large" Margin="2,5,5,5" FlowDirection="{Binding flowdirecation}"/>
+                <CollectionView ItemsSource="{Binding RecentlyViewd}" ItemsUpdatingScrollMode="KeepScrollOffset"
+                                HorizontalScrollBarVisibility="Never"
+                                SelectedItem="{Binding RecentlyViewdSelectedItem}"
+                                FlowDirection="{Binding flowdirecation}"
+                                SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                                <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="#F6F3F0" 
+                                                HorizontalOptions="Start">
+                                    <StackLayout BackgroundColor="White" HeightRequest="240" Margin="3,0,3,0">
+                                                <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg"  HeightRequest="180" WidthRequest="170"
+                                            BackgroundColor="White"
+                                        Source="{Binding imageUrl}" 
+                                        Aspect="Fill"
+                                        />
+                                        <Label Text="{Binding name}" HorizontalTextAlignment="Start" FontFamily="times" FontSize="Medium"
+                                               Margin="10,0,10,0"
+                                               BackgroundColor="White"/>
+                                        <Label Text="{Binding MoreDital}" FontSize="Small" FontFamily="times" 
+                                               Margin="0,0,10,0"
+                                               HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout BackgroundColor="White" IsVisible="true" HeightRequest="230">
+            <StackLayout>
+            <Label Text="{x:Static Language:AppResources.GiftsBoxs}" FontFamily="times" FontSize="Large" Margin="2,5,5,5" FlowDirection="{Binding flowdirecation}"
+                    />
+                <CollectionView  x:Name="CollectionGiftBox" FlowDirection="{Binding flowdirecation}"
+                                HorizontalScrollBarVisibility="Never"
+                                ItemsSource="{Binding CollectionGiftBox}"
+                                SelectedItem="{Binding CollectionGiftBoxSelectedItem}"
+                                SelectionMode="Single">
+                   <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Horizontal" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="White" HorizontalOptions="Start">
+                    <StackLayout BackgroundColor="White">
+                        <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg"  HeightRequest="170"  BackgroundColor="#F6F3F0"
+                            Source="{Binding ImageUrlForGift}" Margin="5,0,7,0"
+                            Aspect="Fill"
+                            WidthRequest="280"/>
+                          </StackLayout>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+                </CollectionView>
+                 </StackLayout>
+           </StackLayout>
+        <StackLayout  Margin="0,10,0,0" HeightRequest="200">
+            <Label Text="{x:Static Language:AppResources.BestCategories}"  FontFamily="times" FontSize="Large" FlowDirection="{Binding flowdirecation}"
+                    Margin="10"/>
+            <StackLayout HeightRequest="145">
+                <CollectionView Margin="0,0,10,0" x:Name="CollectionTopCategory" FlowDirection="{Binding flowdirecation}"
+                                HorizontalScrollBarVisibility="Never"
+                                ItemsSource="{Binding CollectionBestCategorySource}"
+                                SelectionMode="Single"
+                                SelectedItem="{Binding CollectionBestCategory}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal"  />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                                                           
+                                <StackLayout Orientation="Vertical" Spacing="2" BackgroundColor="White"
+                                                HorizontalOptions="Start">
+                                            <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg" HeightRequest="90" Margin="10,0,0,0"
+                                            BackgroundColor="#F7F3F0"
+                                        Source="{Binding ImageUrl}"
+                                        Aspect="AspectFit"
+                                        WidthRequest="90"/>
+                                        <Label Text="{Binding CategoryName}" HorizontalTextAlignment="Center"
+                                                FontFamily="times" FontSize="Medium"/>
+                                </StackLayout>
+                                                    
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout BackgroundColor="#F6F3F0" Spacing="5" HeightRequest="210">
+            <Label Text="{x:Static Language:AppResources.BestBrands}" FontFamily="times" FontSize="Large" FlowDirection="{Binding flowdirecation}"
+                    Margin="2,25,10,5"/>
+            <StackLayout Orientation="Horizontal" Spacing="5" BackgroundColor="#F6F3F0">
+    <Grid  HorizontalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout VerticalOptions="Center" Grid.Column="0" Padding="8" BackgroundColor="White" Margin="0,0,5,0" HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding LblBrand1}" FontFamily="Times" FontSize="21" BackgroundColor="White" VerticalOptions="Center" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding BrandTextBox1}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Grid.Column="1" VerticalOptions="Center" Padding="8" BackgroundColor="White" Margin="5,0,0,0" HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding LblBrand2}" BackgroundColor="White" FontFamily="Times" FontSize="21" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding BrandTextBox2}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Grid>
+</StackLayout>
+
+                                      <StackLayout Orientation="Horizontal" Spacing="5" BackgroundColor="#F6F3F0">
+    <Grid  HorizontalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout VerticalOptions="Center" Grid.Column="0" Padding="8" BackgroundColor="White" Margin="0,0,5,0" HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding LblBrand3}" FontFamily="Times" FontSize="21" BackgroundColor="White" VerticalOptions="Center" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding BrandTextBox3}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Grid.Column="1" VerticalOptions="Center" Padding="8" BackgroundColor="White" Margin="5,0,0,0" HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding LblBrand4}" BackgroundColor="White" FontFamily="Times" FontSize="21" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding BrandTextBox4}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Grid>
+</StackLayout>
+
+             <StackLayout Orientation="Horizontal" Spacing="5" BackgroundColor="#F6F3F0">
+    <Grid  HorizontalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout VerticalOptions="Center" Grid.Column="0" Padding="8" BackgroundColor="White" Margin="0,0,5,0" HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding LblBrand5}" FontFamily="Times" FontSize="21" BackgroundColor="White" VerticalOptions="Center" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding BrandTextBox5}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Grid.Column="1" VerticalOptions="Center" Padding="8" BackgroundColor="White" Margin="5,0,0,0" HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding LblBrand6}" BackgroundColor="White" FontFamily="Times" FontSize="21" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding BrandTextBox6}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Grid>
+</StackLayout>
+
+        </StackLayout>
+        <StackLayout BackgroundColor="White">
+            <Grid BackgroundColor="Transparent">
+            <StackLayout Orientation="Horizontal" Margin="0,25,10,0" FlowDirection="{Binding flowdirecation}">
+               
+                    <Label Text="{x:Static Language:AppResources.NewIn}" Margin="2,5,5,5"  HorizontalOptions="StartAndExpand"  FontFamily="times" FontSize="Large" />
+                <Image Source="next"
+                        HeightRequest="15"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center"
+                        WidthRequest="20"
+                        Margin="10,0,0,0"
+                       Scale="{Binding ScalexDireaction}"/>
+            </StackLayout>
+                 <BoxView HorizontalOptions="{Binding BoxViewNewIn}" BackgroundColor="Transparent"
+                          
+                      VerticalOptions="Center" WidthRequest="70">
+                     <BoxView.GestureRecognizers>
+                         <TapGestureRecognizer x:Name="boxShowAllNewIn" Command="{Binding boxShowAllNewInTapped}"/>
+                     </BoxView.GestureRecognizers>
+                     </BoxView>
+                 </Grid>
+            <Grid>
+
+ <CarouselView ItemsSource="{Binding CarouselNewIn}" BackgroundColor="White"
+               x:Name="CarouselViewImageTapSource"
+                          Loop="False" HeightRequest="290"
+                          FlowDirection="{Binding flowdirecation}"
+                          HorizontalScrollBarVisibility="Never"
+                          IndicatorView="{Reference indicatorImageNewIn}">
+    <CarouselView.ItemTemplate>
+        <DataTemplate>
+            <StackLayout>
+                                            <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg"
+                                                                        Source="{Binding imageUrl}" HeightRequest="285"  Aspect="AspectFit"/>
+               <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="CarouselViewImageTap" Command="{Binding BindingContext.CarouselViewImageTapped, Source={x:Reference Name=CarouselViewImageTapSource}}" CommandParameter="{Binding .}" />
+               </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </DataTemplate>
+    </CarouselView.ItemTemplate>
+</CarouselView>
+           
+                <IndicatorView x:Name="indicatorImageNewIn"
+               Grid.Row="0"
+               VerticalOptions="End"
+               FlowDirection="{Binding flowdirecation}"
+               HorizontalOptions="Center"
+               Margin="35,0,35,-15"
+               IndicatorSize="10"
+               SelectedIndicatorColor="Black"
+                IndicatorColor="LightGray">
+          <IndicatorView.IndicatorTemplate>
+        <DataTemplate>
+            <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="End" VerticalOptions="End"/>
+        </DataTemplate>
+    </IndicatorView.IndicatorTemplate>
+    
+</IndicatorView>
+                </Grid>
+        </StackLayout>
+        <StackLayout Margin="15,20,15,15">
+            <Frame HasShadow="False"
+                   BackgroundColor="#F6F3F0" HeightRequest="50">
+                <StackLayout Orientation="Horizontal" Spacing="30" FlowDirection="{Binding flowdirecation}">
+                    <Image Source="hotsale.png" HeightRequest="35" VerticalOptions="Center"/>
+                <Label Text="{x:Static Language:AppResources.Discount}" VerticalOptions="Center"  FontFamily="times" FontSize="Large" /> 
+                    <Image Source="next" HeightRequest="15" HorizontalOptions="EndAndExpand" Scale="{Binding ScalexDireaction}"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapShowDiscount" Command="{Binding TapShowDiscountTapped}"/>
+            </StackLayout.GestureRecognizers>
+
+        </StackLayout>
+    </StackLayout>
+                 </ScrollView>
+
+
+              <Grid x:Name="GridLoaderHomePage" Grid.Row="0" IsVisible="{Binding GridLoaderHomePage}" BackgroundColor="White" FlowDirection="RightToLeft">
+    <StackLayout Spacing="20">
+                                
+        <!--BoxView BackgroundColor="#c9c9c9" HeightRequest="400" ske:Skeleton.Animation="fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>                
+        <BoxView BackgroundColor="#c9c9c9" HeightRequest="40" Margin="12,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand" />
+        <BoxView BackgroundColor="#c9c9c9" HeightRequest="20" Margin="250,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+        <StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0"> 
+            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+        <BoxView  BackgroundColor="#c9c9c9" HeightRequest="20" Margin="270,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+        <StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0">
+            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="320" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
+            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="100" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
+        </StackLayout-->
+    </StackLayout>
+</Grid>      
+         </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

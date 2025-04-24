@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewPages.WelcomePage"
+    xmlns:language="clr-namespace:ForBeautyMaui.Resources.Languages">
+    <ContentPage.Content>
+        <Grid>
+           <Grid.RowDefinitions>
+              
+               <RowDefinition Height="*"/>
+           </Grid.RowDefinitions>
+           <Frame BackgroundColor="White"
+                  HasShadow="True"
+                  Opacity="0.9"
+                  Grid.Row="3"
+                  Grid.RowSpan="4"
+                  CornerRadius="20">
+
+                <StackLayout Spacing="10"
+                             Margin="0,50,0,0">
+                    <StackLayout Padding="0">
+                        <Grid >
+                            
+                            <Image Source="Group42.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                      BackgroundColor="Transparent"
+                      Aspect="AspectFit">
+                        </Image>
+                            <Button Text="{x:Static language:AppResources.CreateAnAccount}" FontFamily="times" FontSize="23"
+                                   TextColor="White"
+                                   VerticalOptions="Center"
+                                   BackgroundColor="Black"
+                                   CornerRadius="20"
+                                   Margin="35,0,35,15"
+                                   Command="{Binding CommandToRegisterPage}" >
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                                        <GradientStop Color="HotPink" Offset="0.0"/>
+                                        <GradientStop Color="Blue" Offset="1.0"/>
+                                        
+                                    </LinearGradientBrush>  
+
+                                </Button.Background>
+                                </Button>
+                                   
+                        </Grid>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="newuser" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    
+                    <StackLayout Padding="0">
+                       <Button Text="{x:Static language:AppResources.Login}" FontFamily="times" FontSize="23"
+                                   TextColor="White"
+                                   VerticalOptions="Center"
+                                   
+                                   CornerRadius="20"
+                                   Margin="35,0,35,15"
+                                   Command="{Binding CommandToLoginPage}">
+                             <Button.Background>
+                                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                                        <GradientStop Color="HotPink" Offset="0.0"/>
+                                        <GradientStop Color="Blue" Offset="1.0"/>
+                                    </LinearGradientBrush>  
+                                </Button.Background>
+                            </Button>
+
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" HorizontalOptions="Center">
+                       <Button x:Name="ButtonFreeTrial" IsVisible="false" Text="لا,شكرا" FontFamily="times" TextColor="Black" FontSize="Medium"/>
+                    </StackLayout>
+                    <Label x:Name="Copyright"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                           Margin="0,10,0,0"
+                TextColor="Black"
+                FontSize="Small"/>
+           </StackLayout>
+           </Frame>
+           <Image Source="Logo.PNG"
+                    Grid.Row="0"
+                  Grid.RowSpan="2"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Center"
+                  HeightRequest="230"
+                  WidthRequest="230"
+                  Aspect="Fill"/>
+
+       </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

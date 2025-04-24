@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages.HelpAndFAQPage">
+    <ContentPage.Content>
+         <Grid x:Name="GridHelpFAQ" BackgroundColor="White">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="100" /> <!-- Top Bar -->
+        <RowDefinition Height="*" /> <!-- Content -->
+    </Grid.RowDefinitions>
+    <Grid BackgroundColor="White" HeightRequest="50">
+        <Image Source="close.png" HorizontalOptions="Start"  VerticalOptions="EndAndExpand" WidthRequest="22"  Margin="10,0,0,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapBackHelpFAQ" Command="{Binding CommandTapBackHelpFAQ}"/>
+            </Image.GestureRecognizers>
+            </Image>
+        <Label Text ="مساعدة FAQ" FontSize="20" HorizontalOptions="Center" VerticalOptions="EndAndExpand" FontFamily="times" Margin="10,0,0,10"/>
+        <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+    </Grid>
+                <StackLayout Grid.Row="1">
+                    <ScrollView>
+                <StackLayout  VerticalOptions="Start" FlowDirection="RightToLeft" Margin="20" Spacing="20">
+                  <Label Text="مواضيع المساعدة" FontSize="20" FontFamily="times"/>
+                    <Label Text="أنت هنا في قسم المساعدة  ForBeauty."  FontFamily="times" FontSize="18"/>
+                    <Label FontFamily="times" FontSize="16" Text="نحن سعداء لمساعدتك في العثور على طريقك حول موقعنا. سنشرح لك الهياكل ونوضح لك كيفية العثور على العطور ذات العلامات التجارية المختارة أو منتجات العناية بالبشرة الفاخرة. " />
+                    <Label FontSize="Small" FontFamily="times" Text="حتى نتمكن من تقديم مساعدة أكثر دقة لك، حدد استفسارك ، أو إذا لم تتمكن هذه الأداة من الإجابة على أسئلتك، فاتصل بفريق الخدمة لدينا."/>
+                    <StackLayout Spacing="2">
+                    <Label FontSize="Small" Text="علامة جيدة" FontFamily="times"/>
+                    <Label FontSize="Small" Text="عالم العلامة التجارية" FontFamily="times"/>
+                    <Label FontSize="Small" Text="النطاق" FontFamily="times"/>
+                    <Label FontSize="Small" Text="" FontFamily="times"/>
+                    <Label FontSize="Small" Text="الترقيات" FontFamily="times"/>
+                    <Label FontSize="Small" Text="سلة التسوق" FontFamily="times"/>
+                    <Label FontSize="Small" Text="كيف أعرف إذا كان المنتج متاح للتسليم على الفور؟ نقوم بوضع هدا العنصر متوفر للشحن المباشر " FontFamily="times"/>
+                    <Label FontSize="Small" Text="فوائد حصرية" FontFamily="times"/>
+                    <Label FontSize="Small" Text="فريق خدمة" FontFamily="times"/>
+                    <Label FontSize="Small" Text="التوصيل مجاني للطلبات التي تزيد قيمتها عن 200 دينار ليبي" FontFamily="times"/>
+                    <Label FontSize="Small" Text="خدمة الهدايا المجانية" FontFamily="times"/>
+                    <Label FontSize="Small" Text="عينات مجانية" FontFamily="times"/>
+                    <Label FontSize="Small" Text="محلات العطور المعتمدة" FontFamily="times"/>
+                    <Label FontSize="Small" Text="الحد الأدني لقيمة الطلب 20 دينار ليبي" FontFamily="times"/>
+                    <Label FontSize="Small" Text="متاجر موثوقة معتمدة" FontFamily="times"/>
+                    <Label FontSize="Small" Text="تسجيل مجاني" FontFamily="times"/>
+                    <Label FontSize="Small" Text="التسليم الجزئي لا يوجد" FontFamily="times"/>
+                    <Label FontSize="Small" Text="أحلامي العطرية" FontFamily="times"/>
+                    <Label FontSize="Small" Text="تفاصيلي" FontFamily="times"/>
+                    <Label FontSize="Small" Text="طلباتي" FontFamily="times"/>
+                    <Label FontSize="Small" Text="إعادة البضائع مسموح في نفس اليوم فقط" FontFamily="times"/>
+                    <Label FontSize="Small" Text="رسائلي" FontFamily="times"/>
+                    <Label FontSize="Small" Text="ساعد لدعم" FontFamily="times"/>
+                    <Label FontSize="Small" Text="أنواع الدفع كاش فقط في الوقت الحالي" FontFamily="times"/>
+                    <Label FontSize="Small" Text="دفعه مقدمه لا ندعم" FontFamily="times"/>
+                    <Label FontSize="Small" Text="على حساب" FontFamily="times"/>
+                    <Label FontSize="Small" Text="نقل فوري" FontFamily="times"/>
+                    <Label FontSize="Small" Text="الدفع عند الاستلام" FontFamily="times"/>
+                    <Label FontSize="Small" Text="الإرسال والتسليم" FontFamily="times"/>
+                    </StackLayout>
+                    <Label Text="أطيب التحيات" Margin="0,10,0,0" FontFamily="times" FontSize="Large"/>
+                    <Label Text="فريق ForBeauty" Margin="0,-15,0,0" FontFamily="times" FontSize="Large"/>
+
+                </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                 </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

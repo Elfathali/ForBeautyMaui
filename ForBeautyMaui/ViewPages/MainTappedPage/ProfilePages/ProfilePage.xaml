@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages.ProfilePage"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages">
+    <ContentPage.Content>
+        <Grid>
+                 <Grid Grid.Row="0" Grid.RowSpan="2">
+                 <ScrollView>
+                                
+        <StackLayout Spacing="0">
+
+          <StackLayout  FlowDirection="RightToLeft">
+              <Frame HeightRequest="400" Padding="0" HasShadow="False">
+                  <Image Source="ForBeautEnt1.JPG"
+                     Aspect="AspectFill" HeightRequest="350" WidthRequest="350"/>
+              </Frame>
+          </StackLayout>
+                                    <StackLayout x:Name="StackLoginOrRegisterAccount" IsVisible="{Binding StackLoginOrRegisterAccountVisiblety}">
+                                        <Label Text="𝓕𝓸𝓻𝓑𝓮𝓪𝓾𝓽𝔂" HorizontalOptions="Center" Margin="10" FontSize="Large">
+                                            </Label>
+                                        <StackLayout Spacing="0">
+                                            <Label Text="{x:Static Language:AppResources.DoLoginOrRegisterAcouunt}" FontFamily="times" FontSize="17"
+                                               HorizontalOptions="Center"/>
+                                        <Label Text="{x:Static Language:AppResources.DoLoginOrRegisterAcouunt2}" FontFamily="times" HorizontalOptions="Center" FontSize="17"/>
+                                        </StackLayout>
+                                        
+                                        <Button Text="{x:Static Language:AppResources.Login}" FontFamily="times" 
+                                                BackgroundColor="White" TextColor="White" FontSize="19" BorderColor="Black" Padding="5"
+                                                Margin="15,0,15,0" HorizontalOptions="FillAndExpand">
+                                            <Button.Background>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                    <GradientStop Offset="1.0" Color="HotPink"/>
+                                                    <GradientStop Offset="0.0" Color="Blue"/>
+                                                </LinearGradientBrush>
+
+                                            </Button.Background>
+                                            </Button>
+
+                                          
+                                    <Button Text="{x:Static Language:AppResources.CreateAnAccount}" FontFamily="times" 
+                                            TextColor="Black"
+                                            BackgroundColor="White"
+                                            BorderWidth="1"
+                                            FontSize="19"
+                                            Margin="15,0,15,0"
+                                            BorderColor="Black"/>
+
+                                </StackLayout>
+                                    <StackLayout x:Name="StackPersonalDitalAccount" Spacing="0" IsVisible="{Binding StackPersonalDitalAccountVisiblety}" FlowDirection="{Binding flowdirecation}">
+
+
+                                   
+            <StackLayout  >
+                <Label Text="{Binding LblWelcomeNameProfile}" FontSize="22" Margin="10"  FontFamily="times" />
+                <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+                <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0">
+                    <Image Source="hatchback" ScaleX="-1" HeightRequest="45" VerticalOptions="Center"/>
+                    <Label Text="{x:Static Language:AppResources.PreviousOrders}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="PreveuseOrder" Command="{Binding CommadPreveuseOrder}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView HeightRequest="20" BackgroundColor="#F8F3F0"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0" HeightRequest="45">
+                    <Image Source="profile" HeightRequest="25"  VerticalOptions="Center"/>
+                    <Label Text="{x:Static Language:AppResources.PersonalInformation}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="PersonalProfile" Command="{Binding CommandPersonalProfile}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0" HeightRequest="45">
+                    <Image Source="lock" HeightRequest="25"  VerticalOptions="Center"/>
+                    <Label Text="{x:Static Language:AppResources.Change_password}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ChangePassTap" Command="{Binding CommandChangePassword}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0"  HeightRequest="45">
+                    <Image Source="cogwheel" HeightRequest="25"  VerticalOptions="Center"/>
+                    <Label Text="{x:Static Language:AppResources.Settings}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="SettingTap" Command="{Binding CommandSettingPage}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0" HeightRequest="45" IsVisible="true">
+                    <Image Source="file-shared" HeightRequest="25"  VerticalOptions="Center"/>
+                    <Label Text="{x:Static Language:AppResources.InviteFriend}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ShareAppTap" Command="{Binding CommandTellFreind}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                                         </StackLayout>
+                <BoxView HeightRequest="20" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0" HeightRequest="45">
+                    <Label Text="{x:Static Language:AppResources.AboutUs}" VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="AboutUs" Command="{Binding commandAboutUs}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0" HeightRequest="45">
+                    <Label Text="{x:Static Language:AppResources.RateUs}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <!--<TapGestureRecognizer x:Name="FeedBackOnApp" Tapped="FeedBackOnApp_Tapped"/>-->
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="10,10,10,0" HeightRequest="45">
+                    <Label Text="{x:Static Language:AppResources.PrivacyPolicy}"  VerticalOptions="Center" FontFamily="times" FontSize="19" />
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="privacyCondition" Command="{Binding CommandPrivacyPolices}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="5,10,10,0"  HeightRequest="45">
+                    <Label Text="{x:Static Language:AppResources.TremCondictions}"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                    <Image Source="next" HeightRequest="15" VerticalOptions="Center" Scale="{Binding ScalexDireaction}"
+                           HorizontalOptions="EndAndExpand" Margin="20,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <!--<TapGestureRecognizer x:Name="ConditionForBeauty" Tapped="ConditionForBeauty_Tapped"/>-->
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="#F8F3F0"/>
+            <StackLayout BackgroundColor="#F8F3F0" HeightRequest="300" FlowDirection="RightToLeft">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                    <Frame HasShadow="False" BorderColor="Black" Margin="0,30,15,10" HeightRequest="25" HorizontalOptions="FillAndExpand" Padding="10">
+                        
+                        <Label Text="{x:Static Language:AppResources.ContactUs}"  HorizontalOptions="Center" VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="ContactUsTap" Command="{Binding CommandContactUs}"/>
+                            </Frame.GestureRecognizers>
+                </Frame>
+                    <Frame HasShadow="False" BorderColor="Black" Margin="15,30,5,10" HorizontalOptions="FillAndExpand" HeightRequest="25" Padding="10">
+                        <Label Text="{x:Static Language:AppResources.HelpQ}" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="HelpFAQTap" Command="{Binding HelpANDFAQ}"/>
+                        </Frame.GestureRecognizers>
+                </Frame>
+                </StackLayout>
+                <Frame x:Name="FrameLogOut" IsVisible="true" HasShadow="False" BorderColor="Black" Margin="15,5,15,10" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="25">
+                        <Label Text="{x:Static Language:AppResources.LogOut}" TextColor="Red" HorizontalOptions="Center"  VerticalOptions="Center" FontFamily="times" FontSize="19"/>
+                           <Frame.GestureRecognizers>
+                               <TapGestureRecognizer Command="{Binding LogOutTap}"/>
+                           </Frame.GestureRecognizers> 
+                </Frame>
+                <StackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                    <Label Text="ForBeauty app 1.0.5"/>
+                </StackLayout>
+            </StackLayout>        <!-- plz put the indicator here and reload page (when the internet is slow it dosenot show  right )-->
+        </StackLayout>
+                     </ScrollView>
+                     </Grid>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

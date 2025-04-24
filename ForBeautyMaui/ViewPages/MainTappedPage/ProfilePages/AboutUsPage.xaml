@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewModels.ProfilePagesViewModel.AboutUsPage">
+    <ContentPage.Content>
+        <Grid x:Name="GridAboutUS" BackgroundColor="White" Grid.Row="0" Grid.RowSpan="2" IsVisible="true" >
+    <Grid.RowDefinitions>
+        <RowDefinition Height="100" /> <!-- Top Bar -->
+        <RowDefinition Height="*" /> <!-- Content -->
+    </Grid.RowDefinitions>
+    <Grid BackgroundColor="White" HeightRequest="50" >
+        <Image Source="close.png" HorizontalOptions="Start"  VerticalOptions="EndAndExpand" WidthRequest="22"  Margin="10,0,0,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapBackAboutUs" Command="{Binding CommandBackAboutUs}" />
+            </Image.GestureRecognizers>
+            </Image>
+        <Label Text ="من نحن" FontSize="20" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="0,0,0,10"/>
+        <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+    </Grid>
+                     
+                <StackLayout Grid.Row="1">
+
+                    <ScrollView>
+                <StackLayout  VerticalOptions="Start" FlowDirection="RightToLeft" Margin="20" Spacing="20">
+                    
+                  <Label Text="مرحبا بكم في ForBeauty !" FontSize="19"/>
+                    <Label Text="تأسست شركة ForBeauty عام 2021، نتيجة شغفها العميق بالمكياج والتكنولوجيا، حيث قامت بتوحيد هذين العالمين لتقدم لك تجربة جمال لا مثيل لها في متناول يدك." FontSize="Small"/>
+                    <Label Text="معلومات عنا:"/>
+                    <Label Text="في ForBeauty، نحن لسنا مجرد شركة تطبيقات، بل نحن رفاقك الرقميون في مجال التجميل. إن تفانينا في إعادة تعريف الطريقة التي تنظر بها إلى المكياج وتتفاعل معه هو ما يميزنا. رحلتنا لا تقتصر على مستحضرات التجميل فحسب؛ يتعلق الأمر بالتمكين والتعبير عن الذات واحتضان الابتكار." FontSize="Small"/>
+                    <Label Text="لماذا من أجل الجمال؟"/>
+                    <Label Text="1. دمج الجمال والتكنولوجيا: مع فريق من فناني الماكياج وخبراء التجميل وعشاق التكنولوجيا، نقوم بدمج الفن والابتكار لإنشاء منصة استثنائية. توقعي الحصول على رؤى حول الماكياج وعجائب التكنولوجيا، كلها في مكان واحد." FontSize="Small"/>
+                    <Label Text="2. رؤى اتجاهات الموضة: ابق في المقدمة في لعبة الجمال من خلال تقارير الاتجاهات في الوقت الفعلي، ودروس الماكياج، وأدلة الخبراء. من الأنماط الكلاسيكية إلى أحدث الصيحات، نحن نقدم لك المعرفة والإلهام الذي تحتاجه." FontSize="Small"/>
+                    <Label Text="3. ملاذ جمالك الشخصي: أطلق العنان لإمكانات جمالك من خلال توصيات مخصصة. تقوم خوارزمياتنا الذكية بتحليل تفضيلاتك، مما يضمن حصولك على محتوى يتوافق مع أسلوبك وتفضيلاتك الفريدة." FontSize="Small"/>
+                    <Label Text="4. تجارب الجمال الافتراضية: لماذا تتخيل بينما يمكنك الرؤية؟ تتيح لك ميزة التجربة الافتراضية الخاصة بنا تجربة العديد من منتجات الماكياج في الوقت الفعلي. قل وداعًا للشك ومرحبًا بالاختيارات الواثقة." FontSize="Small"/>
+                    <Label Text="5. مجتمع الجمال المزدهر: تواصل مع عشاق الماكياج في جميع أنحاء العالم من خلال مجتمعنا النابض بالحياة. شارك وتعلم واستمد الإلهام أثناء الشروع في رحلة الماكياج الخاصة بك." FontSize="Small"/>
+                    <Label Text="6. التسوق السلس: اكتشف واشتري منتجات التجميل المفضلة لديك دون مغادرة التطبيق. لقد قمنا بدمج التجارة الإلكترونية بسلاسة، مما يجعل تجربة التسوق الخاصة بك أكثر سلاسة من أي وقت مضى." FontSize="Small"/>
+                    <Label Text="7. التطور المستمر: تمامًا مثل عالم الجمال، نحن نتطور دائمًا. توقع التحديثات المنتظمة والميزات الجديدة والمحتوى الجديد للحفاظ على رحلة جمالك مثيرة وديناميكية." FontSize="Small"/>
+                    <Label Text="انضم إلينا للاحتفال بفن المكياج والثقة بالنفس والإبداع. تطبيق ForBeauty هو دعوتك إلى عالم تعمل فيه التكنولوجيا على تعزيز جمالك الطبيعي وتمكنك من احتضان شخصيتك الفردية." FontSize="Small"/>
+                    <Label Text="إليكم رحلة جمالك كما لم يحدث من قبل!" FontSize="Small"/>
+                    <Label Text="أطيب التحيات" Margin="0,10,0,0"/>
+                    <Label Text="فريق ForBeauty" Margin="0,-15,0,0"/>
+
+                </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                         
+
+                 </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

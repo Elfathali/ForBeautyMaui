@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:renders="clr-namespace:ForBeauty.Renders"
+    NavigationPage.HasNavigationBar="True"
+    xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ShoppingPage">
+    <NavigationPage.TitleView>
+        <Label Text="{x:Static Language:AppResources.ShoppingCart}"
+               FontFamily="times"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+         <Grid x:Name="GridShoppingCart" BackgroundColor="White" RowSpacing="0" IsVisible="true" VerticalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BackgroundColor="#E7E7E7"  IsVisible="true">
+                    <StackLayout VerticalOptions="Center" Margin="0,0,0,250">
+                        <Image Source="IMG06771" HeightRequest="200"/>
+                        <Label Text="{x:Static Language:AppResources.ShoppingCartEmpty}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontFamily="times"/>
+            
+                    </StackLayout>
+           
+        </Grid>
+                    
+             <StackLayout Grid.Row="0" x:Name="stackshopping" FlowDirection="RightToLeft" IsVisible="{Binding StackShoppingVisiblety}"
+                          BackgroundColor="White">
+                
+                  <StackLayout Spacing="0">
+
+    <ListView ItemsSource="{Binding ObsShopping}" SelectionMode="None"
+              x:Name="ListShoppingCart"
+              HorizontalScrollBarVisibility="Never"
+              HasUnevenRows="True" RowHeight="130" VerticalOptions="FillAndExpand">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Spacing="0">
+                        <Grid ColumnSpacing="0" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4.5*"/>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="3.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}" 
+                                   Aspect="AspectFit"  Margin="3"
+                                   VerticalOptions="Center"
+                                   />
+                            <StackLayout Grid.Column="1" Margin="10" Spacing="5" WidthRequest="200">
+                                <Label Text="{Binding Name}" FontSize="18"  FontFamily="times" MaxLines="2" LineBreakMode="TailTruncation"/>
+                                <Label Text="{Binding Description}" FontSize="13"  FontFamily="times" Margin="0,0,0,10" MaxLines="1" LineBreakMode="TailTruncation"/>
+                                <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                    <Frame HasShadow="False" Padding="1" Margin="20,0,0,0" 
+                                           BackgroundColor="#E7E7E7"
+                                           HeightRequest="20"
+                                           VerticalOptions="Center"
+                                           CornerRadius="0"
+                                           WidthRequest="50">
+                                        <StackLayout Orientation="Horizontal">
+                                             <Label Text="{Binding Qyt}" Margin="0,0,9,0"/>
+                                            <Image Source="openPage" HeightRequest="15" HorizontalOptions="EndAndExpand" Margin="5,0,0,0"/>
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <!--<TapGestureRecognizer x:Name="FrameChangeQyt" Tapped="FrameChangeQyt_Tapped"/>-->
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                    <Label Text="{Binding Size}" FontSize="Medium" VerticalOptions="Center"  FontFamily="times"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Spacing="7">
+                                 <StackLayout HorizontalOptions="EndAndExpand" Margin="10,0,0,0" VerticalOptions="Center">
+                                        <StackLayout>
+                <Grid Margin="0,0,10,0" ColumnSpacing="0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>    
+        </Grid.ColumnDefinitions>
+                    <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
+            <Label Text="{Binding discount}" FontSize="19" TextColor="Green"/>
+            <Label Text="د.ل" FontSize="19" TextColor="Green"/>
+                        <StackLayout.Triggers>
+                <DataTrigger TargetType="StackLayout"  Binding="{Binding discount}" Value="0" >
+                    <Setter Property="IsVisible" Value="false"/>
+                </DataTrigger>
+            </StackLayout.Triggers>
+        </StackLayout>
+    </Grid>
+            </StackLayout>  
+            <StackLayout>
+                
+                <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>    
+        </Grid.ColumnDefinitions>
+           <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Grid.Column="0">
+            <BoxView.Triggers>
+                <DataTrigger TargetType="BoxView"  Binding="{Binding discount}" Value="0">
+                    <Setter Property="IsVisible" Value="false"/>
+                </DataTrigger>
+            </BoxView.Triggers>
+            </BoxView>
+        <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
+            <Label Text="{Binding price}"/>
+            <Label Text="د.ل"/>
+        </StackLayout>
+    </Grid>
+            </StackLayout>
+            </StackLayout>
+                                </StackLayout >
+                            <StackLayout Grid.Column="2"  HorizontalOptions="End" WidthRequest="23" >
+                                    <Image Source="close" HorizontalOptions="End" HeightRequest="20" Margin="8,8,0,0">
+                                        <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BindingContext.CommandDeleteForShoppingCart, Source={x:Reference Name=ListShoppingCart}}" CommandParameter="{Binding .}" />
+                                        </Image.GestureRecognizers>
+                                  
+                                        </Image>
+                                </StackLayout>
+                        </Grid>
+                    </StackLayout>
+               </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Footer>
+             <StackLayout Spacing="0" FlowDirection="RightToLeft">
+                          <StackLayout Orientation="Horizontal" x:Name="stacklbldis" HeightRequest="30"
+                                       BackgroundColor="#DBDAD9" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding LblPriceDiffrent}" HorizontalTextAlignment="Center" Margin="0,9,140,7" IsVisible="{Binding LblPriceDiffrentVisiblity}"  FontFamily="times" FontSize="18"/>
+                              <Image x:Name="Imagehandmoney" Source="pngwing.com" IsVisible="{Binding ImagehandmoneyVisiblty}" HorizontalOptions="Center" Margin="0,0,0,0" HeightRequest="25"/>
+                          </StackLayout>
+                          <StackLayout BackgroundColor="White" FlowDirection="LeftToRight">
+                              <StackLayout Orientation="Horizontal">
+                                  <Label Text="{x:Static Language:AppResources.DicountCode}" Margin="15" VerticalOptions="Center" FontFamily="times" FontSize="20"/>
+                                  <Image Source="openPage" HeightRequest="20" HorizontalOptions="EndAndExpand" Margin="15,0,15,0" VerticalOptions="Center"/>
+                              </StackLayout>
+                              <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                              <StackLayout.GestureRecognizers>
+                                  <!--<TapGestureRecognizer x:Name="CoponDiscoundOpenClose" Tapped="CoponDiscoundOpenClose_Tapped"/>-->
+                              </StackLayout.GestureRecognizers>
+                          </StackLayout>
+                          <StackLayout BackgroundColor="White" x:Name="stackCoponDiscount" IsVisible="true" FlowDirection="LeftToRight">
+                              <StackLayout Orientation="Horizontal" Spacing="0">
+                                  <Grid ColumnSpacing="0">
+
+                                     <Grid.ColumnDefinitions>
+                                         <ColumnDefinition Width="8*"/>
+                                         <ColumnDefinition Width="2.4*"/>
+                                     </Grid.ColumnDefinitions>
+                                  <StackLayout Grid.Column="0" >
+                                                <renders:BorderLessEntry HorizontalOptions="Start" HeightRequest="35" 
+                                          WidthRequest="350" VerticalOptions="Center" BackgroundColor="White"
+                                                           Margin="15,5,0,0" Text="{Binding EntyCodeDiscount}" IsEnabled="{Binding EntyCodeDiscountIsEnbaled}"
+                                                           Placeholder="{x:Static Language:AppResources.DicountCodeEnty}" FontFamily="times" FontSize="Medium"
+                                          />
+                                  <BoxView x:Name="boxLinecoupon" BackgroundColor="{Binding boxLinecoupon}" VerticalOptions="End" HeightRequest="1" Margin="15,0,0,0" />
+                                      </StackLayout>
+                                  <Image Source="{Binding ImageCheckCoupon}" HeightRequest="20" Margin="-30,0,0,0" IsVisible="{Binding ImageCheckCouponVisiblty}" HorizontalOptions="EndAndExpand"/>
+                                  <Frame HasShadow="False" BorderColor="Black" Padding="0" HeightRequest="40" HorizontalOptions="EndAndExpand" Grid.Column="1" WidthRequest="70" Margin="0,5,15,0" >
+                                      <Button Text="{x:Static Language:AppResources.BtnDiscountCode}" FontFamily="times" FontSize="Medium" TextColor="Black" BackgroundColor="White" Command="{Binding CommandApplyCoupone}" />
+                                  </Frame>
+                                      <ActivityIndicator IsVisible="{Binding ActivityIndicatorCoupon}"
+                                                         
+                                                         Grid.ColumnSpan="2"
+                                                         IsRunning="True"
+                                                         BackgroundColor="Transparent"
+                                                        Margin="210,0,0,0" />
+                                      </Grid>
+                              </StackLayout>
+                              <Label Text="{Binding lblcouponmessage}" FlowDirection="RightToLeft" Margin="15,10,15,0" TextColor="{Binding lblcouponmessageColor}" IsVisible="{Binding lblcouponmessageVisiblty }" FontFamily="times" FontSize="Medium"/>
+                              <Frame Margin="15" HasShadow="False" BackgroundColor="#D4D4D4" FlowDirection="RightToLeft">
+                                  <StackLayout Orientation="Horizontal" Padding="0" Spacing="15">
+                                      <Image Source="warning.png" HeightRequest="35" VerticalOptions="Center"/>
+                                      <StackLayout Spacing="0">
+                                      <Label Text="عادتاً مانقوم بنشر كوبونات من خلال صفحتنا علي فيسبوك" FontFamily="times" FontSize="Medium" VerticalOptions="Start"/>
+                                      <Label Text="For Beauty-صبراته" FontFamily="times" FontSize="Medium" VerticalOptions="Start" TextColor="Blue">
+                                          <Label.GestureRecognizers>
+                                              <!--<TapGestureRecognizer x:Name="ForBeautyFacebookPage" Tapped="ForBeautyFacebookPage_Tapped"/>-->
+                                          </Label.GestureRecognizers>
+                                          </Label>
+                                          </StackLayout>
+                                  </StackLayout>
+                              </Frame>
+                              <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                          </StackLayout>
+                          <StackLayout BackgroundColor="White" FlowDirection="{Binding flowdirecation}">
+                               <StackLayout Orientation="Horizontal" FlowDirection="{Binding flowdirecation}">
+                                  <Label Text="{x:Static Language:AppResources.LblDiscount}" Margin="15" VerticalOptions="Center" FontFamily="times" FontSize="20"/>
+                                  <Label Text="{Binding lblDiscountCoupon}" TextColor="Green" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                   <Label x:Name="lbldiscurrency" Text="د.ل" TextColor="Green" VerticalOptions="Center" Margin="8,0,10,0"/>
+                              </StackLayout>
+                              <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                          </StackLayout>
+                          <StackLayout BackgroundColor="White">
+                              <StackLayout Orientation="Horizontal" FlowDirection="{Binding flowdirecation}">
+                                  <Label Text="{x:Static Language:AppResources.LblTotalPrice}" Margin="15" FontFamily="times-bold" FontSize="22" FontAttributes="None" VerticalOptions="Center"/>
+                                  <Label x:Name="lblDeliveryInformation" Text="(غير شامل التوصيل)" VerticalOptions="Center" FontFamily="times" FontSize="Small" TextColor="Gray"/>
+                                  <Label Text="{Binding LblTotalPrice}" HorizontalOptions="EndAndExpand" Margin="0,0,0,0" VerticalOptions="Center" FontAttributes="Bold" FontSize="20"/>
+                                  <Label Text="د.ل" VerticalOptions="Center" Margin="7,0,10,0" FontAttributes="Bold" FontSize="18"/>
+                              </StackLayout>
+                              <BoxView BackgroundColor="#D4D4D4" HeightRequest="30" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                              <Label Text="{x:Static Language:AppResources.DelliveryOptions}"  HorizontalOptions="Center" TextColor="#505050" FontFamily="times" FontSize="20"/>
+                              <Label x:Name="lblDeliveryOptionError" Text="يجب اختيار نوع الطلب * " TextColor="Red" FontSize="Medium" Margin="0,0,10,0" FontFamily="times" IsVisible="{Binding lblDeliveryOptionErrorVisiblety}"/>
+                              <StackLayout Orientation="Horizontal" >
+                                <Frame x:Name="FramePickUpOrder" Margin="0,0,10,0" BorderColor="{Binding FramePickUpBorderColor}" HasShadow="{Binding FramePickUpShadow }"   HorizontalOptions="FillAndExpand">
+                                    <StackLayout>
+                                        <Label Text="{x:Static Language:AppResources.PickUp}"  FontFamily="times" HorizontalTextAlignment="Center"/>
+
+                                    </StackLayout>
+                                    <Frame.GestureRecognizers>
+                                       <TapGestureRecognizer  Command="{Binding CommandPickUpOrder}"/>
+                                    </Frame.GestureRecognizers>
+                                    </Frame>
+                                   <Frame x:Name="FrameDelivery" Margin="10,0,0,0" BorderColor="{Binding FrameDeliveryBorderColor}" HasShadow="{Binding FrameDeliveryShadow}"   HorizontalOptions="FillAndExpand">
+                                    <StackLayout>
+                                        <Label Text="{x:Static Language:AppResources.Delivery}"  FontFamily="times" HorizontalTextAlignment="Center"/>
+
+                                    </StackLayout>
+                                       <Frame.GestureRecognizers>
+                                           <TapGestureRecognizer  Command="{Binding CommandDeliveryOrder}"/>
+                                       </Frame.GestureRecognizers>
+                                    </Frame>
+
+                               
+                            </StackLayout>
+                              <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                              <StackLayout x:Name="stackForPersonalRecive" IsVisible="{Binding stackForPersonalRecive}">
+                                   <StackLayout Orientation="Horizontal">
+                                       <CheckBox IsChecked="True" IsEnabled="False" Color="Black" Margin="0,0,0,0"/>
+                                       <Image Source="IMG0696.jpg" HeightRequest="75"  Aspect="AspectFill"/>
+                                       <StackLayout HorizontalOptions="Start">
+                                           <Label Text="صبراته-ForBeauty"  FontFamily="times" FontSize="20"/>
+                                           <Label Text="فور بيوتي صبراته -دحمان- الطريق الساحلي - داخل الجوهرة مول" FontFamily="times" FontSize="Medium"/>
+                                           <Label Text="رقم الهاتف:0929500090" FontFamily="times" FontSize="Medium" >
+                                               <Label.GestureRecognizers>
+                                                   <!--<TapGestureRecognizer x:Name="CallTap" Tapped="CallTap_Tapped"/>-->
+
+                                               </Label.GestureRecognizers>
+                                               </Label>
+                                       </StackLayout>
+
+                                   </StackLayout>
+                              </StackLayout>
+                                  <StackLayout x:Name="StackForDeliveryDeatils" Margin="15,10,15,0" FlowDirection="{Binding flowdirecation}" IsVisible="{Binding StackForDeliveryDeatils}">
+                                       <Label x:Name="lblMessageErrorPicker" Text="لايمكن ترك الحقول فارغة *"  TextColor="Red" FontFamily="times" Margin="0,0,0,10" IsVisible="{Binding lblMessageErrorPickerVisiblety}"/>
+                                      <Label Text="{x:Static Language:AppResources.CityDelivery}" FontFamily="times" FontSize="20"/>
+                                      <Picker ItemsSource="{Binding FirstPickerSource}" SelectedItem="{Binding CitySeletedItem}" ItemDisplayBinding="{Binding Name}" Title="{x:Static Language:AppResources.ChoseCityDelivery}" FontFamily="times" FontSize="Medium" >
+                                    </Picker>
+                                      <Label Text="{x:Static Language:AppResources.AreaDelivery}" FontFamily="times" FontSize="20"/>
+                                    <Picker ItemsSource="{Binding secondPickerSource}" ItemDisplayBinding="{Binding area}" Title="{x:Static Language:AppResources.ChoseAreaDelivery}" FontFamily="times" FontSize="Medium">
+                                    </Picker>
+                                     
+
+                                  </StackLayout>
+                               <BoxView BackgroundColor="#D4D4D4" HeightRequest="30" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                              <Label Text="{x:Static Language:AppResources.PaymentOptions}" HorizontalOptions="Center" TextColor="#505050" FontFamily="times" FontSize="20"/>
+                              <StackLayout Orientation="Horizontal" >
+                                <CheckBox x:Name="checkBox3" IsChecked="True"   HorizontalOptions="Start" Color="Black" IsEnabled="False"/>
+                                  <Image Source="money.png" HeightRequest="20" VerticalOptions="Center"/>
+                                <Label Text="{x:Static Language:AppResources.Cash}"  HorizontalOptions="Start" VerticalOptions="Center" IsVisible="True" FontFamily="times" FontSize="Medium"/>
+                            </StackLayout>
+                              
+                              <Grid Margin="0,20,0,0">
+                                  <Image Source="CheckOutImage"  Aspect="AspectFit">
+                                      </Image>
+                                  <Label Text="{x:Static Language:AppResources.ToCheckOut}"  HorizontalTextAlignment="Center" TextColor="White" FontFamily="times" FontSize="21" 
+                                         VerticalTextAlignment="Center"/>
+                                  <Grid.GestureRecognizers >
+                                      <TapGestureRecognizer x:Name="ToCheckOut" Command="{Binding CheckOut}"/>
+
+                                  </Grid.GestureRecognizers>
+                              </Grid>
+                              <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                          </StackLayout>
+                          <StackLayout BackgroundColor="#DBDAD9" HeightRequest="20">
+
+
+                          </StackLayout>
+
+                      </StackLayout>
+        </ListView.Footer>
+    </ListView>
+                </StackLayout>
+                   
+                 </StackLayout>
+              <Grid x:Name="GridLoadingCheckOut" BackgroundColor="Transparent" Grid.Row="0" IsVisible="{Binding GridLoadingCheckOut}" >
+                            <ActivityIndicator IsRunning="True" IsVisible="true">
+                            </ActivityIndicator>
+                            </Grid>
+
+             </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

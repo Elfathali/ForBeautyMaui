@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns:renders="clr-namespace:ForBeauty.Renders"
+    x:Class="ForBeautyMaui.ViewPages.MainLoginRegisterPage"
+    NavigationPage.HasBackButton="False"
+    xmlns:language="clr-namespace:ForBeautyMaui.Resources.Languages">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <!-- Header for toggling between Login and Register -->
+            <StackLayout Orientation="Horizontal" Spacing="0" HeightRequest="60">
+                <!-- Login Tab -->
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Label Text="{x:Static language:AppResources.Login}" FontFamily="times"
+                           HorizontalTextAlignment="Center" 
+                           VerticalOptions="Center" />
+                    <BoxView HeightRequest="1" 
+                             BackgroundColor="Black" 
+                             VerticalOptions="EndAndExpand" 
+                             IsVisible="{Binding IsLoginVisible}" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowLoginCommand}" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                
+                <!-- Register Tab -->
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Label Text="{x:Static language:AppResources.CreateAnAccount}" FontFamily="times"
+                           HorizontalTextAlignment="Center" 
+                           VerticalOptions="Center" />
+                    <BoxView HeightRequest="1" 
+                             BackgroundColor="Black" 
+                             VerticalOptions="EndAndExpand" 
+                             IsVisible="{Binding IsRegisterVisible}" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowRegisterCommand}" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </StackLayout>
+
+            <!-- Login View -->
+            <ContentView IsVisible="{Binding IsLoginVisible}">
+               <StackLayout x:Name="StackLogin" >
+         <Frame HasShadow="False"  CornerRadius="0" BorderColor="White">
+              <StackLayout Spacing="15" 
+                           Padding="0"
+                           HeightRequest="500">
+                  <Label IsVisible="{Binding ErrorMessageLbl}" FontFamily="times"
+                         TextColor="Red"
+                         Text="{Binding ErrorMessageLblText}"
+                         HorizontalOptions="End"
+                         
+                         FontSize="Small"/>
+                  <StackLayout Spacing="0" Margin="15">
+                      <Label Text="رقم الهاتف"  FontFamily="times" FontSize="Medium"
+                         TextColor="#555555"
+                         HorizontalTextAlignment="End"
+                         Margin="0,0,-5,0"/>
+                  <StackLayout Orientation="Horizontal" Spacing="10">
+                      <Image Source="LibyanFlag" HeightRequest="25"/>
+                      <renders:BorderLessEntry x:Name="phonenEntry" HorizontalOptions="FillAndExpand" FontFamily="times" FontSize="Medium" Text="{Binding LoginPhoneEnt}"
+                                               Keyboard="Telephone"
+                                               Placeholder="092xxxxxxxx" HeightRequest="30" Margin="0,10,0,0"/>
+                  </StackLayout>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#777777" VerticalOptions="Start"/>
+                  </StackLayout>
+                  <Label Text="كلمة المرور"  FontFamily="times" FontSize="Medium"
+                         TextColor="#555555"
+                         HorizontalTextAlignment="End"
+                         Margin="0,0,10,0"/>
+                  <StackLayout Orientation="Horizontal" Spacing="10">
+
+                      <renders:BorderLessEntry x:Name="password" IsPassword="{Binding IsPasswordBtn}" HorizontalOptions="FillAndExpand" Text="{Binding LoginPasswordEnt}"
+                                               Placeholder="********" HeightRequest="30" Margin="20,10,0,0"/>
+                      <Image x:Name="ImageShowHide" Source="{Binding ImageshowHide}" HeightRequest="25" Margin="0,0,12,0">
+                          <Image.GestureRecognizers >
+                              <TapGestureRecognizer x:Name="TapShowHidePassword" Command="{Binding TapShowHidePasswordTapped}"/>
+                          </Image.GestureRecognizers>
+                          </Image>
+                  </StackLayout>
+                   <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="15,-15,15,0" BackgroundColor="#777777" VerticalOptions="Start"/>
+                 <Grid>
+                  <Button x:Name="ButtonLoginClick" BackgroundColor="Black"
+                            TextColor="White"
+                                        CornerRadius="5"
+                            Text="{Binding BtnLoginName}" FontFamily="times" FontSize="Medium"
+                            Margin="12,20,12,12"
+                            Command="{Binding LoginBtn}"/>
+                                    <!--lottie:AnimationView x:Name="lottieLoading" Animation="LoadingLabel.json" AutoPlay="False"
+                                       WidthRequest="150"
+                                       HeightRequest="50"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       IsVisible="{Binding AnimationLoginBtn}"
+                                       RepeatMode="Infinite"
+                                       Margin="0,10,0,0"
+                                       /-->
+                                </Grid>
+                  <Label Text="هل نسيت كلمة المرور ؟"  FontFamily="times" 
+                         FontSize="Small"
+                    TextColor="Gray"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                         Margin="0,20,0,0"/>
+                  <Button Text="إعادة كلمة المرور"  FontFamily="times" 
+                          FontSize="Medium"
+                          HorizontalOptions="Center"/>
+                  
+              </StackLayout>
+            </Frame>
+           
+         
+       </StackLayout>
+            </ContentView>
+
+            <!-- Register View -->
+            <ContentView IsVisible="{Binding IsRegisterVisible}">
+                 <StackLayout x:Name="StackRegister" IsVisible="true" Grid.Row="3" Spacing="15" BackgroundColor="White"
+                           Margin="20">
+                  <Label IsVisible="{Binding ErrorLblVisible}"
+                         TextColor="Red"
+                         HorizontalOptions="End"
+                         x:Name="ErrorMessageLbl1"
+                         FontSize="Medium"
+                         Text="{Binding ErrorMessageText}"
+                         FontFamily="times"/>
+                  <StackLayout Spacing="0" Margin="15">
+                      <Label Text="رقم الهاتف" FontFamily="times" FontSize="Medium"
+                         TextColor="#555555"
+                         HorizontalTextAlignment="End"
+                         Margin="0,0,5,0"/>
+                  <StackLayout Orientation="Horizontal" Spacing="10">
+                      <Image Source="LibyanFlag" HeightRequest="25"/>
+                      <renders:BorderLessEntry Text="{Binding EntPhoneNumber ,Mode=TwoWay}" HorizontalOptions="FillAndExpand" FontFamily="times" FontSize="Medium"
+                                               Keyboard="Default"
+                                               Placeholder="092xxxxxxxx" HeightRequest="30" Margin="0,10,0,0"/>
+                  </StackLayout>
+                     <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#777777" VerticalOptions="Start"/>
+                   </StackLayout>
+                  <StackLayout Padding="0"
+                               Margin="5,10,5,0">
+                      <StackLayout Orientation="Horizontal" 
+                                   Spacing="5">
+                          <Label Text="إقـرأ الـمـزيـد>>"
+                                 TextColor="Blue"
+                                 FontSize="Small"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="EndAndExpand">
+                              <Label.GestureRecognizers>
+                                  <TapGestureRecognizer Command="{Binding CommandReadMore}" />
+                              </Label.GestureRecognizers>
+                              </Label>
+                          <Label Text=" شروط وأحكام For Beauty" FontFamily="times" FontSize="Medium"
+                                 />
+
+                      </StackLayout>
+                      <StackLayout Orientation="Horizontal"
+                                  
+                                   Spacing="5">
+                          <Label Text="إقـرأ الـمـزيـد>>"
+                                 TextColor="Blue"
+                                 FontSize="Small"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="EndAndExpand">
+                               <Label.GestureRecognizers>
+                                  <TapGestureRecognizer Command="{Binding CommandReadPolicy}"  />
+                              </Label.GestureRecognizers>
+                              </Label>
+                          <Label Text=" سياسات الخصوصية For Beauty" FontFamily="times" FontSize="Medium"/>
+
+                      </StackLayout>
+                      <StackLayout Orientation="Horizontal"
+                                   Padding="0"
+                                   x:Name="stackcheck"
+                                   FlowDirection="RightToLeft">
+                          <Frame x:Name="FrameWhiteCheck" HasShadow="False" HeightRequest="15" WidthRequest="15" BorderColor="Black"
+                                 BackgroundColor="White"
+                                 CornerRadius="10"
+                                 Padding="3"
+                                HorizontalOptions="Start"
+                                    Margin="10,0,0,0"
+                                    VerticalOptions="Center">
+                              <Frame x:Name="FrameBlackCheck" CornerRadius="7"
+                                BackgroundColor="{Binding CheckBoxBackgroundColor}"
+                                     HasShadow="False">
+                          </Frame>
+                              </Frame>
+                          <Label Text="أوافق علي أستخدام تطبيق For Beauty" FontFamily="times" FontSize="Medium"
+                                 Margin="0,0,-5,0"
+                                  HorizontalOptions="Start"
+                             VerticalOptions="Center"/>
+                     <StackLayout.GestureRecognizers>
+                                      <TapGestureRecognizer Command="{Binding TapCheckCommand}" />
+                     </StackLayout.GestureRecognizers>
+
+                      </StackLayout>
+                    <Grid>
+                  <Button x:Name="ButtonRegisterClick" BackgroundColor="Black"
+                            TextColor="White"
+                                        CornerRadius="5"
+                            Text="{Binding LoadingButtonText}" FontFamily="times" FontSize="Medium"
+                            Margin="0,25,0,12"
+                            Command="{Binding CommandCountinueRegister}"/>
+                                    <!--lottie:AnimationView /!--> 
+                                </Grid>
+              </StackLayout>
+         <Label x:Name="Copyright1"
+                HorizontalOptions="Center"
+                VerticalOptions="EndAndExpand"
+                Margin="0,0,0,35"
+                TextColor="Gray"
+                FontSize="Small"/>
+     </StackLayout>
+            </ContentView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
