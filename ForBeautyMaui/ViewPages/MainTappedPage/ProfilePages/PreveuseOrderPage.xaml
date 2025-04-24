@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages.PreveuseOrderPage"
+    NavigationPage.HasNavigationBar="true"
+    NavigationPage.BackButtonTitle=""
+    xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages">
+    <NavigationPage.TitleView>
+                <Label Text ="الطلبات السابقة"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       FontFamily="times"/>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid x:Name="GridPrevuseOrder" BackgroundColor="White" RowSpacing="0" Grid.Row="0" Grid.RowSpan="2" IsVisible="true" >
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" /> <!-- Content -->
+    </Grid.RowDefinitions>
+    <Grid BackgroundColor="White" HeightRequest="50">
+        <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+    </Grid>
+                     <Grid Grid.Row="0" BackgroundColor="#E7E7E7"  IsVisible="true">
+                    <StackLayout VerticalOptions="Center" Margin="0,0,0,250">
+                        <Image Source="PrevouseOrder.png" HeightRequest="200" HorizontalOptions="Center"/>
+                        <Label Text="{x:Static Language:AppResources.PreviousOrders}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="Small"/>
+                    </StackLayout>
+                     </Grid>
+                     <StackLayout x:Name="stackseePrevuseOrder" Grid.Row="0" FlowDirection="{Binding flowdirecation}" IsVisible="true">
+                         <ListView ItemsSource="{Binding ListPrevouseOrder}" HasUnevenRows="True" RowHeight="110"
+                                   SelectedItem="{Binding PrevouseOrderSelectedItem}"
+                                   SelectionMode="Single">
+                             <ListView.ItemTemplate>
+                                 <DataTemplate>
+                                     <ViewCell>
+                                         <StackLayout Spacing="10" Margin="10,5,10,5">
+                                             <StackLayout Orientation="Horizontal" Margin="3,0,3,0">
+                                             <Label Text="{x:Static Language:AppResources.OrderId}" Margin="-5,0,0,0" TextColor="Gray" FontFamily="times" FontSize="20" />
+                                             <Label Text="{x:Static Language:AppResources.OrderDate}" TextColor="Gray" HorizontalOptions="EndAndExpand" FontFamily="times" FontSize="20"/>
+                                                 </StackLayout>
+                                             <StackLayout Orientation="Horizontal">
+                                                 <Label Text="{Binding id}" Margin="0,0,10,0" FontFamily="times" FontSize="20" TextColor="Blue"/>
+                                                 <Label Text="{Binding orderPlaced}" HorizontalOptions="EndAndExpand" FontFamily="times" FontSize="20"/>
+                                             </StackLayout>
+                                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                                                  <Label Text="{x:Static Language:AppResources.Total}" Margin="0,0,5,0" FontFamily="times" FontSize="20"/>
+                                                 <Label Text="{Binding totalAmount}" HorizontalOptions="EndAndExpand" TextColor="Red" FontFamily="times" FontSize="20"/>
+                                                 <Label Text="د.ل" FontFamily="times" FontSize="20" TextColor="Red"/>
+                                             </StackLayout>
+                                         </StackLayout>
+                                     </ViewCell>
+                                 </DataTemplate>
+                             </ListView.ItemTemplate>
+                         </ListView>
+                     </StackLayout>
+                 </Grid> 
+    </ContentPage.Content>
+</ContentPage>
+

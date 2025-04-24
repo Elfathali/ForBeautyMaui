@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ShoppingCardPages.PickUpPage">
+    <ContentPage.Content>
+        <Grid Grid.Row="1" x:Name="FrameOrderFinish" BackgroundColor="#23292E" IsVisible="true" FlowDirection="RightToLeft">
+
+    <StackLayout Margin="15,15,15,130" Spacing="0" VerticalOptions="FillAndExpand">
+        <StackLayout Spacing="0" Margin="0,40,0,0" VerticalOptions="FillAndExpand">
+        <Label Text="شكرا لختيارك" FontFamily="times" FontSize="35" HorizontalOptions="Center" TextColor="Pink"/>
+               <Label Text="𝓕𝓸𝓻 𝓑𝓮𝓪𝓾𝓽𝔂" FontSize="30" FontFamily="times" HorizontalOptions="Center"
+               TextColor="Pink" />
+            </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+            <StackLayout Orientation="Horizontal">
+            <Label Text="رقم الطلب :" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+            <Label x:Name="OrderIdFinsh" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+                </StackLayout>
+                             <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+            <Label Text="تاريخ الطلب :" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+            <Label x:Name="FinshOrderPlace" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+                </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                 <StackLayout x:Name="stackdistance"  IsVisible="true">
+                     <StackLayout Orientation="Horizontal">
+                         <Label Text="أوقات العمل :" FontFamily="times" FontSize="Medium" TextColor="White"/>
+                        <StackLayout>
+                        <Label Text="السبت - الخميس:         10 ص - 9 م" FontSize="Small" Margin="0,0,15,0" FontFamily="times" TextColor="White"/>
+                         <Label Text="الجمعة:                     4 م - 9 م" FontSize="Small" Margin="0,0,15,0" FontFamily="times" TextColor="White"/>
+                    </StackLayout>
+                     </StackLayout>
+                      
+                     <StackLayout x:Name="stackforbeautyAddress" Orientation="Horizontal" Margin="0,0,0,10" >
+                     <Label Text="العنوان :" FontFamily="times" TextColor="White" FontSize="Medium"/>
+                       <Label Text="فور بيوتي صبراته -دحمان- الطريق الساحلي - داخل الجوهرة مول" FontFamily="times" FontSize="Small" TextColor="White"/>
+                     </StackLayout>
+
+                </StackLayout>
+               <Frame x:Name="framebaracode" BackgroundColor="White" >
+                   <Grid IsVisible="true">
+                    <!--zxing: x:Name="ZxingBaraCode" BarcodeFormat="QR_CODE" HeightRequest="250">
+                        <zxing: .BarcodeOptions>
+                            <zxingcommn:EncodingOptions Height="500" Width="500"/>
+                        </zxing:.BarcodeOptions>
+                                </zxing:-->
+                   <Image Source="LogoPink.png" VerticalOptions="Center" HeightRequest="80" Opacity="0.9"/>
+                        <Label Text="قم بأخد لقطة شاشة لتسهيل عملية الاستلام" FontFamily="times" FontSize="Small" 
+                       TextColor="Black" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,-15"/>
+                       </Grid>
+
+                   </Frame>
+               
+            </StackLayout>
+            <Button Text="تفاصيل طلبك" FontFamily="times" FontSize="19" IsVisible="false"/>
+        </StackLayout>
+                        <StackLayout Spacing="15">
+
+
+                        
+                        <StackLayout>
+                            <Button Text="العودة إلي الصفحة الرئسية" TextColor="White" FontFamily="times" FontSize="22" >
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0.0,0.0" EndPoint="1.1,1.1">
+                                        <GradientStop Color="MediumPurple" Offset="0.0"/>
+                                        <GradientStop Color="Blue" Offset="1.0"/>
+                                    </LinearGradientBrush>
+    </Button.Background>
+
+
+                            </Button>
+                        </StackLayout>
+        
+            <Label Text="لديك سؤال ؟" FontFamily="times" HorizontalOptions="Center" TextColor="White"/>
+                             <StackLayout>
+                            <Button Text=" إتصل بنا" TextColor="White" FontFamily="times" FontSize="22" >
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0.0,0.0" EndPoint="1.1,1.1">
+                                       <GradientStop Color="MediumPurple" Offset="0.0"/>
+                                        <GradientStop Color="Blue" Offset="1.0"/>
+                                    </LinearGradientBrush>
+    </Button.Background>
+                            </Button>
+                        </StackLayout>
+             
+        
+    </StackLayout>
+                    </StackLayout>
+
+            <!--lottie:SKLottieView x:Name="lottieFireWorks"
+                                  Source="AnimationFireWorks.json"
+                                  Margin="0,0,0,400"
+                                  Grid.Row="0"
+                                  Grid.RowSpan="2"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand"
+                                  IsVisible="false"
+                                  RepeatMode="Restart"/-->
+</Grid>
+    </ContentPage.Content>
+</ContentPage>
+

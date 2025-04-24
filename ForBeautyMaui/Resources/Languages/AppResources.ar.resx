@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HelloWorld" xml:space="preserve">
+    <value>مرحبا</value>
+  </data>
+  <data name="GoodMorning" xml:space="preserve">
+    <value>صباح الخير</value>
+  </data>
+  <data name="SearchEntry" xml:space="preserve">
+    <value>🔍 أبـحـث عـلى عـطرك المفضل</value>
+  </data>
+  <data name="BestSearch" xml:space="preserve">
+    <value>أفــضل البـحــوث </value>
+  </data>
+  <data name="RecentlyViewed" xml:space="preserve">
+    <value>شـاهدة مؤخـراً</value>
+  </data>
+  <data name="GiftsBosx" xml:space="preserve">
+    <value>البـاقات والهدايــه</value>
+  </data>
+  
+  <data name="NewIn" xml:space="preserve">
+    <value>جـديـد لـدينـا</value>
+  </data>
+  <data name="BestCategories" xml:space="preserve">
+    <value>أفــضل الفــئات</value>
+  </data>
+   <data name="BestBrands" xml:space="preserve">
+    <value>أشهـر المـاركـات</value>
+  </data>
+   <data name="Discount" xml:space="preserve">
+    <value>التخفيضات</value>
+  </data>
+  <data name="AddToShoppingCart" xml:space="preserve">
+    <value>إضافة إلي سلة المشتريات</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>د.ل</value>
+  </data>
+  <data name="FreeShopping" xml:space="preserve">
+    <value>توصيل مجاني إبتداء من 200 د.ل</value>
+  </data>
+   <data name="Return1" xml:space="preserve">
+    <value>استرداد في نفس  </value>
+  </data>
+  <data name="Return2" xml:space="preserve">
+    <value>اليوم فقط</value>
+  </data>
+   <data name="Gift1" xml:space="preserve">
+    <value>هدية واحدة علي الاقل</value>
+  </data>
+  <data name="Gift2" xml:space="preserve">
+    <value>للطلب إبتداء من 200 د.ل</value>
+  </data>
+  <data name="YouMayAlsoLike" xml:space="preserve">
+    <value>ربما يعجبك أيضاً"</value>
+  </data>
+  
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>سلة المشتريات</value>
+  </data>
+
+   <data name="ShoppingCartEmpty" xml:space="preserve">
+    <value>سلـة مشتريـاتك فـارغة</value>
+  </data>
+   <data name="DicountCode" xml:space="preserve">
+    <value> لديك كوبون خصم ؟</value>
+  </data>
+
+   <data name="DicountCodeEnty" xml:space="preserve">
+    <value>أدخل كوبون الخصم</value>
+  </data>
+
+  <data name="BtnDiscountCode" xml:space="preserve">
+    <value>تفعيل</value>
+   </data>
+   <data name="LblDiscount" xml:space="preserve">
+    <value>التخفيض</value>
+   </data>
+
+   <data name="LblTotalPrice" xml:space="preserve">
+    <value>الإجمالي</value>
+   </data>
+   <data name="DelliveryOptions" xml:space="preserve">
+    <value>خيـارات التوصيـل</value>
+   </data>
+   <data name="PickUp" xml:space="preserve">
+    <value>إستلام شخصي</value>
+   </data>
+   <data name="Delivery" xml:space="preserve">
+    <value>طلب توصيل</value>
+   </data>
+   <data name="PaymentOptions" xml:space="preserve">
+    <value>طرق الدفــع</value>
+   </data>
+   <data name="Cash" xml:space="preserve">
+    <value>كاش عند التسليم</value>
+   </data>
+   <data name="ToCheckOut" xml:space="preserve">
+    <value>إتمام الطلب</value>
+   </data>
+   <data name="CityDelivery" xml:space="preserve">
+    <value>   المدينة *</value>
+   </data>
+   <data name="AreaDelivery" xml:space="preserve">
+    <value>   المنطقة *</value>
+   </data>
+   <data name="ChoseCityDelivery" xml:space="preserve">
+    <value>أختر المدينة</value>
+   </data>
+   <data name="ChoseAreaDelivery" xml:space="preserve">
+    <value>أختر المنطقة</value>
+   </data>
+
+   <data name="DoLoginOrRegisterAcouunt" xml:space="preserve">
+    <value>قم بتسجيل الدخول أو إنشاء حساب</value>
+   </data>
+   <data name="DoLoginOrRegisterAcouunt2" xml:space="preserve">
+    <value>للحصـول علي جميـيع مزايا ForBeauty</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+   </data>
+   <data name="CreateAnAccount" xml:space="preserve">
+    <value>إنشاء حساب جديد</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+    <value>من نحن</value>
+   </data>
+   <data name="RateUs" xml:space="preserve">
+    <value>قيمنا علي أبل ستور</value>
+   </data>
+   <data name="PrivacyPolicy" xml:space="preserve">
+    <value>سياسات الخصوصية</value>
+   </data>
+   <data name="TremCondictions" xml:space="preserve">
+    <value>شروط وأحكام ForBeauty</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+    <value>إتصل بنا</value>
+   </data>
+   <data name="HelpQ" xml:space="preserve">
+    <value>مساعدة /FAQ</value>
+   </data>
+   <data name="LogOut" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+   </data>
+    <data name="PreviousOrders" xml:space="preserve">
+    <value>الطلبات السابقة</value>
+   </data>
+   <data name="PersonalInformation" xml:space="preserve">
+    <value>المعلومات الشخصية</value>
+   </data>
+
+   <data name="Change password" xml:space="preserve">
+    <value>تغير كلمة المرور</value>
+   </data>
+   <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+   </data>
+    <data name="InviteFriend" xml:space="preserve">
+    <value>دعوة صديق</value>
+   </data>
+   <data name="NoPrevuseOrder" xml:space="preserve">
+    <value>ليس لديك أي طلب سابق</value>
+   </data>
+
+    <data name="OrderDate" xml:space="preserve">
+    <value>تاريخ الطلب</value>
+   </data>
+    <data name="OrderId" xml:space="preserve">
+    <value>رقم الطلب</value>
+   </data>
+    <data name="Total" xml:space="preserve">
+    <value>الاجمالي</value>
+   </data>
+   <data name="FavouriteEmpty" xml:space="preserve">
+    <value>مفضلتك لا تزال فارغة</value>
+   </data>
+   <data name="FavouriteEmpty1" xml:space="preserve">
+    <value>لا يوجد أي عنصر متوفر داخل مفضلتك . يرجي زيارة أفضل الفئات لدينا </value>
+   </data>
+   <data name="FavouriteEmpty2" xml:space="preserve">
+    <value>للحصول علي أفضل النتائج</value>
+   </data>
+   <data name="Wishlist" xml:space="preserve">
+    <value>المفضلة</value>
+   </data>
+
+  
+</root>

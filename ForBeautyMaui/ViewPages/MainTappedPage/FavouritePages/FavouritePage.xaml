@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:lottie="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.FavouritePages.FavouritePage"
+    xmlns:language="clr-namespace:ForBeautyMaui.Resources.Languages">
+    <NavigationPage.TitleView>
+        <Label Text="{x:Static language:AppResources.Wishlist}"
+               FontFamily="times"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+         <Grid x:Name="GridFavourite" BackgroundColor="White" >
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/> 
+    </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BackgroundColor="#E7E7E7"  IsVisible="true">
+                    <StackLayout VerticalOptions="Center" Margin="0,0,0,100">
+                        <Label Text="{x:Static language:AppResources.FavouriteEmpty}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
+            <Label Text="{x:Static language:AppResources.FavouriteEmpty1}" VerticalOptions="Center"
+                   HorizontalTextAlignment="Center" FontFamily="times" FontSize="14"/>
+            <Label Text="{x:Static language:AppResources.FavouriteEmpty2}"
+                   HorizontalTextAlignment="Center" FontFamily="times" FontSize="14" Margin="0,-5,0,0"/>
+                    </StackLayout>
+        
+               <StackLayout Grid.Row="0" IsVisible="{Binding StackFavouriteVisiblety}" FlowDirection="RightToLeft">
+                   <ListView ItemsSource="{Binding ObsFavourite}" x:Name="ListViewFavouriteSource" RowHeight="135" HasUnevenRows="True"
+                             SelectionMode="Single"
+                             SelectedItem="{Binding ListViewSelectedItem ,Mode=TwoWay}">
+                           <ListView.ItemTemplate>
+                               <DataTemplate>
+                                   <ViewCell>
+                                       <Grid ColumnSpacing="0">
+                                   <Grid.ColumnDefinitions>
+                                       <ColumnDefinition Width="3.5*"/>
+                                       <ColumnDefinition Width="8*"/>
+                                       <ColumnDefinition Width="1.5*"/>
+                                   </Grid.ColumnDefinitions>
+                                   <Image Source="{Binding imageUrl}"
+                                          Aspect="AspectFit" HeightRequest="120"
+                                          WidthRequest="120"/>
+                                   <StackLayout Grid.Column="1" Margin="10">
+                                       <Label  Text="{Binding ProductId}" TextColor="Red"  IsVisible="false"/>
+                                       <Label Text="{Binding name}" FontFamily="times" FontSize="19" MaxLines="1" LineBreakMode="TailTruncation"/>
+                                   <Label Text="{Binding ProductDiscription}" FontSize="13" Margin="0,0,0,0" FontFamily="times" MaxLines="1" LineBreakMode="TailTruncation"/>
+                                       <Label  Text="{Binding Size}" FontSize="Small" FontFamily="times" MaxLines="1" LineBreakMode="TailTruncation"/>
+                                       <Frame HasShadow="False" BackgroundColor="White" Padding="10"
+                                               BorderColor ="Black">
+                                           <Label Text="{x:Static language:AppResources.AddToShoppingCart}" FontFamily="times" FontSize="Medium" 
+                                                  TextColor="Black" HorizontalTextAlignment="Center"
+                                                  VerticalTextAlignment="Center"/>
+                                           <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BindingContext.CommandFrameAddToshoppingCart, Source={x:Reference Name=ListViewFavouriteSource}}" CommandParameter="{Binding .}" />
+                                           </Frame.GestureRecognizers>
+                                           </Frame>
+
+                                   </StackLayout>
+                                  
+                                   <Image Source="close" Grid.Column="2" HeightRequest="15"
+                                          VerticalOptions="Start" 
+                                          HorizontalOptions="End"
+                                          Margin="10,10,0,0">
+                                       <Image.GestureRecognizers>
+                                           <TapGestureRecognizer x:Name="Tapdeletefav" Command="{Binding BindingContext.CommandDeleteFavourite,Source= {x:Reference Name=ListViewFavouriteSource}}"
+                                                                 CommandParameter="{Binding .}"/>
+
+                                       </Image.GestureRecognizers>
+                                       </Image>
+                               </Grid>
+                                   </ViewCell>
+
+                               </DataTemplate>
+                               </ListView.ItemTemplate>
+                   </ListView>
+               </StackLayout>
+                    </Grid>
+        
+</Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
+

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ShoppingCardPages.DeliveryPage">
+    <ContentPage.Content>
+        <Grid x:Name="GridOrderFinishDelivery" IsVisible="true" BackgroundColor="White" Grid.Row="0" Grid.RowSpan="3" RowSpacing="0">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="0"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+            <Grid Grid.Row="0" BackgroundColor="White" IsVisible="true">
+                <Image Source="close" HeightRequest="22" Margin="10,0,0,5" VerticalOptions="End" HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <!--<TapGestureRecognizer x:Name="TapCloseGridOrderFinshDelivery" Tapped="TapCloseGridOrderFinshDelivery_Tapped"/>-->
+
+                    </Image.GestureRecognizers>
+                    </Image>
+                <BoxView HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" BackgroundColor="#D4D4D4" />
+            </Grid>
+    
+   <Grid Grid.Row="1" x:Name="FrameOrderFinishDelivery" BackgroundColor="#23292E" IsVisible="true" FlowDirection="RightToLeft">
+
+    <StackLayout Margin="15,15,15,70" Spacing="0" VerticalOptions="FillAndExpand">
+        <StackLayout Spacing="0" Margin="0,40,0,0" VerticalOptions="FillAndExpand">
+        <Label Text="شكرا لختيارك" FontFamily="times" FontSize="35" HorizontalOptions="Center" TextColor="Pink"/>
+               <Label Text="𝓕𝓸𝓻 𝓑𝓮𝓪𝓾𝓽𝔂" FontSize="30" FontFamily="times" HorizontalOptions="Center"
+               TextColor="Pink" />
+            </StackLayout>
+                    <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="رقم الطلب :" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+                            <Label Text="{Binding OrderIdFinshDelivery}" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                            <Label Text="تاريخ الطلب :" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+                            <Label Text="{Binding FinshOrderPlaceDelivery}" HorizontalOptions="Start" TextColor="White" FontFamily="times" FontSize="Large"/>
+                        </StackLayout>
+                        <!--StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                 <StackLayout x:Name="stackdistanceDelivery"  IsVisible="true">
+                </StackLayout>
+                                <StackLayout x:Name="stackReviewOrder" HeightRequest="350" BackgroundColor="Transparent" IsVisible="{Binding stackReviewOrder}" >
+                                <lottie:SKLottieView x:Name="OrderScan"
+                                                          Source="OrderScan.json"
+                                                          RepeatMode="Restart"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center"
+                                                          HeightRequest="350"
+                                                          WidthRequest="350"/>
+                                </StackLayout>
+                                <StackLayout x:Name="StackPrepareOrder" HeightRequest="350" BackgroundColor="Transparent" IsVisible="{Binding StackPrepareOrder}" >
+                                <lottie:SKLottieView x:Name="PrepareOrderAnimation" Source="PrepareOrderAnimation.json"
+                                                          RepeatMode="Restart"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center"
+                                                          HeightRequest="350"
+                                                          WidthRequest="350"/>
+                                </StackLayout>
+                                 <StackLayout x:Name="stackCarBeauty" HeightRequest="350" BackgroundColor="Transparent" IsVisible="{Binding stackCarBeauty}">
+                                <lottie:SKLottieView x:Name="carBeauty" Source="Car.json"
+                                                          RepeatMode="Restart"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center"
+                                                          HeightRequest="300" Margin="20,0,0,0"
+                                                          WidthRequest="320"/>
+                                </StackLayout>
+                                <StackLayout x:Name="StackOrderCompleted" HeightRequest="350" BackgroundColor="Transparent" IsVisible="{Binding StackOrderCompleted}" >
+                                <lottie:SKLottieView x:Name="OrderCompletedAnimation" Source="OrderCompletedAnimation.json"
+                                                          RepeatMode="Restart"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center"
+                                                          HeightRequest="350"
+                                                          WidthRequest="350"/>
+                                </StackLayout>
+                                <StackLayout x:Name="StackOrderCanceled" HeightRequest="350" BackgroundColor="Transparent" IsVisible="{Binding StackOrderCanceled}" >
+                                <lottie:SKLottieView x:Name="OrderCanceled" Source="OrderCanceled.json"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="Center"
+                                                          HeightRequest="350"
+                                                          WidthRequest="350"/>
+                                </StackLayout>
+            </StackLayout>
+           </StackLayout-->
+                    </StackLayout>
+
+                    <StackLayout  Spacing="15" VerticalOptions="FillAndExpand" Margin="0,10,0,0">
+                             <StackLayout Margin="0">
+                            <Label  Text="{Binding lblDescriptionOrderDelivery}" FontFamily="times" TextColor="White" HorizontalOptions="Center"  />
+                        </StackLayout>
+
+                            
+              <!--control:StepProgressBarControl x:Name="stepbar1" Margin="60,0,60,0" 
+               StepColor="Blue"  Steps="4" StepSelected="1" IsEnabled="False"   /-->
+           <StackLayout Padding="0" Margin="0,20,0,0">
+                        
+                            <Button Text="العودة إلي الصفحة الرئسية" FontFamily="times"
+                                   TextColor="White"
+                                   Margin="25,0,25,0"
+                                   VerticalOptions="Center"
+                                   FontSize="Large"
+                                   >
+                                        <Button.Background>
+                                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                                        <GradientStop Color="MediumPurple" Offset="0.0"/>
+                                        <GradientStop Color="Blue" Offset="1.0"/>
+                                               
+                                        
+                                    </LinearGradientBrush>  
+
+                                </Button.Background>
+                                        </Button>
+                    </StackLayout>
+            <Label Text="لديك سؤال ؟" FontFamily="times" HorizontalOptions="Center" TextColor="White"/>
+             <StackLayout Padding="0">
+                       
+                            <Button Text="إتصل بنا" FontFamily="times"
+                                   TextColor="White"
+                                   Margin="25,0,25,0"
+                                   VerticalOptions="Center"
+                                   FontSize="Large"
+                                   >
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                                        <GradientStop Color="MediumPurple" Offset="0.0"/>
+                                        <GradientStop Color="Blue" Offset="1.0"/>
+                                    </LinearGradientBrush>  
+                                </Button.Background>
+                                    </Button>
+                        
+                    </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</Grid>
+            <!--lottie:SKLottieView x:Name="lottieFireWorksDelivery"
+                                  Source="AnimationFireWorks.json"
+                                  RepeatMode="Restart"
+                                  Margin="0,0,0,400"
+                                  Grid.Row="0"
+                                  Grid.RowSpan="2"
+                                  VerticalOptions="FillAndExpand"
+                                  HorizontalOptions="FillAndExpand"
+                                  IsVisible="false"
+                                  RepeatCount="-1"/-->
+</Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
+

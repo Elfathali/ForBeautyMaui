@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages.PrivacyPoliciesPage">
+    <ContentPage.Content>
+        <Grid x:Name="GridPrivacyPolicy" BackgroundColor="White">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="100" /> <!-- Top Bar -->
+        <RowDefinition Height="*" />  <!-- Content -->
+    </Grid.RowDefinitions>
+
+    <!-- Top Bar with Close Button and Divider -->
+    <Grid BackgroundColor="White" HeightRequest="50">
+        <Image Source="close" HorizontalOptions="Start" VerticalOptions="EndAndExpand" WidthRequest="22" Margin="10,0,0,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapBackPrivacyPolicy" Command="{Binding CommandPrivacyPoliciesBack}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+    </Grid>
+
+    <!-- Privacy Policy Content -->
+    <StackLayout Grid.Row="1">
+        <ScrollView>
+            <StackLayout VerticalOptions="Start" FlowDirection="RightToLeft" Margin="20" Spacing="15">
+                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Text="سياسات الخصوصية For Beauty" />
+                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontAttributes="Bold" Text="ـــــــــــــــــــــــــــــــــــــــــــــــ" />
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="تحكم سياسة الخصوصية هذه الطريقة التي نجمع بها ForBeauty المعلومات..." />
+                
+                <!-- Information Collection -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="جمع المعلومات 1.1 المعلومات الشخصية قد نقوم بجمع المعلومات الشخصية من المستخدمين بطرق مختلفة ..." />
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="اسم, عنوان البريد الإلكتروني, معلومات الاتصال, معلومات الموقع, خيارات المستخدم" />
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="1.2 المعلومات غير الشخصية قد نقوم أيضًا بجمع معلومات غير شخصية عن المستخدمين ..." />
+
+                <!-- Usage Information -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="استخدام المعلومات 2.1 المعلومات الشخصية قد نستخدم المعلومات الشخصية التي نجمعها ..." />
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="2.2 المعلومات غير الشخصية يمكن استخدام المعلومات غير الشخصية التي يتم جمعها لتحليل الاتجاهات ..." />
+
+                <!-- Protection of Information -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="حماية المعلومات نحن نعتمد ممارسات مناسبة لجمع البيانات وتخزينها ومعالجتها ..." />
+
+                <!-- Information Sharing -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="مشاركة المعلومات 4.1 مقدمو خدمات الطرف الثالث يجوز لنا مشاركة المعلومات الشخصية للمستخدمين مع موفري خدمات الجهات الخارجية ..." />
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="4.2 الامتثال القانوني قد نكشف عن المعلومات الشخصية للمستخدمين إذا كان ذلك مطلوبًا بموجب القانون ..." />
+
+                <!-- Third-Party Sites -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="مواقع الطرف الثالث قد يحتوي التطبيق على روابط لمواقع أو منتجات أو خدمات تابعة لجهات خارجية ..." />
+
+                <!-- Children's Privacy -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="خصوصية الأطفال حماية خصوصية الأطفال أمر ضروري. التطبيق غير مخصص للأطفال دون سن 13 عامًا ..." />
+
+                <!-- Policy Updates -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="التغييرات على سياسة الخصوصية هذه نحتفظ بالحق في تحديث أو تغيير سياسة الخصوصية ..." />
+
+                <!-- Agreement -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="موافقتك على هذه الشروط باستخدام تطبيق ForBeauty، فإنك تشير إلى موافقتك على سياسة الخصوصية هذه ..." />
+
+                <!-- Contact Information -->
+                <Label HorizontalTextAlignment="Start" FontSize="Small" VerticalTextAlignment="Start" Text="الاتصال بنا إذا كان لديك أي أسئلة أو اقتراحات بخصوص سياسة الخصوصية هذه، يرجى الاتصال بنا على [+218929500090]." />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</Grid>
+
+    </ContentPage.Content>
+</ContentPage>
+

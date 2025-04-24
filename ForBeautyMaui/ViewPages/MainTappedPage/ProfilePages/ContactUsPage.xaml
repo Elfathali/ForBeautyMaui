@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages.ContactUsPage">
+    <ContentPage.Content>
+         <Grid x:Name="GridContactUs" BackgroundColor="White">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="100" /> <!-- Top Bar -->
+        <RowDefinition Height="*" /> <!-- Content -->
+    </Grid.RowDefinitions>
+    <Grid BackgroundColor="White" HeightRequest="50">
+        <Image Source="close.png" HorizontalOptions="Start" VerticalOptions="EndAndExpand" WidthRequest="22"  Margin="10,0,0,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapBackContact" Command="{Binding CommandContactUsBack}" />
+            </Image.GestureRecognizers>
+            </Image>
+        <Label Text ="أتصل بنا" FontFamily="times" FontSize="20" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="10,0,0,10"/>
+        <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+    </Grid>
+                <StackLayout Grid.Row="1" VerticalOptions="Start" FlowDirection="RightToLeft" Margin="15" Spacing="15">
+                   <Label Text="كيف يمكننا مساعدتك ؟" FontAttributes="Bold" Margin="15"/>
+                    <StackLayout>
+                        <Label Text="السبت - الخميس:         10 ص - 9 م" FontSize="12" Margin="0,0,15,0"/>
+                         <Label Text="الجمعة:                        4 م - 9 م" FontSize="12" Margin="0,0,15,35"/>
+                    </StackLayout>
+                    <Frame HasShadow="False" IsVisible="false"
+                           BorderColor="Black"
+                           CornerRadius="5"
+                           Padding="12">
+                        <Label Text="تعبية نمودج" HorizontalTextAlignment="Center"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="FillForm" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame HasShadow="False"
+                           BorderColor="Black"
+                           CornerRadius="5"
+                           Padding="12">
+                        <Label  x:Name="lblphonenumber" Text="0929500090" HorizontalTextAlignment="Center"/>
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="HelpCall" Command="{Binding CommandHelpCall}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <StackLayout>
+</StackLayout>
+
+                </StackLayout>
+
+                 </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
