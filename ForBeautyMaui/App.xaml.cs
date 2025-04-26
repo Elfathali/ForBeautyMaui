@@ -15,7 +15,7 @@ namespace ForBeautyMaui
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new TappedPages()));
+            return new Window(new NavigationPage(new WelcomePage()));
         }
     }
 }
