@@ -30,8 +30,7 @@ namespace ForBeautyMaui.ViewModels
         private bool _ErrorMessageLbl;
         private string _ErrorMessageLblText;
         private string _Copyright;
-
-
+        
         public ICommand TapCheckCommand { get; }
         public Command CommandReadMore { get; }
         public Command CommandReadPolicy { get; }
@@ -72,7 +71,7 @@ namespace ForBeautyMaui.ViewModels
                 _Copyright = value;
                 OnPropertyChanged(nameof(Copyright));
             }
-            
+
         }
 
         private void TapShowHidePassword()

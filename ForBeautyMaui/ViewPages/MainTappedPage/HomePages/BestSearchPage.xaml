@@ -22,7 +22,7 @@
                                 SelectedItem="{Binding BestSearchProductSelectedItem}">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Span="2"
-                                         Orientation="Vertical"
+                                            Orientation="Vertical"
                                          HorizontalItemSpacing="7"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
