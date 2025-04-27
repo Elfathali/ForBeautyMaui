@@ -346,7 +346,7 @@
                                     </DataTemplate>
                                 </IndicatorView.IndicatorTemplate>
 
-                            </IndicatorView>
+                            </IndicatorView>ç
                         </Grid>
                     </StackLayout>
                     <StackLayout Margin="15,20,15,15" FlowDirection="LeftToRight">
