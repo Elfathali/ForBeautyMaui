@@ -5,11 +5,13 @@
         xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePages.BestCategoryPage">
     <NavigationPage.TitleView>
-        <Label Text="{Binding TitleName}"
+        <Grid>
+            <Label Text="{Binding TitleName}"
                FontSize="Large"
                FontFamily="times"
                VerticalOptions="Center"
                HorizontalOptions="Center"/>
+        </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <Grid>

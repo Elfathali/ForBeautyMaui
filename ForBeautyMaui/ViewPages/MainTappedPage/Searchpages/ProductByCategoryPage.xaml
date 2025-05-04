@@ -4,10 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.ProductByCategoryPage">
     <NavigationPage.TitleView>
-        <Label Text="{Binding TitleName}"
+        <Grid>
+            <Label Text="{Binding TitleName}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
-               FontFamily="times"/>
+               FontFamily="times"
+                   FontSize="Medium"/>
+        </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <Grid>

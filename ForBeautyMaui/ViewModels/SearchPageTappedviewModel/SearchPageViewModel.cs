@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ForBeautyMaui.ApiServices;
 using ForBeauty.Models;
 using ForBeautyMaui.ViewPages.MainTappedPage.Searchpages;
+using Microsoft.Maui;
 
 namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
 {
@@ -14,14 +15,52 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
         private INavigation _navigation;
         private Categories _ListCategorySelectedItem;
         private bool _SearchLoaderVisiblity;
+        private FlowDirection _FlowDirection;
+        private LayoutOptions _BoxViewNewIn;
+        private double _ScalexDireaction;
+        public FlowDirection flowdirecation
+        {
+            get => _FlowDirection;
+            set
+            {
+                _FlowDirection = value;
+                OnPropertyChanged(nameof(flowdirecation));
+            }
+        }
         public ObservableCollection<Categories> ListCategorySource { get; set; } = new ObservableCollection<Categories>();
 
         public SearchPageViewModel(INavigation navigation)
 		{
             _navigation = navigation;
             SearchLoaderVisiblity = true;
+            flowdirections();
             GetCategoriesSearch();
-
+            
+        }
+        public LayoutOptions BoxViewNewIn
+        {
+            get => _BoxViewNewIn;
+            set
+            {
+                _BoxViewNewIn = value;
+                OnPropertyChanged(nameof(BoxViewNewIn));
+            }
+        }
+        public double ScalexDireaction
+        {
+            get => _ScalexDireaction;
+            set
+            {
+                _ScalexDireaction = value;
+                OnPropertyChanged(nameof(ScalexDireaction));
+            }
+        }
+        private void flowdirections()
+        {
+            string currentLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            flowdirecation = currentLanguage == "ar" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+            ScalexDireaction = currentLanguage == "ar" ? 1 : -1;
+            BoxViewNewIn = currentLanguage == "ar" ? LayoutOptions.Start : LayoutOptions.End;
         }
         public bool SearchLoaderVisiblity
         {

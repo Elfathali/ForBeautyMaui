@@ -2,14 +2,14 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:renders="clr-namespace:ForBeauty.Renders"
+    xmlns:renders="clr-namespace:ForBeautyMaui.Renders"
     NavigationPage.HasNavigationBar="True"
     xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePage"
 
     Title="𝓕𝓸𝓻𝓑𝓮𝓪𝓾𝓽𝔂" NavigationPage.BackButtonTitle=" "
-    BackgroundColor="White">
+    BackgroundColor="Black">
     <ContentPage.Content>
 
 
@@ -82,11 +82,16 @@
                     </StackLayout>
                     <Grid Margin="5,5,7,0">
 
-                        <Border   BackgroundColor="#E4E4E4" StrokeThickness="2">
+                        <Border   BackgroundColor="#E4E4E4" StrokeThickness="0.1">
                             <Entry x:Name="searchEntry" Placeholder="{x:Static Language:AppResources.SearchEntry}" 
-                                      FlowDirection="{Binding flowdirecation}" FontFamily="times" 
+                                      FlowDirection="{Binding flowdirecation}" 
+                                      FontFamily="times" 
                                       ReturnType="Search"
-            HeightRequest="41"/>
+                                      HeightRequest="41"/>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="0" />
+                            </Border.StrokeShape>
+
                         </Border>
                     </Grid>
                     <StackLayout>
@@ -180,7 +185,7 @@
                         </StackLayout>
                     </StackLayout>
                     <StackLayout  Margin="0,10,0,0" HeightRequest="200">
-                        <Label Text="{x:Static Language:AppResources.BestCategories}"  FontFamily="times" FontSize="Large" FlowDirection="{Binding flowdirecation}"
+                        <Label Text="{x:Static Language:AppResources.BestCategories}"  FontFamily="times" FontSize="Large" 
                     Margin="10"/>
                         <StackLayout HeightRequest="145">
                             <CollectionView Margin="0,0,10,0" x:Name="CollectionTopCategory" FlowDirection="{Binding flowdirecation}"
@@ -289,31 +294,31 @@
                         </StackLayout>
 
                     </StackLayout>
-                    <StackLayout BackgroundColor="White">
-                        <Grid BackgroundColor="Transparent">
-                            <StackLayout Orientation="Horizontal" Margin="0,25,10,0" FlowDirection="{Binding flowdirecation}">
+                    <VerticalStackLayout>
+                        <Grid Padding="10" BackgroundColor="White" FlowDirection="{Binding flowdirecation}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{x:Static Language:AppResources.NewIn}" Grid.Column="0" Margin="2,5,5,5"  FontFamily="times" FontSize="Large" />
+                            <Image Source="next"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       HeightRequest="15"
+                                       VerticalOptions="Center"
+                                       WidthRequest="20" 
+                                       Margin="0,0,10,0"
+                                       Scale="{Binding ScalexDireaction}"/>
 
-                                <Label Text="{x:Static Language:AppResources.NewIn}" Margin="2,5,5,5"  HorizontalOptions="StartAndExpand"  FontFamily="times" FontSize="Large" />
-                                <Image Source="next"
-                        HeightRequest="15"
-                        HorizontalOptions="EndAndExpand"
-                        VerticalOptions="Center"
-                        WidthRequest="20"
-                        Margin="10,0,0,0"
-                       Scale="{Binding ScalexDireaction}"/>
-                            </StackLayout>
-                            <BoxView HorizontalOptions="{Binding BoxViewNewIn}" BackgroundColor="Transparent"
-                          
-                      VerticalOptions="Center" WidthRequest="70">
+                            <BoxView HorizontalOptions="End" Grid.Column="0" BackgroundColor="Transparent">
                                 <BoxView.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="boxShowAllNewIn" Command="{Binding boxShowAllNewInTapped}"/>
                                 </BoxView.GestureRecognizers>
                             </BoxView>
                         </Grid>
-                        <Grid>
+                        <StackLayout>
 
-                            <CarouselView ItemsSource="{Binding CarouselNewIn}" BackgroundColor="White"
-               x:Name="CarouselViewImageTapSource"
+                        <CarouselView ItemsSource="{Binding CarouselNewIn}" BackgroundColor="Transparent"
+                          x:Name="CarouselViewImageTapSource"
                           Loop="False" HeightRequest="290"
                           FlowDirection="{Binding flowdirecation}"
                           HorizontalScrollBarVisibility="Never"
@@ -324,15 +329,17 @@
                                             <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg"
                                                                         Source="{Binding imageUrl}" HeightRequest="285"  Aspect="AspectFit"/>
                                             <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer x:Name="CarouselViewImageTap" Command="{Binding BindingContext.CarouselViewImageTapped, Source={x:Reference Name=CarouselViewImageTapSource}}" CommandParameter="{Binding .}" />
+                                                <TapGestureRecognizer x:Name="CarouselViewImageTap" 
+                                                                      Command="{Binding BindingContext.CarouselViewImageTapped, Source={x:Reference Name=CarouselViewImageTapSource}}" 
+                                                                      CommandParameter="{Binding .}" />
                                             </StackLayout.GestureRecognizers>
                                         </StackLayout>
                                     </DataTemplate>
                                 </CarouselView.ItemTemplate>
                             </CarouselView>
 
-                            <IndicatorView x:Name="indicatorImageNewIn"
-               Grid.Row="0"
+                            <IndicatorView BackgroundColor="Transparent"   x:Name="indicatorImageNewIn"
+               
                VerticalOptions="End"
                FlowDirection="{Binding flowdirecation}"
                HorizontalOptions="Center"
@@ -347,38 +354,39 @@
                                 </IndicatorView.IndicatorTemplate>
 
                             </IndicatorView>
-                        </Grid>
-                    </StackLayout>
-                    <StackLayout Margin="15,20,15,15" FlowDirection="LeftToRight">
+                        </StackLayout>
 
-                        <Border BackgroundColor="#F6F3F0" HeightRequest="90" Padding="5,0,5,0" >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="6*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
+                        <StackLayout Margin="15,20,15,15" FlowDirection="{Binding flowdirection}">
+
+                            <Border BackgroundColor="#F6F3F0" HeightRequest="90" Padding="5,0,5,0" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
 
 
-                                <Image Source="hotsale.png" HeightRequest="35" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0"/>
-                                <Label Text="{x:Static Language:AppResources.Discount}" 
+                                    <Image Source="hotsale.png" HeightRequest="35" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0"/>
+                                    <Label Text="{x:Static Language:AppResources.Discount}" 
                                        VerticalTextAlignment="Center"
                                        HorizontalTextAlignment="Start"
                                        FontFamily="times" 
                                        FontSize="Large" 
                                        Grid.Column="1" />
-                                      <Image Source="next" HeightRequest="15"  HorizontalOptions="End" VerticalOptions="Center" 
+                                    <Image Source="next" HeightRequest="15"  HorizontalOptions="End" VerticalOptions="Center" 
                    Scale="{Binding ScalexDireaction}" Grid.Column="2" />
-                            </Grid>
-                        </Border>
+                                </Grid>
+                            </Border>
 
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapShowDiscount" Command="{Binding TapShowDiscountTapped}" />
-                        </StackLayout.GestureRecognizers>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapShowDiscount" Command="{Binding TapShowDiscountTapped}" />
+                            </StackLayout.GestureRecognizers>
 
-                    </StackLayout>
+                        </StackLayout>
+                    </VerticalStackLayout>
+
                 </StackLayout>
-
             </ScrollView>
 
 

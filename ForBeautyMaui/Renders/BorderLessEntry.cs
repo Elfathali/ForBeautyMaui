@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ForBeauty.Renders
+namespace ForBeautyMaui.Renders
 {
     public class BorderLessEntry : Entry
     {

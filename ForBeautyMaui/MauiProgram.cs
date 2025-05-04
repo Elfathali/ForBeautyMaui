@@ -1,5 +1,7 @@
 ﻿using FFImageLoading.Maui;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Handlers;
+
 
 namespace ForBeautyMaui
 {
@@ -17,9 +19,19 @@ namespace ForBeautyMaui
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            EntryHandler.Mapper.AppendToMapping("BorderlessEntry", (handler, view) =>
+            {
+#if IOS
+    if (view is ForBeautyMaui.Renders.BorderLessEntry)
+    {
+        handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
+    }
+#endif
+            });
 
             return builder.Build();
         }

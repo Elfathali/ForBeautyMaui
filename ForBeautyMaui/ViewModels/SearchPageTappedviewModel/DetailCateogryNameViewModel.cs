@@ -77,6 +77,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
                 }
             }
         }
+        
 
 
         public DetailCateogryNameViewModel(INavigation navigation , Categories categories , CategorDital categorDital )

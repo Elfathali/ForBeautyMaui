@@ -4,12 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.DetailViewProductSearchPage">
     <NavigationPage.TitleView>
-        <Label Text="{Binding MoreDital}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               FontFamily="times"/>
-
+        <Grid >
+           
+            <Label Text="{Binding MoreDital}"
+                   FontFamily="times"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+           FontSize="Medium"/>
+        </Grid>
     </NavigationPage.TitleView>
+
     <ContentPage.Content>
           <StackLayout x:Name="DetailViewProductSearchPages" Grid.Row="1" VerticalOptions="Start">
                     <ScrollView x:Name="scrollditalGridView">

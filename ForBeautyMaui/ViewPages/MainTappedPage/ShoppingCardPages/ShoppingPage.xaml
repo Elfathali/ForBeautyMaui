@@ -2,19 +2,26 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:renders="clr-namespace:ForBeauty.Renders"
+    xmlns:renders="clr-namespace:ForBeautyMaui.Renders"
     NavigationPage.HasNavigationBar="True"
     xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ShoppingPage">
     <NavigationPage.TitleView>
-        <Label Text="{x:Static Language:AppResources.ShoppingCart}"
-               FontFamily="times"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{x:Static Language:AppResources.ShoppingCart}"
+              FontFamily="times"
+              TextColor="Black"
+              HorizontalTextAlignment="Center"
+              VerticalTextAlignment="Center"
+              FontSize="Medium" />
+        </Grid>
 
     </NavigationPage.TitleView>
     <ContentPage.Content>
-         <Grid x:Name="GridShoppingCart" BackgroundColor="White" RowSpacing="0" IsVisible="true" VerticalOptions="FillAndExpand">
+         <Grid x:Name="GridShoppingCart" BackgroundColor="White" RowSpacing="0" IsVisible="true">
     <Grid.RowDefinitions>
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
@@ -27,7 +34,7 @@
            
         </Grid>
                     
-             <StackLayout Grid.Row="0" x:Name="stackshopping" FlowDirection="RightToLeft" IsVisible="{Binding StackShoppingVisiblety}"
+             <Grid  x:Name="stackshopping" IsVisible="{Binding StackShoppingVisiblety}"
                           BackgroundColor="White">
                 
                   <StackLayout Spacing="0">
@@ -264,7 +271,7 @@
                             </StackLayout>
                               
                               <Grid Margin="0,20,0,0">
-                                  <Image Source="CheckOutImage"  Aspect="AspectFit">
+                                  <Image Source="checkout_image.png"  Aspect="AspectFit">
                                       </Image>
                                   <Label Text="{x:Static Language:AppResources.ToCheckOut}"  HorizontalTextAlignment="Center" TextColor="White" FontFamily="times" FontSize="21" 
                                          VerticalTextAlignment="Center"/>
@@ -285,7 +292,7 @@
     </ListView>
                 </StackLayout>
                    
-                 </StackLayout>
+                 </Grid>
               <Grid x:Name="GridLoadingCheckOut" BackgroundColor="Transparent" Grid.Row="0" IsVisible="{Binding GridLoadingCheckOut}" >
                             <ActivityIndicator IsRunning="True" IsVisible="true">
                             </ActivityIndicator>

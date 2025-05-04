@@ -7,10 +7,13 @@
     xmlns:language = "clr-namespace:ForBeautyMaui.Resources.Languages"
     NavigationPage.BackButtonTitle="">
     <NavigationPage.TitleView>
-        <Label Text="{x:Static language:AppResources.Discount}"
+        <Grid>
+            <Label Text="{x:Static language:AppResources.Discount}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
-               FontFamily="times"/>
+               FontFamily="times"
+                   FontSize="Medium"/>
+        </Grid>
 
     </NavigationPage.TitleView>
     <ContentPage.Content>

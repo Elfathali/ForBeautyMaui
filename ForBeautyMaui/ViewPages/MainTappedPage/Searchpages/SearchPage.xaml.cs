@@ -9,7 +9,7 @@ namespace ForBeautyMaui.ViewPages.MainTappedPage
 		public SearchPage ()
 		{
 			InitializeComponent ();
-			BindingContext = new SearchPageViewModel(Navigation );
+			BindingContext = new SearchPageViewModel(Navigation);
 
         }
 	}

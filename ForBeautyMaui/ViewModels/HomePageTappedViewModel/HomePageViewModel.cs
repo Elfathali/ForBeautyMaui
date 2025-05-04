@@ -572,7 +572,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
             string currentLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
             flowdirecation = currentLanguage == "ar" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             ScalexDireaction = currentLanguage == "ar" ? 1 :-1;
-            BoxViewNewIn = currentLanguage == "ar" ? LayoutOptions.End : LayoutOptions.Start;
+            BoxViewNewIn = currentLanguage == "ar" ? LayoutOptions.Start : LayoutOptions.End;
         }
 
         private async void ShowDiscountProduct()

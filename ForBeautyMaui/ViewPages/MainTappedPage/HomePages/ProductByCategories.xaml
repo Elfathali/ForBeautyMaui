@@ -5,13 +5,16 @@
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePages.ProductByCategories">
     <NavigationPage.TitleView>
-        <Label Text="{Binding BrandName}"
+        <Grid>
+            <Label Text="{Binding BrandName}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
-               FontFamily="times"/>
+               FontFamily="times"
+                   FontSize="Medium"/>
+        </Grid>
 
     </NavigationPage.TitleView>
-    <ContentPage.Content>
+<ContentPage.Content>
         <Grid x:Name="GridExclusive" BackgroundColor="White" RowSpacing="0">
                              <Grid.RowDefinitions>
         <RowDefinition Height="*" /> 
