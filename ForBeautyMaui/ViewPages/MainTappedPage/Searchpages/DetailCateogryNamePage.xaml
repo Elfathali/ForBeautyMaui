@@ -30,16 +30,20 @@
                         RowHeight="80">
                                     <ListView.Header>
                                          <StackLayout FlowDirection="RightToLeft">
-                <StackLayout Orientation="Horizontal" HeightRequest="70" >
-                    <Label Text="{Binding LblAllCategory}" FontAttributes="None" FontFamily="times" Margin="0,0,10,0" VerticalOptions="Center" FontSize="25"/>
-                    <Image Source="next" HorizontalOptions="EndAndExpand"
-                                        VerticalOptions="Center" WidthRequest="13" Margin="10,0,0,0"/>
-                    <StackLayout.GestureRecognizers>
+                            <StackLayout>
+                                <Grid HeightRequest="70">
+                                    <Label  Text="{Binding LblAllCategory}" FontAttributes="None" FontFamily="times" Margin="5,0,10,0" VerticalTextAlignment="Center" FontSize="25"/>
+                                    <Image   Source="next" HorizontalOptions="End" 
+                                           
+                                    VerticalOptions="Center" WidthRequest="13" Margin="10,0,10,0"/>
+
+                                </Grid>
+                                <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer x:Name="AllCategoryTap" Command="{Binding AllCategoryTap}"/>
 
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="18,0,0,0" />
+                <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0,0,18,0" />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer x:Name="LblAllCategoryTap" Command="{Binding LblAllCategoryTap}"/>
                 </StackLayout.GestureRecognizers>
@@ -49,24 +53,25 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout FlowDirection="RightToLeft" Padding="0" Orientation="Horizontal" >
-                                <Label Text="{Binding nameDital}" FontSize="22" FontFamily="times"
-                                        FontAttributes="None" Margin="0,0,10,0" VerticalOptions="Center" />
-                                <Image Source="next.png" Margin="10,0,0,0"
-                                        HorizontalOptions="EndAndExpand"
+                            <StackLayout FlowDirection="RightToLeft" >
+                                    <Grid HeightRequest="70">
+                                        <Label HorizontalOptions="Start" Text="{Binding nameDital}" FontSize="22" FontFamily="times"
+                                        FontAttributes="None" Margin="5,0,10,0" VerticalOptions="Center" />
+                                        <Image Source="next.png" Margin="10,0,10,0"
+                                        HorizontalOptions="End"
                                         VerticalOptions="Center" WidthRequest="13"/>
-                            </StackLayout>
+                                    </Grid>
+                                </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-             <StackLayout IsVisible="{Binding StackActivityVisbilty}" Grid.Row="0" BackgroundColor="White">
-
-               <ActivityIndicator IsRunning="True" IsVisible="true"
+            <Grid IsVisible="{Binding StackActivityVisbilty}" Grid.Row="0" BackgroundColor="White">
+                <ActivityIndicator IsRunning="True" IsVisible="true"
                                  HorizontalOptions="Center"
-                                  VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
+                                  VerticalOptions="Fill"/>
+            </Grid>
             </Grid>
     </ContentPage.Content>
 </ContentPage>

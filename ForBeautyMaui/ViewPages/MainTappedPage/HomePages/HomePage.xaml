@@ -82,7 +82,7 @@
                     </StackLayout>
                     <Grid Margin="5,5,7,0">
 
-                        <Border BackgroundColor="#E4E4E4" Stroke="#E4E4E4" Margin="5,0,5,0">
+                        <Border BackgroundColor="#E4E4E4" Stroke="#E4E4E4" Margin="2,0,2,0">
                             <renders:BorderLessEntry x:Name="searchEntry" Placeholder="{x:Static Language:AppResources.SearchEntry}" 
                                       FlowDirection="{Binding flowdirecation}" 
                                       FontFamily="times" 
@@ -94,13 +94,9 @@
 
                         </Border>
                     </Grid>
-                    <StackLayout>
-
-                    </StackLayout>
-                    <VerticalStackLayout Margin="2,0,5,0" Spacing="17"   BackgroundColor="White"  MaximumHeightRequest="150"
-                       FlowDirection="RightToLeft">
-                        <Label Text="{x:Static Language:AppResources.BestSearch}" FlowDirection="{Binding flowdirecation}"  Margin="2,5,5,5"  x:Name="bestsearch"  FontFamily="times" FontSize="Large" />
-                        <CollectionView ItemsSource="{Binding CollectionSearchProduct}"
+                    <VerticalStackLayout Margin="2,0,5,0"    Padding="0,20,0,20"   MaximumHeightRequest="150">
+                        <Label Text="{x:Static Language:AppResources.BestSearch}" FlowDirection="{Binding flowdirecation}"  Margin="2,5,0,5"  x:Name="bestsearch"  FontFamily="times" FontSize="Large" />
+                        <CollectionView ItemsSource="{Binding CollectionSearchProduct}" 
                                         HorizontalScrollBarVisibility="Never"
                                         HeightRequest="50"
                                         SelectedItem="{Binding BestSearchSelectedItems}"
@@ -125,7 +121,7 @@
                     </VerticalStackLayout>
                     <StackLayout x:Name="StackRecentltyView" BackgroundColor="#F8F3F0" IsVisible="False" HeightRequest="300" >
 
-                        <Label Text="{x:Static Language:AppResources.RecentlyViewed}" FontFamily="times" FontSize="Large" Margin="2,5,5,5" FlowDirection="{Binding flowdirecation}"/>
+                        <Label Text="{x:Static Language:AppResources.RecentlyViewed}" FontFamily="times" FontSize="Large" Margin="2,5,0,5" FlowDirection="{Binding flowdirecation}"/>
                         <CollectionView ItemsSource="{Binding RecentlyViewd}" ItemsUpdatingScrollMode="KeepScrollOffset"
                                 HorizontalScrollBarVisibility="Never"
                                 SelectedItem="{Binding RecentlyViewdSelectedItem}"
@@ -184,11 +180,10 @@
                             </CollectionView>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout  Margin="0,10,0,0" HeightRequest="200">
-                        <Label Text="{x:Static Language:AppResources.BestCategories}"  FontFamily="times" FontSize="Large" 
-                    Margin="10"/>
+                    <StackLayout   HeightRequest="200">
+                        <Label Text="{x:Static Language:AppResources.BestCategories}" Margin="0,5,5,5"  FontFamily="times" FontSize="Large" FlowDirection="{Binding flowdirecation}"/>
                         <StackLayout HeightRequest="145">
-                            <CollectionView Margin="0,0,10,0" x:Name="CollectionTopCategory" FlowDirection="{Binding flowdirecation}"
+                            <CollectionView  x:Name="CollectionTopCategory" FlowDirection="{Binding flowdirecation}"
                                 HorizontalScrollBarVisibility="Never"
                                 ItemsSource="{Binding CollectionBestCategorySource}"
                                 SelectionMode="Single"
@@ -217,7 +212,7 @@
                     </StackLayout>
                     <StackLayout BackgroundColor="#F6F3F0" Spacing="5" HeightRequest="210">
                         <Label Text="{x:Static Language:AppResources.BestBrands}" FontFamily="times" FontSize="Large" FlowDirection="{Binding flowdirecation}"
-                    Margin="2,25,10,5"/>
+                    Margin="2,30,10,0"/>
                         <StackLayout Orientation="Horizontal" Spacing="5" BackgroundColor="#F6F3F0">
                             <Grid  HorizontalOptions="FillAndExpand">
                                 <Grid.ColumnDefinitions>

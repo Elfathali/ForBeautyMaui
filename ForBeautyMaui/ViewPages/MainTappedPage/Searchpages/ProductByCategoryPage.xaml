@@ -2,6 +2,7 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.ProductByCategoryPage">
     <NavigationPage.TitleView>
         <Grid>
@@ -14,13 +15,6 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
-             
-        
-         <StackLayout Grid.Row="0">
             <CollectionView x:Name="ProductListHomePage" VerticalScrollBarVisibility="Always"
                                 SelectionMode="Single"
                                 FlowDirection="RightToLeft"
@@ -34,13 +28,12 @@
                     <CollectionView.ItemTemplate>
     <DataTemplate>
         <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="240">
-            <Frame  HasShadow="False" HeightRequest="140"   Margin="5" BackgroundColor="White" Padding="0" >
-            <Image Source="{Binding imageUrl}" Aspect="AspectFit" Margin="0,10,0,0" 
-                                        />
-            </Frame>
-            <Label Text="{Binding name}" Margin="0,0,20,2" FontFamily="times" FontSize="Medium" />
-            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="0,0,20,3" />
-            <Label Text="{Binding discription}" FontSize="13" Margin="0,0,10,0" />
+            <Border  HeightRequest="140" Stroke="White"   Margin="5" BackgroundColor="White" Padding="0" >
+            <ffimageloading:CachedImage Source="{Binding imageUrl}" LoadingPlaceholder="placeholder_image.jpg" Aspect="AspectFit" Margin="0,10,0,0" CacheType="All"/>
+            </Border>
+            <Label Text="{Binding name}" Margin="5,0,20,2" FontFamily="times" FontSize="Medium" />
+            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="5,0,20,3" />
+            <Label Text="{Binding discription}" FontSize="13" Margin="5,0,10,0" />
             <StackLayout>
                 <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
         <Grid.ColumnDefinitions>
@@ -48,7 +41,7 @@
             <ColumnDefinition Width="*"/>    
         </Grid.ColumnDefinitions>
         <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-          <Label Text="{Binding price}" Margin="0,0,10,0" TextColor="#555555"/>
+          <Label Text="{Binding price}" Margin="5,0,10,0" TextColor="#555555"/>
             <Label Text="د.ل" TextColor="#555555">
                  <Label.Triggers>
                 <DataTrigger TargetType="Label"  Binding="{Binding price}" Value="0">
@@ -72,7 +65,7 @@
                     <Setter Property="IsVisible" Value="false"/>
                 </DataTrigger>
             </StackLayout.Triggers>
-                <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
+                <Grid Margin="5,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>    
@@ -88,7 +81,7 @@
                     </CollectionView.ItemTemplate>
                     </CollectionView>
 
-        </StackLayout>
+       
              <StackLayout IsVisible="{Binding StackActivityVisbilty}" Grid.Row="0" BackgroundColor="White">
 
                <ActivityIndicator IsRunning="True" IsVisible="true"

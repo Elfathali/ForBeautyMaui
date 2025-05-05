@@ -14,61 +14,59 @@
                    FontSize="Medium"/>
             
         </Grid>
-
     </NavigationPage.TitleView>
     <ContentPage.Content>
-         <StackLayout Grid.Row="1" VerticalOptions="Start">
-                    <ScrollView>
-                        <StackLayout>
+        <Grid>
+
+            <ScrollView>
+                <VerticalStackLayout>
+
+
+
                     <Grid>
-                    <CarouselView ItemsSource="{Binding CarouselImages}" HeightRequest="350" IndicatorView="{x:Reference indicatorImageHomePage}"
+                        <CarouselView ItemsSource="{Binding CarouselImages}" HeightRequest="350" IndicatorView="{x:Reference indicatorImageHomePage}"
                                     Loop="False" IsSwipeEnabled="True"
                                     HorizontalScrollBarVisibility="Never">
-                        <CarouselView.ItemTemplate>
-                           <DataTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="70"/> 
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                <StackLayout Grid.Row="0" Grid.RowSpan="2" Margin="30">
-                                    <Image Source="{Binding ImageUrl}"
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Grid.RowSpan="2" Margin="30">
+                                            <Image Source="{Binding ImageUrl}"
                                                                 HeightRequest="290"  Aspect="AspectFit"
                                                                 />
-                                           <StackLayout.GestureRecognizers>
+                                            <StackLayout.GestureRecognizers>
                                                 <TapGestureRecognizer x:Name="CarouselViewImageShowHomeTap" />
-                                           </StackLayout.GestureRecognizers>
-                                </StackLayout>
-                                    
-                                </Grid>
-                            </DataTemplate>
-                        </CarouselView.ItemTemplate>
-                    </CarouselView>
-                            <Image x:Name="imageFavHomePage" Source="{Binding FavouriteSource}"
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                        <Image x:Name="imageFavHomePage" Source="{Binding FavouriteSource}"
                              HorizontalOptions="End"
                              Margin="0,25,25,0"
                              HeightRequest="35"
                              VerticalOptions="Start">
-    <Image.GestureRecognizers>
-        <TapGestureRecognizer x:Name="ImageColorHome"  Command="{Binding CommandAddToFavourite}" />
-    </Image.GestureRecognizers>
-</Image>
-              <IndicatorView x:Name="indicatorImageHomePage"
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="ImageColorHome"  Command="{Binding CommandAddToFavourite}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <IndicatorView x:Name="indicatorImageHomePage"
                Grid.Row="0"
                VerticalOptions="End"
                HorizontalOptions="Center"
                Margin="0,0,0,10"
-               IndicatorSize="10"
+               IndicatorSize="7"
                SelectedIndicatorColor="Black"
                 IndicatorColor="LightGray">
-    <IndicatorView.IndicatorTemplate>
-        <DataTemplate>
-            <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="End" VerticalOptions="End"  />
-        </DataTemplate>
-    </IndicatorView.IndicatorTemplate>
-</IndicatorView>
-                        </Grid>
-                        <StackLayout Margin="0,0,12,0"
+                        </IndicatorView>
+                    </Grid>
+                    <VerticalStackLayout Margin="0,0,12,0"
                                  
                                     FlowDirection="RightToLeft">
                         <Label Text="{Binding LbllIdProduct}" FontFamily="times" FontSize="Small" TextColor="Red" IsVisible="false"/>
@@ -77,93 +75,91 @@
                         <Label Text="{Binding LblDiscreption}" FontFamily="times" FontSize="Small"
                                 TextColor="Gray"/>
 
-                    </StackLayout>
-                            <StackLayout FlowDirection="RightToLeft" Spacing="0" 
-                                            Padding="0">
-                                <Frame Margin="12,12,12,0" HeightRequest="75" Padding="5,5,15,5"
-                                    HasShadow="False"
-                                    BorderColor="Black"
-                                    CornerRadius="0">
-                                    <StackLayout Orientation="Horizontal">
-                                            
-                                <Frame x:Name="FrameWhiteCheckHome" HasShadow="False" HeightRequest="15" WidthRequest="15" BorderColor="Black" 
+                    </VerticalStackLayout>
+                    <Grid FlowDirection="RightToLeft" Padding="0">
+                        <Border Margin="12,12,12,0" HeightRequest="75" Padding="5,5,15,5" Stroke="Black">
+                            <StackLayout Orientation="Horizontal">
+                                <Border x:Name="FrameWhiteCheckHome"  HeightRequest="15" WidthRequest="15" Stroke="Black"
+                                    
                                  BackgroundColor="White"
-                                 CornerRadius="10"
+                                
                                  Padding="3"
                                 HorizontalOptions="Start"
                                     Margin="5,0,10,0"
                                     VerticalOptions="Center">
-                              <Frame x:Name="FrameBlackCheckHome" CornerRadius="7"
-                                     BackgroundColor="Black"
-                                     HasShadow="False">
-                                                        
-                          </Frame>
-                              </Frame>
-                                                       <Label x:Name="MainSizeH" IsVisible="false"/>
-                                        <Label Text="{Binding size}" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
-                                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
-                                            <Grid ColumnSpacing="0" BackgroundColor="Transparent">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="*"/>    
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
-                                                    <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-                                                    <Label Text="{Binding discount}" FontSize="19" TextColor="Green"/>
-                                                <Label Text="{x:Static Language:AppResources.Currency}" FontSize="19" TextColor="Green"/>
-                                                         <StackLayout.Triggers>
-                                                           <DataTrigger TargetType="StackLayout" Binding="{Binding discount}" Value="0">
-                                                               <Setter Property="IsVisible" Value="false"/>
-                                                           </DataTrigger>
-                                                       </StackLayout.Triggers>
-                                                </StackLayout>
-                                                    <StackLayout>
-                                                        <Grid  ColumnSpacing="0" BackgroundColor="Transparent">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="*"/>    
-                                                </Grid.ColumnDefinitions>
-                                                   <BoxView  HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Grid.Column="0">
-                                                        <BoxView.Triggers>
-                                                           <DataTrigger TargetType="BoxView" Binding="{Binding discount}" Value="0">
-                                                               <Setter Property="IsVisible" Value="false"/>
-                                                           </DataTrigger>
-                                                       </BoxView.Triggers>
-                                                    </BoxView>
-                                                <StackLayout x:Name="StackLblPriceH" Orientation="Horizontal" Spacing="3" Grid.Column="0">
-                                                    <Label Text="{Binding price}"/>
-                                                    <Label Text="{x:Static Language:AppResources.Currency}"/>
-                                                </StackLayout>
-                                                            
-                                            </Grid>
-                                        </StackLayout>
+                                    <Border x:Name="FrameBlackCheckHome" Stroke="Black"
+                                     BackgroundColor="Black">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10"/>
+                                        </Border.StrokeShape>
+
+                                    </Border>
+                                </Border>
+                                <Label x:Name="MainSizeH" IsVisible="false"/>
+                                <Label Text="{Binding size}" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                    <Grid ColumnSpacing="0" BackgroundColor="Transparent">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                    <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
+                                        <Label Text="{Binding discount}" FontSize="19" TextColor="Green"/>
+                                        <Label Text="{x:Static Language:AppResources.Currency}" FontSize="19" TextColor="Green"/>
+                                        <StackLayout.Triggers>
+                                            <DataTrigger TargetType="StackLayout" Binding="{Binding discount}" Value="0">
+                                                <Setter Property="IsVisible" Value="false"/>
+                                            </DataTrigger>
+                                        </StackLayout.Triggers>
                                     </StackLayout>
-                                        </StackLayout>
-                            </Frame>
-                                    <StackLayout FlowDirection="RightToLeft"
+                                    <StackLayout>
+                                        <Grid  ColumnSpacing="0" BackgroundColor="Transparent">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView  HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Grid.Column="0">
+                                                <BoxView.Triggers>
+                                                    <DataTrigger TargetType="BoxView" Binding="{Binding discount}" Value="0">
+                                                        <Setter Property="IsVisible" Value="false"/>
+                                                    </DataTrigger>
+                                                </BoxView.Triggers>
+                                            </BoxView>
+                                            <StackLayout x:Name="StackLblPriceH" Orientation="Horizontal" Spacing="3" Grid.Column="0">
+                                                <Label Text="{Binding price}"/>
+                                                <Label Text="{x:Static Language:AppResources.Currency}"/>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <StackLayout FlowDirection="RightToLeft"
                                                 x:Name="stackOtherDesginHomePage"
                                                 IsVisible="{Binding StackMoreOptionVisible}"
                                                 Margin="12,0,12,0" 
                                                 BackgroundColor="#EDEBE8"
                                                 HeightRequest="35">
-                                    <Label Text="{Binding LblMoreOptionCount}"
+                            <Label Text="{Binding LblMoreOptionCount}"
                                             FontSize="16"
                                            FlowDirection="RightToLeft"
                                             VerticalTextAlignment="Center" FontFamily="times"
                                             HorizontalTextAlignment="Center"
                                             Margin="0,10,0,0"/>
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding CommandMoreOptionProduct}" />
-                                        </StackLayout.GestureRecognizers>
-                                    </StackLayout>
-                            </StackLayout>
-                                 <Grid >
-                                <Button Command="{Binding ButtonAddToShopping}" BackgroundColor="Black"
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CommandMoreOptionProduct}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Grid>
+                    <Grid >
+                        <Button Command="{Binding ButtonAddToShopping}" BackgroundColor="Black"
                             TextColor="White"
                                         CornerRadius="5"
                             Text="{x:Static Language:AppResources.AddToShoppingCart}" FontFamily="times" FontSize="Medium"
                             Margin="12,20,12,12"/>
-                                    <!--lottie:SKLottieView x:Name="lottieLoadingHome" Source="LoadingLabel.json"
+                        <!--lottie:SKLottieView x:Name="lottieLoadingHome" Source="LoadingLabel.json"
                                        WidthRequest="150"
                                        HeightRequest="50"
                                        VerticalOptions="Center"
@@ -171,69 +167,69 @@
                                        IsVisible="false"
                                        RepeatMode="Restart"
                                        Margin="0,10,0,0"/-->
-                                </Grid>
-                            <StackLayout Orientation="Horizontal" Spacing="10" Margin="15,12,12,12">
-                                <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" 
+                    </Grid>
+                    <StackLayout Orientation="Horizontal" Spacing="10" Margin="15,12,12,12">
+                        <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" 
                                                 WidthRequest="126"
                                                 HeightRequest="70">
-                                    <Image Source="hatchback" HeightRequest="30"/>
-                                    <Label Text="{x:Static Language:AppResources.FreeShopping}" FontFamily="times" FontSize="Small"
+                            <Image Source="hatchback" HeightRequest="30"/>
+                            <Label Text="{x:Static Language:AppResources.FreeShopping}" FontFamily="times" FontSize="Small"
                                           
                                             HorizontalTextAlignment="Center"/>
 
-                                </StackLayout>
-                                <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
-                                    <Image Source="returnbox" HeightRequest="30" Margin="0,2,0,0"/>
-                                    <Label Text="{x:Static Language:AppResources.Return1}" FontFamily="times" FontSize="Small"
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
+                            <Image Source="returnbox" HeightRequest="30" Margin="0,2,0,0"/>
+                            <Label Text="{x:Static Language:AppResources.Return1}" FontFamily="times" FontSize="Small"
                                             
                                             HorizontalTextAlignment="Center"/>
-                                    <Label Text="{x:Static Language:AppResources.Return2}" FontFamily="times" FontSize="Small"
+                            <Label Text="{x:Static Language:AppResources.Return2}" FontFamily="times" FontSize="Small"
                                             Margin="0,-5,0,0"
                                             HorizontalTextAlignment="Center"/>
 
-                                </StackLayout>
-                                <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
-                                    <Image Source="present" HeightRequest="30"/>
-                                    <Label Text="{x:Static Language:AppResources.Gift1}" FontFamily="times" FontSize="Small"
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
+                            <Image Source="present" HeightRequest="30"/>
+                            <Label Text="{x:Static Language:AppResources.Gift1}" FontFamily="times" FontSize="Small"
                                           
                                             HorizontalTextAlignment="Center"/>
-                                    <Label Text="{x:Static Language:AppResources.Gift2}" FontFamily="times" FontSize="Small"
+                            <Label Text="{x:Static Language:AppResources.Gift2}" FontFamily="times" FontSize="Small"
                                            
                                             Margin="0,-5,0,0"
                                             HorizontalTextAlignment="Center"/>
-                                </StackLayout>
-                            </StackLayout>
-                            <StackLayout  Margin="0,10,0,0" HeightRequest="250" BackgroundColor="#F6F3F0">
-            <Label Text="{x:Static Language:AppResources.YouMayAlsoLike}" FlowDirection="{Binding flowdireaction}" FontFamily="times" FontSize="Large"
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout  Margin="0,10,0,0" HeightRequest="250" BackgroundColor="#F6F3F0">
+                        <Label Text="{x:Static Language:AppResources.YouMayAlsoLike}" FlowDirection="{Binding flowdireaction}" FontFamily="times" FontSize="Large"
                     Margin="2,15,15,15"/>
-            <StackLayout  FlowDirection="{Binding flowdireaction}">
-                <CollectionView Margin="0,0,10,0" ItemsSource="{Binding CollectionSeeMore}" 
+                        <StackLayout  FlowDirection="{Binding flowdireaction}">
+                            <CollectionView Margin="0,0,10,0" ItemsSource="{Binding CollectionSeeMore}" 
                                 HorizontalScrollBarVisibility="Never"
                                 SelectionMode="Single"
                                  SelectedItem="{Binding CollectionSeeMoreSelectedItem}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="12"/>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                                <StackLayout Orientation="Vertical" Spacing="5" BackgroundColor="#F6F3F0"
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="12"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Vertical" Spacing="5" BackgroundColor="#F6F3F0"
                                                 HorizontalOptions="Start"  >
-                                    <Image HeightRequest="150" WidthRequest="150" 
+                                            <Image HeightRequest="150" WidthRequest="150" 
                                             BackgroundColor="White" 
                                         Source="{Binding imageUrl}"
                                         Aspect="Fill"
                                         />
-                                        <Label Text="{Binding name}" HorizontalTextAlignment="Center"
+                                            <Label Text="{Binding name}" HorizontalTextAlignment="Center"
                                                FontFamily="times" FontSize="Medium"/>
-                                </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
-        </StackLayout>
-                            </StackLayout>
-                        </ScrollView>
-                </StackLayout>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
 
