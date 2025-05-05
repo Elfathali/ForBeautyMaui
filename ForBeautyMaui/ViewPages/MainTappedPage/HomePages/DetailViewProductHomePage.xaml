@@ -6,10 +6,14 @@
         xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
     NavigationPage.BackButtonTitle=" ">
     <NavigationPage.TitleView>
-        <Label Text="{Binding MoreDeatilTitle}"
+        <Grid>
+            <Label Text="{Binding MoreDeatilTitle}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
-               FontFamily="times"/>
+               FontFamily="times"
+                   FontSize="Medium"/>
+            
+        </Grid>
 
     </NavigationPage.TitleView>
     <ContentPage.Content>

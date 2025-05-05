@@ -10,9 +10,9 @@
     NavigationPage.HasNavigationBar="False">
 
     <!-- Home Page -->
-    <NavigationPage IconImageSource="home_icon">
+    <NavigationPage IconImageSource="home_icon" >
         <x:Arguments>
-            <local:HomePage />
+            <local:HomePage/>
         </x:Arguments>
     </NavigationPage>
 

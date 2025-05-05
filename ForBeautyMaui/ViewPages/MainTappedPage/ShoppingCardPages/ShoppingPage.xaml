@@ -134,11 +134,17 @@
         </ListView.ItemTemplate>
         <ListView.Footer>
              <StackLayout Spacing="0" FlowDirection="RightToLeft">
-                          <StackLayout Orientation="Horizontal" x:Name="stacklbldis" HeightRequest="30"
-                                       BackgroundColor="#DBDAD9" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding LblPriceDiffrent}" HorizontalTextAlignment="Center" Margin="0,9,140,7" IsVisible="{Binding LblPriceDiffrentVisiblity}"  FontFamily="times" FontSize="18"/>
-                              <Image x:Name="Imagehandmoney" Source="pngwing.com" IsVisible="{Binding ImagehandmoneyVisiblty}" HorizontalOptions="Center" Margin="0,0,0,0" HeightRequest="25"/>
-                          </StackLayout>
+                          <StackLayout x:Name="stacklbldis" HeightRequest="30"
+                                       BackgroundColor="#DBDAD9" >
+                                    <Grid >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding LblPriceDiffrent}" Margin="0,0,5,0" Grid.Column="0" HorizontalOptions="End" VerticalTextAlignment="Center" IsVisible="{Binding LblPriceDiffrentVisiblity}"  FontFamily="times" FontSize="18"/>
+                              <Image x:Name="Imagehandmoney" Grid.Column="1" HorizontalOptions="Start" Source="pngwing.png" IsVisible="{Binding ImagehandmoneyVisiblty}" VerticalOptions="Center" HeightRequest="18"/>
+                                    </Grid>
+                                </StackLayout>
                           <StackLayout BackgroundColor="White" FlowDirection="LeftToRight">
                               <StackLayout Orientation="Horizontal">
                                   <Label Text="{x:Static Language:AppResources.DicountCode}" Margin="15" VerticalOptions="Center" FontFamily="times" FontSize="20"/>

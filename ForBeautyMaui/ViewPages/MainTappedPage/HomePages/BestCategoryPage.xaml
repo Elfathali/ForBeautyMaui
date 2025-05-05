@@ -30,13 +30,13 @@
     <DataTemplate>
                         
                             <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="240">
-            <Frame  HasShadow="False" HeightRequest="140" BorderColor="White"   Margin="5" BackgroundColor="White" Padding="0" >
+            <Border   HeightRequest="140" Stroke="White"   Margin="5" BackgroundColor="White" Padding="0" >
             <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg" Source="{Binding imageUrl}" Aspect="AspectFit" Margin="0,10,0,0" 
                                        />
-            </Frame>
-            <Label Text="{Binding name}" Margin="0,0,20,2" FontFamily="times" FontSize="Medium" />
-            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="0,0,20,3" />
-            <Label Text="{Binding discription}" FontSize="13" Margin="0,0,10,0" />
+            </Border>
+            <Label Text="{Binding name}" Margin="5,0,20,2" FontFamily="times" FontSize="Medium" />
+            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="5,0,20,3" />
+            <Label Text="{Binding discription}" FontSize="13" Margin="5,0,10,0" />
             <StackLayout>
                 <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
         <Grid.ColumnDefinitions>
@@ -44,7 +44,7 @@
             <ColumnDefinition Width="*"/>    
         </Grid.ColumnDefinitions>
         <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-            <Label Text="{Binding price}" Margin="0,0,10,0" TextColor="#555555">
+            <Label Text="{Binding price}" Margin="5,0,10,0" TextColor="#555555">
                  <Label.Triggers>
                 <DataTrigger TargetType="Label"  Binding="{Binding price}" Value="0">
                     <Setter Property="Text" Value="    🤩جائزة🤩"/>
@@ -64,7 +64,7 @@
                      </Label.Triggers>
                 </Label>
         </StackLayout>
-        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Margin="0,0,5,0" Grid.Column="0">
+        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Margin="5,0,5,0" Grid.Column="0">
             <BoxView.Triggers>
                 <DataTrigger TargetType="BoxView"  Binding="{Binding discount}" Value="0">
                     <Setter Property="IsVisible" Value="false"/>
@@ -85,7 +85,7 @@
             <ColumnDefinition Width="*"/>    
         </Grid.ColumnDefinitions>
         <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-            <Label Text="{Binding discount}" Margin="0,0,10,0" TextColor="Green"/>
+            <Label Text="{Binding discount}" Margin="5,0,10,0" TextColor="Green"/>
             <Label Text="د.ل" TextColor="Green"/>
         </StackLayout>
     </Grid>

@@ -246,7 +246,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
 
             if (chekfavourite != null)
             {
-                FavouriteSource = "favoriteRed.png";
+                FavouriteSource = "favorite_red.png";
             }
             else
             {

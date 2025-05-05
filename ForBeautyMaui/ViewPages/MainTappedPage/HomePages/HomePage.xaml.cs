@@ -12,8 +12,12 @@ namespace ForBeautyMaui.ViewPages.MainTappedPage
 			InitializeComponent();
 			BindingContext = new HomePageViewModel(Navigation, App.SharedServices) ;
 
+
+
 		}
        
+
+
 
     }
 }
