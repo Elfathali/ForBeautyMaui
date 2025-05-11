@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ForBeautyMaui.MainPage">
-
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -29,7 +28,7 @@
                 Text="Click me" 
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+                HorizontalOptions="Fill"/>
         </VerticalStackLayout>
     </ScrollView>
 

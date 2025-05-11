@@ -3,11 +3,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:renders="clr-namespace:ForBeautyMaui.Renders"
-    NavigationPage.HasNavigationBar="True"
+    NavigationPage.HasNavigationBar="False"
     xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePage"
-
+    xmlns:ske="clr-namespace:Maui.Skeleton;assembly=Maui.Skeleton"
+    xmlns:controls="clr-namespace:Maui.Skeleton.Animations;assembly=Maui.Skeleton"
     Title="𝓕𝓸𝓻𝓑𝓮𝓪𝓾𝓽𝔂" NavigationPage.BackButtonTitle=" "
     BackgroundColor="Black">
     <ContentPage.Content>
@@ -382,30 +383,30 @@
                     </VerticalStackLayout>
                    
                 </StackLayout>
-                
             </ScrollView>
-            
+            <Grid x:Name="GridLoaderHomePage" Grid.Row="0"  IsVisible="False" BackgroundColor="Blue" FlowDirection="RightToLeft">
 
+                
+                <!--BoxView BackgroundColor="#c9c9c9" HeightRequest="40" Margin="12,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand" />
+<BoxView BackgroundColor="#c9c9c9" HeightRequest="20" Margin="250,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+<StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0"> 
+    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+</StackLayout>
+<BoxView  BackgroundColor="#c9c9c9" HeightRequest="20" Margin="270,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
+<StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0">
+    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="320" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
+    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="100" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
+</StackLayout-->
 
-            <Grid x:Name="GridLoaderHomePage" Grid.Row="0" IsVisible="{Binding GridLoaderHomePage}" BackgroundColor="White" FlowDirection="RightToLeft">
-                <StackLayout Spacing="20">
-
-                    <!--BoxView BackgroundColor="#c9c9c9" HeightRequest="400" ske:Skeleton.Animation="fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>                
-        <BoxView BackgroundColor="#c9c9c9" HeightRequest="40" Margin="12,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand" />
-        <BoxView BackgroundColor="#c9c9c9" HeightRequest="20" Margin="250,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-        <StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0"> 
-            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-        </StackLayout>
-        <BoxView  BackgroundColor="#c9c9c9" HeightRequest="20" Margin="270,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-        <StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0">
-            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="320" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
-            <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="100" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
-        </StackLayout-->
-                </StackLayout>
             </Grid>
+
+
+
+
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

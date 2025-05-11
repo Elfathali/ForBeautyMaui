@@ -10,15 +10,11 @@ namespace ForBeautyMaui.ViewPages.MainTappedPage
 		public HomePage ()
 		{
 			InitializeComponent();
-			BindingContext = new HomePageViewModel(Navigation, App.SharedServices) ;
+			BindingContext = new HomePageViewModel(Navigation, App.SharedServices);
+        }
 
 
-
-		}
-       
-
-
-
+        
     }
 }
 

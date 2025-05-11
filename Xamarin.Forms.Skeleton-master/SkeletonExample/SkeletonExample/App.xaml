@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkeletonExample.App">
+    <Application.Resources>
+        <Color x:Key="DarkBlueColor">#222e3c</Color>
+        <Color x:Key="BlueColor">#4c6277</Color>
+        <Color x:Key="BlackColor">#0d1a26</Color>
+        <Color x:Key="RedColor">#e73d3b</Color>
+        <Color x:Key="DarkRedColor">#c92726</Color>
+        <Color x:Key="DarkGrayColor">#828282</Color>
+        <Color x:Key="GrayColor">#E3E3E3</Color>
+        <Color x:Key="WhiteColor">#ffffff</Color>
+    </Application.Resources>
+</Application>

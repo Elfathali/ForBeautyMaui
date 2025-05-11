@@ -1,4 +1,5 @@
 ﻿using ForBeautyMaui.ApiServices;
+using ForBeautyMaui.Renders;
 using ForBeautyMaui.ViewModels;
 using ForBeautyMaui.ViewPages;
 using ForBeautyMaui.ViewPages.MainTappedPage;
@@ -11,9 +12,11 @@ namespace ForBeautyMaui
         private DateTime appBackgroundTime;
 
         public static SharedServicesViewModel SharedServices;
+
         public App()
         {
             InitializeComponent();
+
         }
 
 
@@ -21,7 +24,6 @@ namespace ForBeautyMaui
         {
             var current = Connectivity.NetworkAccess;
             SharedServices = new SharedServicesViewModel();
-
 
             if (current != NetworkAccess.Internet)
             {

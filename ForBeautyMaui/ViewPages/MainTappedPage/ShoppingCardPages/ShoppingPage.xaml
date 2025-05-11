@@ -3,10 +3,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:renders="clr-namespace:ForBeautyMaui.Renders"
-    NavigationPage.HasNavigationBar="True"
     xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.ShoppingPage">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -19,7 +18,7 @@
               FontSize="Medium" />
         </Grid>
 
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
     <ContentPage.Content>
          <Grid x:Name="GridShoppingCart" BackgroundColor="White" RowSpacing="0" IsVisible="true">
     <Grid.RowDefinitions>

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.FavouritePages.FavouritePage"
     xmlns:language="clr-namespace:ForBeautyMaui.Resources.Languages">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid >
            
             <Label Text="{x:Static language:AppResources.Wishlist}"
@@ -13,7 +13,7 @@
                VerticalOptions="Center"
                    FontSize="Medium"/>
         </Grid>
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
     <ContentPage.Content>
          <Grid x:Name="GridFavourite" BackgroundColor="White" >
     <Grid.RowDefinitions>

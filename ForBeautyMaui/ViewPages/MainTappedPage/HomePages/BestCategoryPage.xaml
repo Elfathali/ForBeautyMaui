@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePages.BestCategoryPage">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid>
             <Label Text="{Binding TitleName}"
                FontSize="Large"
@@ -12,7 +12,7 @@
                VerticalOptions="Center"
                HorizontalOptions="Center"/>
         </Grid>
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
     <ContentPage.Content>
         <Grid>
            

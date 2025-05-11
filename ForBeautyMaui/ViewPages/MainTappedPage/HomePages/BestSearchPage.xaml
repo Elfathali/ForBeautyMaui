@@ -5,13 +5,13 @@
         xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePages.BestSearchPage"
     NavigationPage.BackButtonTitle="">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Label Text="{Binding TitleName}"
                FontSize="Large"
                FontFamily="times"
                VerticalOptions="Center"
                HorizontalOptions="Center"/>
-        </NavigationPage.TitleView>
+        </Shell.TitleView>
     <ContentPage.Content>
 
          <StackLayout>

@@ -7,6 +7,8 @@ using ForBeautyMaui.ApiServices;
 using ForBeauty.Models;
 using ForBeautyMaui.Resources.Languages;
 using ForBeautyMaui.ViewPages.MainTappedPage.HomePages;
+using ForBeautyMaui.Renders;
+using ForBeautyMaui.ViewPages.MainTappedPage;
 
 
 namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
@@ -404,6 +406,8 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
             GetNewIn();
             CheckExclosveDesgin();
             GetToken();
+            BadgeCounterService.SetCount(2);
+
             //CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
 
 

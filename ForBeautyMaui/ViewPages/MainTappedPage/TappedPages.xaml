@@ -1,4 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ForBeautyMaui.ViewPages.MainTappedPage"
+    xmlns:local1="clr-namespace:ForBeautyMaui.ViewPages.MainTappedPage.FavouritePages"
+    xmlns:local11="clr-namespace:ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages"
+        x:Class="ForBeautyMaui.ViewPages.MainTappedPage.TappedPages"
+    NavigationPage.HasNavigationBar="False">
+    <TabBar>
+        <ShellContent  Icon="home_icon" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent  Icon="search_icon" ContentTemplate="{DataTemplate local:SearchPage}" />
+        <ShellContent  Icon="shoppingbag_icon" ContentTemplate="{DataTemplate local:ShoppingPage}" />
+        <ShellContent  Icon="favorite_icon" ContentTemplate="{DataTemplate local1:FavouritePage}" x:Name="FavouriteTab"/>
+        <ShellContent  Icon="profile_icon" ContentTemplate="{DataTemplate local11:ProfilePage}" />
+    </TabBar>
+</Shell>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,39 +29,50 @@
     x:Name="TabbedPages"
     NavigationPage.HasNavigationBar="False">
 
-    <!-- Home Page -->
+    -->
+<!-- Home Page -->
+<!--
     <NavigationPage IconImageSource="home_icon" >
         <x:Arguments>
             <local:HomePage/>
         </x:Arguments>
     </NavigationPage>
 
-    <!-- Search Page -->
+    -->
+<!-- Search Page -->
+<!--
     <NavigationPage IconImageSource="search_icon" BarBackgroundColor="White">
         <x:Arguments>
             <local:SearchPage />
         </x:Arguments>
     </NavigationPage>
 
-    <!-- Shopping Page -->
+    -->
+<!-- Shopping Page -->
+<!--
     <NavigationPage IconImageSource="shoppingbag_icon"  BarBackgroundColor="White">
         <x:Arguments>
             <local:ShoppingPage />
         </x:Arguments>
     </NavigationPage>
 
-    <!-- Favourite Page -->
+    -->
+<!-- Favourite Page -->
+<!--
     <NavigationPage IconImageSource="favorite_icon" BarBackgroundColor="White">
         <x:Arguments>
             <local1:FavouritePage />
         </x:Arguments>
     </NavigationPage>
 
-    <!-- Profile Page -->
+    -->
+<!-- Profile Page -->
+<!--
     <NavigationPage IconImageSource="profile_icon" BarBackgroundColor="White">
         <x:Arguments>
             <local11:ProfilePage />
         </x:Arguments>
     </NavigationPage>
 
-</TabbedPage>
+</TabbedPage>-->
+

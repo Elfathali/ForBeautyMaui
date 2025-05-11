@@ -11,7 +11,6 @@
 		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
 		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
-
 		<OutputType>Exe</OutputType>
 		<RootNamespace>ForBeautyMaui</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -76,7 +75,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="FFImageLoading.Maui" Version="1.2.7" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="HorusStudio.Maui.Skeleton" Version="2.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="StepProgressBarControl" Version="1.0.0" />

@@ -16,8 +16,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -32,5 +30,7 @@
 	<string>ForBeauty</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.1.0</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.ForBeautyUser</string>
 </dict>
 </plist>

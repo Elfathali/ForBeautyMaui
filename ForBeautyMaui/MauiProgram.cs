@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Handlers;
 
-
 namespace ForBeautyMaui
 {
     public static class MauiProgram
@@ -17,21 +16,28 @@ namespace ForBeautyMaui
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .ConfigureMauiHandlers(h =>
+                {
+                    ////h.AddHandler<Shell,TabbarBageRender>();
+
+
+
                 });
-
-
 #if DEBUG
-    		builder.Logging.AddDebug();
+                    builder.Logging.AddDebug();
 #endif
             EntryHandler.Mapper.AppendToMapping("BorderlessEntry", (handler, view) =>
             {
 #if IOS
+
     if (view is ForBeautyMaui.Renders.BorderLessEntry)
     {
         handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
     }
 #endif
             });
+
 
             return builder.Build();
         }
