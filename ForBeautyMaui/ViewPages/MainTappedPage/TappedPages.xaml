@@ -5,16 +5,32 @@
     xmlns:local="clr-namespace:ForBeautyMaui.ViewPages.MainTappedPage"
     xmlns:local1="clr-namespace:ForBeautyMaui.ViewPages.MainTappedPage.FavouritePages"
     xmlns:local11="clr-namespace:ForBeautyMaui.ViewPages.MainTappedPage.ProfilePages"
-        x:Class="ForBeautyMaui.ViewPages.MainTappedPage.TappedPages"
+    x:Class="ForBeautyMaui.ViewPages.MainTappedPage.TappedPages"
     NavigationPage.HasNavigationBar="False">
+
     <TabBar>
-        <ShellContent  Icon="home_icon" ContentTemplate="{DataTemplate local:HomePage}" />
-        <ShellContent  Icon="search_icon" ContentTemplate="{DataTemplate local:SearchPage}" />
-        <ShellContent  Icon="shoppingbag_icon" ContentTemplate="{DataTemplate local:ShoppingPage}" />
-        <ShellContent  Icon="favorite_icon" ContentTemplate="{DataTemplate local1:FavouritePage}" x:Name="FavouriteTab"/>
-        <ShellContent  Icon="profile_icon" ContentTemplate="{DataTemplate local11:ProfilePage}" />
+        <ShellContent Icon="home_icon">
+            <local:HomePage />
+        </ShellContent>
+
+        <ShellContent Icon="search_icon">
+            <local:SearchPage/>
+        </ShellContent>
+
+        <ShellContent Icon="shoppingbag_icon">
+            <local:ShoppingPage />
+        </ShellContent>
+
+        <ShellContent Icon="favorite_icon">
+            <local1:FavouritePage/>
+        </ShellContent>
+
+        <ShellContent Icon="profile_icon">
+            <local11:ProfilePage />
+        </ShellContent>
     </TabBar>
 </Shell>
+
 
 
 

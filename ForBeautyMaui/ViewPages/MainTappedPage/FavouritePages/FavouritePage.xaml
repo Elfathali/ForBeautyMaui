@@ -19,13 +19,13 @@
     <Grid.RowDefinitions>
         <RowDefinition Height="*"/> 
     </Grid.RowDefinitions>
-                <Grid Grid.Row="0" BackgroundColor="#E7E7E7"  IsVisible="true">
+                <Grid Grid.Row="0" BackgroundColor="#E7E7E7"  IsVisible="True">
                     <StackLayout VerticalOptions="Center" Margin="0,0,0,100">
-                        <Label Text="{x:Static language:AppResources.FavouriteEmpty}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
+                        <Label Text="{x:Static language:AppResources.FavouriteEmpty}" Margin="0,0,0,10" HorizontalTextAlignment="Center" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
             <Label Text="{x:Static language:AppResources.FavouriteEmpty1}" VerticalOptions="Center"
                    HorizontalTextAlignment="Center" FontFamily="times" FontSize="14"/>
             <Label Text="{x:Static language:AppResources.FavouriteEmpty2}"
-                   HorizontalTextAlignment="Center" FontFamily="times" FontSize="14" Margin="0,-5,0,0"/>
+                   HorizontalTextAlignment="Center" FontFamily="times" FontSize="14" Margin="0,-1,0,0"/>
                     </StackLayout>
         
                <StackLayout Grid.Row="0" IsVisible="{Binding StackFavouriteVisiblety}" FlowDirection="RightToLeft">

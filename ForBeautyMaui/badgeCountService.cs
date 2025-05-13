@@ -9,7 +9,7 @@ namespace ForBeautyMaui
     public static class BadgeCounterService
     {
         private static int _count;
-        public static int Count
+        public static int Count 
         {
             get => _count;
             private set

@@ -103,14 +103,14 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
             }
         }
         public bool GridLoadingCheckOut
-            {
+        {
             get => _GridLoadingCheckOut;
             set
             {
                 _GridLoadingCheckOut = value;
                 OnPropertyChanged(nameof(GridLoadingCheckOut));
             }
-             }
+        }
         public bool lblDeliveryOptionErrorVisiblety
         {
             get => _lblDeliveryOptionErrorVisiblety;
@@ -250,10 +250,12 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                 LblPriceDiffrentVisiblity = true;
                 string currentLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
 
-                LblPriceDiffrent = currentLanguage == "ar" ? ("ستـقـوم بتـوفـير  " + (p - PriceDiffrent).ToString() + " د.ل" ) : ("You will save " + (p - PriceDiffrent).ToString() +" dl" );
+                LblPriceDiffrent = currentLanguage == "ar" ? ("ستـقـوم بتـوفـير  " + (p - PriceDiffrent).ToString() + " د.ل") : ("You will save " + (p - PriceDiffrent).ToString() + " dl");
                 ImagehandmoneyVisiblty = true;
 
             }
+            BadgeCounterService.SetCount(ObsShoppings.Count);
+
             return TotalPrice;
         }
         public FlowDirection flowdirecation
@@ -326,7 +328,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                 }
             }
         }
-        
+
         public bool lblcouponmessageVisiblty
         {
             get => _lblcouponmessageVisiblty;
@@ -522,24 +524,24 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                     if (FrameDeliveryShadow)
                     {
                         await App.Current.MainPage.Navigation.PushModalAsync(new DeliveryPage(response.order));
-                        
+
                     }
                     else
                     {
-                       await App.Current.MainPage.Navigation.PushModalAsync(new PickUpPage());
-                    //    OrderIdFinsh.Text = response.order.id.ToString();
-                    //    FinshOrderPlace.Text = response.order.orderPlaced.ToString();
-                    //    ZxingBaraCode.BarcodeValue = OrderIdFinsh.Text;
-                    //    lottieFireWorks.IsVisible = true;
-                    //    stackdistance.IsVisible = true;
-                    //    framebaracode.IsVisible = true;
-                    //    GridOrderFinish.IsVisible = true;
-                    //    stackforbeautyAddress.IsVisible = true;
-                    //    GetOrderStateUser();
-                    //    lottieFireWorks.PlayAnimation();
-                    //    await Task.Delay(7000);
-                    //    lottieFireWorks.IsVisible = false;
-                    //    lottieFireWorks.StopAnimation();
+                        await App.Current.MainPage.Navigation.PushModalAsync(new PickUpPage());
+                        //    OrderIdFinsh.Text = response.order.id.ToString();
+                        //    FinshOrderPlace.Text = response.order.orderPlaced.ToString();
+                        //    ZxingBaraCode.BarcodeValue = OrderIdFinsh.Text;
+                        //    lottieFireWorks.IsVisible = true;
+                        //    stackdistance.IsVisible = true;
+                        //    framebaracode.IsVisible = true;
+                        //    GridOrderFinish.IsVisible = true;
+                        //    stackforbeautyAddress.IsVisible = true;
+                        //    GetOrderStateUser();
+                        //    lottieFireWorks.PlayAnimation();
+                        //    await Task.Delay(7000);
+                        //    lottieFireWorks.IsVisible = false;
+                        //    lottieFireWorks.StopAnimation();
 
 
                     }
@@ -553,7 +555,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                 else
                 {
                     GridLoadingCheckOut = false;
-                    await  App.Current.MainPage.DisplayAlert("", response.Error, "تمام");
+                    await App.Current.MainPage.DisplayAlert("", response.Error, "تمام");
                 }
 
             }
@@ -578,9 +580,9 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
         }
         private async Task PopulateCityPickerAsync()
         {
-          
-                List<Cities> cities = await ApiSerives.GetCites();
-                FirstPickerSource = cities;
+
+            List<Cities> cities = await ApiSerives.GetCites();
+            FirstPickerSource = cities;
 
         }
         private async void LoadCites()
@@ -635,7 +637,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
         {
 
             ImageCheckCouponVisiblty = false;
-                ActivityIndicatorCouponOn();
+            ActivityIndicatorCouponOn();
 
             if (IsCouponeEntred == true)
             {
@@ -662,7 +664,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                 }
             }
 
-                var reponse1 = await ApiSerives.CheckCouponLimt(EntyCodeDiscount);
+            var reponse1 = await ApiSerives.CheckCouponLimt(EntyCodeDiscount);
             if (reponse1.check)
             {
 
@@ -693,7 +695,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                         lblcouponmessage = reponse.message.couponeMessage;
                         lblcouponmessageColor = Colors.Green;
                         lblcouponmessageVisiblty = true;
-                         EntyCodeDiscountIsEnbaled = false;
+                        EntyCodeDiscountIsEnbaled = false;
                         IsCouponeEntred = true;
                         ActivityIndicatorCouponOff();
                     }
@@ -739,7 +741,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
 
                 if (response.checklimt.TotalLimt > TotailPrice)
                 {
-                    var response1 = await App.Current.MainPage.DisplayAlert("", "الحد الادني لشراء بواسطة هدا الكوبون  " + response.checklimt.TotalLimt + "د.ل هل تريد إلغاء الكوبون وحدف العنصر ؟", "نعم", "لا");
+                    var response1 = await Application.Current.MainPage.DisplayAlert("", "الحد الادني لشراء بواسطة هدا الكوبون  " + response.checklimt.TotalLimt + "د.ل هل تريد إلغاء الكوبون وحدف العنصر ؟", "نعم", "لا");
                     if (response1)
                     {
 
@@ -783,12 +785,13 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                 }
             }
             var UserId = Preferences.Get("user_Id", 0);
-            
-                 
-                _SharedServices.ObsShopping.Remove(shoppingCart);
-                UpdatePrice();
-                CheckVilibletyShoppingCart();
-             await ApiSerives.RemoveFromShoppingCart(UserId, shoppingCart.ProductId, shoppingCart.Size);
+
+
+            _SharedServices.ObsShopping.Remove(shoppingCart);
+            UpdatePrice();
+            CheckVilibletyShoppingCart();
+            BadgeCounterService.SetCount(ObsShoppings.Count);
+            await ApiSerives.RemoveFromShoppingCart(UserId, shoppingCart.ProductId, shoppingCart.Size);
 
         }
         private void CheckVilibletyShoppingCart()
@@ -803,7 +806,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
             }
         }
 
-        private  void OnShoppingCartUpdated()
+        private void OnShoppingCartUpdated()
         {
             LblTotalPrice = UpdatePrice();
             CheckVilibletyShoppingCart();

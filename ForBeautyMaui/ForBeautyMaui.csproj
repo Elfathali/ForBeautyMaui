@@ -68,9 +68,9 @@
   <CodesignEntitlements>Platforms/iOS/Entitlements.plist</CodesignEntitlements>
 </PropertyGroup>
 <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
-  <ProvisioningType>automatic</ProvisioningType>
-  <CodesignProvision>VS: com.ForBeautyUser Development</CodesignProvision>
-  <CodesignKey>Apple Development: Created via API (ZVFQB7Q6H4)</CodesignKey>
+  <ProvisioningType>manual</ProvisioningType>
+  <CodesignProvision>ForBeautyUser-distribution</CodesignProvision>
+  <CodesignKey>Apple Distribution: mohammed elfathali (A9C5RU754Y)</CodesignKey>
 </PropertyGroup>
 
 	<ItemGroup>

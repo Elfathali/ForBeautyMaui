@@ -251,7 +251,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
 
             if (chekfavourite != null)
             {
-                FavouriteSource = "favoriteRed.png";
+                FavouriteSource = "favorite_red.png";
             }
             else
             {
@@ -319,7 +319,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
                         ProductId = product.Id
                     };
 
-                    FavouriteSource = "favoriteRed.png";
+                    FavouriteSource = "favorite_red.png";
                     _SharedServices.ObsFavourite.Add(AddFavourite);
                     await ApiSerives.PostFavourite(AddFavourite);
 

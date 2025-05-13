@@ -17,36 +17,42 @@ namespace ForBeautyMaui.Platforms.iOS
     {
         protected override IShellTabBarAppearanceTracker CreateTabBarAppearanceTracker()
         {
-            return base.CreateTabBarAppearanceTracker();
+            // return base.CreateTabBarAppearanceTracker();
+            
+           return new BadgeShellTabbarAppearanceTracker();
         }
 
         class BadgeShellTabbarAppearanceTracker : ShellTabBarAppearanceTracker
         {
             private UITabBarItem? _carTabbarItem;
+
             public override void UpdateLayout(UITabBarController controller)
             {
                 base.UpdateLayout(controller);
+
                 if (_carTabbarItem == null)
                 {
-
-                    const int cartTabbarItemIndex = 1;
+                    const int cartTabbarItemIndex = 2;
 
                     var cartTabbarItem = controller.TabBar.Items?[cartTabbarItemIndex];
                     if (cartTabbarItem != null)
                     {
-                        UpdateBadge(0);
-                        BadgeCounterService.CountChanged += OnCountCganged;
+                        _carTabbarItem = cartTabbarItem; 
+
+                        BadgeCounterService.CountChanged += OnCountChanged;
+                        UpdateBadge(BadgeCounterService.Count); 
                     }
                 }
-                 
             }
-            private void OnCountCganged(object? sender, int newCount)
+
+            private void OnCountChanged(object? sender, int newCount)
             {
                 UpdateBadge(newCount);
             }
+
             private void UpdateBadge(int count)
             {
-                if (_carTabbarItem !=null) 
+                if (_carTabbarItem != null)
                 {
                     if (count <= 0)
                     {
@@ -59,11 +65,8 @@ namespace ForBeautyMaui.Platforms.iOS
                     }
                 }
             }
-            protected override void Dispose(bool disposing)
-            {
-                base.Dispose(disposing);
-                BadgeCounterService.CountChanged -= OnCountCganged;
-            }
+
+
 
 
         }

@@ -2,8 +2,9 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.DetailViewProductSearchPage">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid >
            
             <Label Text="{Binding MoreDital}"
@@ -12,7 +13,7 @@
                    VerticalOptions="Center"
            FontSize="Medium"/>
         </Grid>
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
 
     <ContentPage.Content>
           <StackLayout x:Name="DetailViewProductSearchPages" Grid.Row="1" VerticalOptions="Start">
@@ -30,10 +31,9 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                 <StackLayout Grid.Row="0" Grid.RowSpan="2" Margin="30">
-                                    <Image Source="{Binding ImageUrl}"
+                                            <ffimageloading:CachedImage  Source="{Binding ImageUrl}" CacheType="All" LoadingPlaceholder="placeholder_image.jpg"
                                                                 HeightRequest="290"
-                                                                Aspect="AspectFit"
-                                                                />
+                                                                Aspect="AspectFit"/>
                                            <StackLayout.GestureRecognizers>
                                                 <TapGestureRecognizer x:Name="CarouselViewImageShowTap"/>
                                            </StackLayout.GestureRecognizers>
@@ -52,21 +52,14 @@
                         <TapGestureRecognizer Command="{Binding CommandTapHearth}"/>
     </Image.GestureRecognizers>
 </Image>
-                        
+
                         <IndicatorView x:Name="indicatorImage"
                Grid.Row="0"
                VerticalOptions="End"
                HorizontalOptions="Center"
-               Margin="0,0,0,10"
-               IndicatorSize="10"
                SelectedIndicatorColor="Black"
                 IndicatorColor="LightGray">
-    <IndicatorView.IndicatorTemplate>
-        <DataTemplate>
-            <BoxView BackgroundColor="#D4D4D4" HeightRequest="1" HorizontalOptions="End" VerticalOptions="End"  />
-        </DataTemplate>
-    </IndicatorView.IndicatorTemplate>
-</IndicatorView>
+                        </IndicatorView>
                         </Grid>
                         <StackLayout Margin="0,0,12,0"
                                  

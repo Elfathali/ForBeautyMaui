@@ -406,8 +406,6 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
             GetNewIn();
             CheckExclosveDesgin();
             GetToken();
-            BadgeCounterService.SetCount(2);
-
             //CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
 
 
@@ -642,21 +640,16 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
 
         private async void GetBrandsName()
         {
-            // Array to hold the properties that will be updated (mapping each label)
             string[] brandProperties = { "LblBrand1", "LblBrand2", "LblBrand3", "LblBrand4", "LblBrand5", "LblBrand6" };
 
-            // Track the overall brand index
             int currentBrandIndex = 0;
 
             for (int i = 0; i < brandProperties.Length; i++)
             {
-                // Call API to get the list of brands for the current index (assuming API returns multiple brands at once)
-                var brandList = await ApiSerives.GetBrandsName(i + 1); // Assuming API takes a 1-based index
+                var brandList = await ApiSerives.GetBrandsName(i + 1); 
 
-                // Check if the API returned any brands
                 if (brandList != null && brandList.Count > 0)
                 {
-                    // Loop through the brands in the result and assign them to the corresponding label
                     for (int s = 0; s < brandList.Count && currentBrandIndex < brandProperties.Length; s++, currentBrandIndex++)
                     {
                         switch (currentBrandIndex)

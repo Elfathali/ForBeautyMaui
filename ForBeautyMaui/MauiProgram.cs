@@ -19,8 +19,9 @@ namespace ForBeautyMaui
                 })
                 .ConfigureMauiHandlers(h =>
                 {
-                    ////h.AddHandler<Shell,TabbarBageRender>();
-
+#if  IOS
+                     h.AddHandler<Shell,Platforms.iOS.TabbarBadgeRender>();
+#endif
 
 
                 });

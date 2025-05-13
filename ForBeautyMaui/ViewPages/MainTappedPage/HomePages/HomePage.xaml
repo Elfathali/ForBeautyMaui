@@ -18,15 +18,15 @@
         <Grid  BackgroundColor="White" IsVisible="true" RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <ScrollView Grid.Row="0" x:Name="mainHomePageScrollView">
+            </Grid.RowDefinitions> 
+            <ScrollView Grid.Row="0" x:Name="mainHomePageScrollView" >
                 <StackLayout FlowDirection="RightToLeft" Grid.Row="1" >
-                    <Grid HeightRequest="450">
+                    <Grid HeightRequest="450" RowSpacing="0">
 
                         <Image Source="{Binding ImageMainPage}" HeightRequest="400" Grid.RowSpan="6" Grid.ColumnSpan="7"
                                      Aspect="AspectFill"/>
                         <Button IsVisible="{Binding ButtonNameExcVisible}" Text="{Binding ButtonNameExcText}" Grid.Row="4" FontFamily="times" CornerRadius="0"  TextColor="Black"
-                                          Grid.Column="2" BackgroundColor="White" Grid.ColumnSpan="3" FontSize="Large"
+                                          Grid.Column="2" BackgroundColor="Transparent" Grid.ColumnSpan="3" FontSize="Large"
                                           Command="{Binding BtnBoxTap}"/>
                         <BoxView IsVisible="{Binding BoxViewMainImageVisiblity}" Grid.Row="0" BackgroundColor="Transparent" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="7">
                             <BoxView.GestureRecognizers>

@@ -19,8 +19,6 @@ namespace ForBeautyMaui.ViewModels
         public ObservableCollection<ShoppingCart> ObsShopping { get; set; }
 		public ObservableCollection<AddToFavourite> ObsFavourite { get; set; }
         public ObservableCollection<Product> RecentlyViewd { get; set; }
-
-
         public SharedServicesViewModel()
 		{
 			ObsFavourite = new ObservableCollection<AddToFavourite>();
@@ -46,6 +44,8 @@ namespace ForBeautyMaui.ViewModels
                 ObsShopping.Add(shoppingCart);
             }
             ShoppingCartUpdated?.Invoke();
+            HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+            BadgeCounterService.SetCount(ObsShopping.Count);
             return _TotalPrice;
         }
 

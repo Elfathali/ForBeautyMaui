@@ -35,7 +35,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
             SearchLoaderVisiblity = true;
             flowdirections();
             GetCategoriesSearch();
-            
+
         }
         public LayoutOptions BoxViewNewIn
         {
