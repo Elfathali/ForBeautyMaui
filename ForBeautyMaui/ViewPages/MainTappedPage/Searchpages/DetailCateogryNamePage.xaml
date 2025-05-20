@@ -3,15 +3,15 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.DetailCateogryNamePage">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid >
             <Label Text="{Binding TitleName}"
        FontFamily="times"
        HorizontalOptions="Center"
        VerticalOptions="Center"
-           FontSize="Medium"/>
+           FontSize="Large"/>
         </Grid>
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
 
     <ContentPage.Content>
         <Grid>

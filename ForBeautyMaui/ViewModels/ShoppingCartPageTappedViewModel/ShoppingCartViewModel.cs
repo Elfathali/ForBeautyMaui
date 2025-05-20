@@ -254,7 +254,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
                 ImagehandmoneyVisiblty = true;
 
             }
-            BadgeCounterService.SetCount(ObsShoppings.Count);
+            BadgeCounterService.SetCount(2,ObsShoppings.Count);
 
             return TotalPrice;
         }
@@ -790,7 +790,7 @@ namespace ForBeautyMaui.ViewModels.ShoppingCartPageTappedViewModel
             _SharedServices.ObsShopping.Remove(shoppingCart);
             UpdatePrice();
             CheckVilibletyShoppingCart();
-            BadgeCounterService.SetCount(ObsShoppings.Count);
+            BadgeCounterService.SetCount(2, ObsShoppings.Count);
             await ApiSerives.RemoveFromShoppingCart(UserId, shoppingCart.ProductId, shoppingCart.Size);
 
         }

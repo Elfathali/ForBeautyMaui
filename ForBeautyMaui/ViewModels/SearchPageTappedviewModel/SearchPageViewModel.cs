@@ -14,7 +14,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private INavigation _navigation;
         private Categories _ListCategorySelectedItem;
-        private bool _SearchLoaderVisiblity;
+        private bool _ShimmerVisibilitySearchPage = true;
         private FlowDirection _FlowDirection;
         private LayoutOptions _BoxViewNewIn;
         private double _ScalexDireaction;
@@ -32,7 +32,6 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
         public SearchPageViewModel(INavigation navigation)
 		{
             _navigation = navigation;
-            SearchLoaderVisiblity = true;
             flowdirections();
             GetCategoriesSearch();
 
@@ -62,13 +61,13 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
             ScalexDireaction = currentLanguage == "ar" ? 1 : -1;
             BoxViewNewIn = currentLanguage == "ar" ? LayoutOptions.Start : LayoutOptions.End;
         }
-        public bool SearchLoaderVisiblity
+        public bool ShimmerVisibilitySearchPage
         {
-            get => _SearchLoaderVisiblity;
+            get => _ShimmerVisibilitySearchPage;
             set
             {
-                _SearchLoaderVisiblity = value;
-                OnPropertyChanged(nameof(SearchLoaderVisiblity));
+                _ShimmerVisibilitySearchPage = value;
+                OnPropertyChanged(nameof(ShimmerVisibilitySearchPage));
             }
         }
         public Categories ListCategorySelectedItem
@@ -94,9 +93,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
 
         protected void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            ListCategorySource = new ObservableCollection<Categories>();
-        }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));        }
         private async void GetCategoriesSearch()
         {
            var response = await ApiSerives.CategorySearch();
@@ -105,7 +102,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
                 ListCategorySource.Add(item);
             }
             await Task.Delay(300);
-            SearchLoaderVisiblity = false;
+            ShimmerVisibilitySearchPage = false;
         }
     }
 }

@@ -42,8 +42,8 @@ namespace ForBeautyMaui.ViewModels
 
         public RegisterPageModelView()
         {
-            ShowLoginCommand = new Command(ShowLogin);
-            ShowRegisterCommand = new Command(ShowRegister);
+            BtnLoginPage = new Command(ShowLogin);
+            BtnRegisterPage = new Command(ShowRegister);
             TapCheckCommand = new Command(OnCheckTapped);
             CommandReadMore = new Command(NavigateToReadMore);
             CommandReadPolicy = new Command(ReadPolicy);
@@ -363,6 +363,7 @@ namespace ForBeautyMaui.ViewModels
             }
         }
         public bool IsLoginVisible
+            
         {
             get => _isLoginVisible;
             set
@@ -374,6 +375,7 @@ namespace ForBeautyMaui.ViewModels
 
         public bool IsRegisterVisible
         {
+            
             get => _isRegisterVisible;
             set
             {
@@ -382,8 +384,8 @@ namespace ForBeautyMaui.ViewModels
             }
         }
 
-        public ICommand ShowLoginCommand { get; set; }
-        public ICommand ShowRegisterCommand { get; set; }
+        public ICommand BtnLoginPage { get; set; }
+        public ICommand BtnRegisterPage { get; set; }
 
         public Command CommandToRegisterPage { get; set; }
         public ICommand CommandToLoginPage { get; set; }
@@ -396,8 +398,8 @@ namespace ForBeautyMaui.ViewModels
 
         private void ShowRegister()
         {
-            IsLoginVisible = false;
             IsRegisterVisible = true;
+            IsLoginVisible = false;
         }
         public Color CheckBoxBackgroundColor => IsCheck ? Colors.Black : Colors.White;
 

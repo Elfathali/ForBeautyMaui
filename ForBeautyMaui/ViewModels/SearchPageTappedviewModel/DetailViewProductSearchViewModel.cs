@@ -321,6 +321,9 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
 
                     FavouriteSource = "favorite_red.png";
                     _SharedServices.ObsFavourite.Add(AddFavourite);
+                    BadgeCounterService.SetCount(3, _SharedServices.ObsFavourite.Count);
+                    HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+
                     await ApiSerives.PostFavourite(AddFavourite);
 
                 }
@@ -331,7 +334,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
                     {
                         FavouriteSource = "favorite.png";
                         _SharedServices.ObsFavourite.Remove(DeleteFav);
-
+                        BadgeCounterService.SetCount(3, _SharedServices.ObsFavourite.Count);
                         var response = await ApiSerives.RemoveFromFavorites(Preferences.Get("user_Id", 0), product.Id);
                     }
                 }

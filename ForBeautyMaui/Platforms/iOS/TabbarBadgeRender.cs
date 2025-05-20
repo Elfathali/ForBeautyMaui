@@ -24,51 +24,48 @@ namespace ForBeautyMaui.Platforms.iOS
 
         class BadgeShellTabbarAppearanceTracker : ShellTabBarAppearanceTracker
         {
-            private UITabBarItem? _carTabbarItem;
+            private readonly Dictionary<int, UITabBarItem> _trackedTabItems = new();
+            private UITabBar? _tabBar;
 
             public override void UpdateLayout(UITabBarController controller)
             {
                 base.UpdateLayout(controller);
 
-                if (_carTabbarItem == null)
+                _tabBar = controller.TabBar;
+
+                if (_trackedTabItems.Count == 0)
                 {
-                    const int cartTabbarItemIndex = 2;
+                    BadgeCounterService.CountChanged += OnCountChanged;
 
-                    var cartTabbarItem = controller.TabBar.Items?[cartTabbarItemIndex];
-                    if (cartTabbarItem != null)
-                    {
-                        _carTabbarItem = cartTabbarItem; 
-
-                        BadgeCounterService.CountChanged += OnCountChanged;
-                        UpdateBadge(BadgeCounterService.Count); 
-                    }
+                    TrackTabIndex(2);
+                    TrackTabIndex(3);
                 }
             }
 
-            private void OnCountChanged(object? sender, int newCount)
+            private void TrackTabIndex(int index)
             {
-                UpdateBadge(newCount);
-            }
-
-            private void UpdateBadge(int count)
-            {
-                if (_carTabbarItem != null)
+                if (_tabBar?.Items?.Length > index && !_trackedTabItems.ContainsKey(index))
                 {
-                    if (count <= 0)
-                    {
-                        _carTabbarItem.BadgeValue = null;
-                    }
-                    else
-                    {
-                        _carTabbarItem.BadgeValue = count.ToString();
-                        _carTabbarItem.BadgeColor = Colors.Red.ToPlatform();
-                    }
+                    var item = _tabBar.Items[index];
+                    _trackedTabItems[index] = item;
+                    UpdateBadge(index, BadgeCounterService.GetCount(index));
                 }
             }
 
+            private void OnCountChanged(object? sender, (int index, int count) e)
+            {
+                UpdateBadge(e.index, e.count);
+            }
 
-
-
+            private void UpdateBadge(int index, int count)
+            {
+                if (_trackedTabItems.TryGetValue(index, out var tabItem))
+                {
+                    tabItem.BadgeValue = count > 0 ? count.ToString() : null;
+                    tabItem.BadgeColor = Colors.Red.ToPlatform();
+                }
+            }
         }
+
     }
 }

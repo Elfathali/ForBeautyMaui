@@ -37,7 +37,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
         private Categories _selectedCategory;
         private Product _CollectionGiftBoxSelectedItem;
         private BestSearch _BestSearchSelectedItem;
-        private bool _GridLoaderHomePage = true;
+        private bool _ShimmerVisiblityHomePage = true;
         private bool _BoxViewMainImageVisiblity;
         private FlowDirection _FlowDirection;
         public ObservableCollection<Product> RecentlyViewd => _SharedServices.RecentlyViewd;
@@ -59,15 +59,15 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
         public Command BrandTextBox6 { get; set; }
         private INavigation _navigation;
 
-        public bool GridLoaderHomePage
+        public bool ShimmerVisiblityHomePage
         {
-            get => _GridLoaderHomePage;
+            get => _ShimmerVisiblityHomePage;
             set
             {
-                if (_GridLoaderHomePage != value)
+                if (_ShimmerVisiblityHomePage != value)
                 {
-                    _GridLoaderHomePage = value;
-                    OnPropertyChanged(nameof(GridLoaderHomePage));
+                    _ShimmerVisiblityHomePage = value;
+                    OnPropertyChanged(nameof(ShimmerVisiblityHomePage));
                 }
             }
         }
@@ -686,7 +686,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
 
             }
            await Task.Delay(150);
-            GridLoaderHomePage = false;
+            ShimmerVisiblityHomePage = false;
         }
 
         protected void OnPropertyChanged(string propertyName)

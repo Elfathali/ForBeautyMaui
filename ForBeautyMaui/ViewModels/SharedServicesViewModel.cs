@@ -44,15 +44,10 @@ namespace ForBeautyMaui.ViewModels
                 ObsShopping.Add(shoppingCart);
             }
             ShoppingCartUpdated?.Invoke();
-            HapticFeedback.Default.Perform(HapticFeedbackType.Click);
-            BadgeCounterService.SetCount(ObsShopping.Count);
+            Vibration.Default.Vibrate(TimeSpan.FromSeconds(1)); // Stronger vibration
+            BadgeCounterService.SetCount(2,ObsShopping.Count);
             return _TotalPrice;
         }
-
-
-        
-       
-
 
         public async void GetRecentlyViewd()
         {

@@ -277,8 +277,10 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
                         ProductId = product.Id
                     };
 
-                    FavouriteSource = "favoriteRed.png";
+                    FavouriteSource = "favorite_red.png";
                     _sharedServices.ObsFavourite.Add(AddFavourite);
+                    BadgeCounterService.SetCount(3, _sharedServices.ObsFavourite.Count);
+                    HapticFeedback.Default.Perform(HapticFeedbackType.Click);
                     await ApiSerives.PostFavourite(AddFavourite);
 
                 }
@@ -289,7 +291,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
                     {
                         FavouriteSource = "favorite.png";
                         _sharedServices.ObsFavourite.Remove(DeleteFav);
-                        
+                        BadgeCounterService.SetCount(3, _sharedServices.ObsFavourite.Count);
                         var response = await ApiSerives.RemoveFromFavorites(Preferences.Get("user_Id", 0), product.Id);
                     }
                 }

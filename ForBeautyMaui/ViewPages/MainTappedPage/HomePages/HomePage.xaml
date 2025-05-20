@@ -8,6 +8,7 @@
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePage"
     xmlns:ske="clr-namespace:Maui.Skeleton;assembly=Maui.Skeleton"
+    xmlns:shimmer="clr-namespace:Syncfusion.Maui.Shimmer;assembly=Syncfusion.Maui.Core"
     xmlns:controls="clr-namespace:Maui.Skeleton.Animations;assembly=Maui.Skeleton"
     Title="𝓕𝓸𝓻𝓑𝓮𝓪𝓾𝓽𝔂" NavigationPage.BackButtonTitle=" "
     BackgroundColor="Black">
@@ -21,14 +22,13 @@
             </Grid.RowDefinitions> 
             <ScrollView Grid.Row="0" x:Name="mainHomePageScrollView" >
                 <StackLayout FlowDirection="RightToLeft" Grid.Row="1" >
-                    <Grid HeightRequest="450" RowSpacing="0">
-
-                        <Image Source="{Binding ImageMainPage}" HeightRequest="400" Grid.RowSpan="6" Grid.ColumnSpan="7"
+                    <Grid HeightRequest="450" RowSpacing="0" >
+                        <Image Source="{Binding ImageMainPage}" 
                                      Aspect="AspectFill"/>
-                        <Button IsVisible="{Binding ButtonNameExcVisible}" Text="{Binding ButtonNameExcText}" Grid.Row="4" FontFamily="times" CornerRadius="0"  TextColor="Black"
-                                          Grid.Column="2" BackgroundColor="Transparent" Grid.ColumnSpan="3" FontSize="Large"
+                        <Button IsVisible="{Binding ButtonNameExcVisible}" Text="{Binding ButtonNameExcText}"  FontFamily="times" CornerRadius="0"  TextColor="Black"
+                                           BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Large"
                                           Command="{Binding BtnBoxTap}"/>
-                        <BoxView IsVisible="{Binding BoxViewMainImageVisiblity}" Grid.Row="0" BackgroundColor="Transparent" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="7">
+                        <BoxView IsVisible="{Binding BoxViewMainImageVisiblity}"  BackgroundColor="Transparent" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="7">
                             <BoxView.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="BoxTap" Command="{Binding BtnBoxTap}"/>
 
@@ -384,30 +384,54 @@
                    
                 </StackLayout>
             </ScrollView>
-            <Grid x:Name="GridLoaderHomePage" Grid.Row="0"  IsVisible="False" BackgroundColor="Blue" FlowDirection="RightToLeft">
 
-                
-                <!--BoxView BackgroundColor="#c9c9c9" HeightRequest="40" Margin="12,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand" />
-<BoxView BackgroundColor="#c9c9c9" HeightRequest="20" Margin="250,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-<StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0"> 
-    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="105" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-</StackLayout>
-<BoxView  BackgroundColor="#c9c9c9" HeightRequest="20" Margin="270,5,12,0" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"/>
-<StackLayout Orientation="Horizontal" Spacing="7" Margin="12,0,10,0">
-    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="320" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
-    <BoxView  BackgroundColor="#c9c9c9" HeightRequest="100" WidthRequest="100" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"/>
-</StackLayout-->
 
-            </Grid>
+
+            <shimmer:SfShimmer IsVisible="{Binding ShimmerVisiblityHomePage}">
+                <shimmer:SfShimmer.CustomView >
+                    <StackLayout Padding="5" Spacing="10">
+
+                        <!-- Banner -->
+                        <shimmer:ShimmerView HeightRequest="400" ShapeType="Rectangle" />
+
+                        <!-- Greeting -->
+                        <shimmer:ShimmerView HeightRequest="20" HorizontalOptions="Start" WidthRequest="120" ShapeType="Rectangle" />
+
+                        <!-- Search Bar -->
+                        <shimmer:ShimmerView HeightRequest="40" ShapeType="Rectangle" />
+                        <shimmer:ShimmerView HeightRequest="20" HorizontalOptions="Start" WidthRequest="170" ShapeType="Rectangle" Margin="0,0,0,-5"  />
+
+
+                        <!-- Favourite Tags -->
+                        <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Start" Margin="0,0,0,0">
+                            <shimmer:ShimmerView WidthRequest="50" HeightRequest="60" Margin="0,0,3,0" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView WidthRequest="110" HeightRequest="60" Margin="0,0,3,0" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView WidthRequest="80" HeightRequest="60" Margin="0,0,3,0" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView WidthRequest="80" HeightRequest="60" Margin="0,0,3,0" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView WidthRequest="70" HeightRequest="60" Margin="0,0,3,0" ShapeType="Rectangle"/>
+                            
+                        </FlexLayout>
+
+                        <!-- Horizontal Cards -->
+                        <shimmer:ShimmerView HeightRequest="20" HorizontalOptions="Start" WidthRequest="120" ShapeType="Rectangle" Margin="0,0,0,-15" />
+
+                        <StackLayout Orientation="Horizontal" Spacing="5" Margin="0,10,0,0">
+                            <shimmer:ShimmerView WidthRequest="200" HeightRequest="160" ShapeType="Rectangle" />
+                            <shimmer:ShimmerView WidthRequest="230" HeightRequest="160" ShapeType="Rectangle" />
+                        </StackLayout>
+
+                      
+
+                    </StackLayout>
+                </shimmer:SfShimmer.CustomView>
+            </shimmer:SfShimmer>
 
 
 
 
 
         </Grid>
+      
     </ContentPage.Content>
 </ContentPage>
 

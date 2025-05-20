@@ -47,17 +47,20 @@
                                    <StackLayout Grid.Column="1" Margin="10">
                                        <Label  Text="{Binding ProductId}" TextColor="Red"  IsVisible="false"/>
                                        <Label Text="{Binding name}" FontFamily="times" FontSize="19" MaxLines="1" LineBreakMode="TailTruncation"/>
-                                   <Label Text="{Binding ProductDiscription}" FontSize="13" Margin="0,0,0,0" FontFamily="times" MaxLines="1" LineBreakMode="TailTruncation"/>
-                                       <Label  Text="{Binding Size}" FontSize="Small" FontFamily="times" MaxLines="1" LineBreakMode="TailTruncation"/>
-                                       <Frame HasShadow="False" BackgroundColor="White" Padding="10"
-                                               BorderColor ="Black">
+                                   <Label Text="{Binding ProductDiscription}" FontSize="13" FontFamily="times" MaxLines="1" LineBreakMode="TailTruncation"/>
+                                            <Label  Text="{Binding Size}" FontSize="Small" FontFamily="times" MaxLines="1" LineBreakMode="TailTruncation" Margin="0,0,0,15" />
+                                       <Border BackgroundColor="White" Padding="10"
+                                               Stroke="Black">
                                            <Label Text="{x:Static language:AppResources.AddToShoppingCart}" FontFamily="times" FontSize="Medium" 
                                                   TextColor="Black" HorizontalTextAlignment="Center"
                                                   VerticalTextAlignment="Center"/>
-                                           <Frame.GestureRecognizers>
+                                           <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BindingContext.CommandFrameAddToshoppingCart, Source={x:Reference Name=ListViewFavouriteSource}}" CommandParameter="{Binding .}" />
-                                           </Frame.GestureRecognizers>
-                                           </Frame>
+                                           </Border.GestureRecognizers>
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="10"/>
+                                                </Border.StrokeShape>
+                                           </Border>
 
                                    </StackLayout>
                                   

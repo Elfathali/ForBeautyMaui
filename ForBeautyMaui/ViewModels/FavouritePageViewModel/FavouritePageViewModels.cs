@@ -137,8 +137,9 @@ namespace ForBeautyMaui.ViewModels.FavouritePageViewModel
 				{
 					_SharedServices.UpdateShoppingCart(shopping);
 					ObsFavouirte.Remove(item);
+                    BadgeCounterService.SetCount(3,ObsFavourite.Count);
                 }
-			}
+            }
         }
         private async void DeleteFromFavourite(AddToFavourite product)
         {
@@ -146,6 +147,7 @@ namespace ForBeautyMaui.ViewModels.FavouritePageViewModel
             if (DeleteFav != null)
             {
                 _SharedServices.ObsFavourite.Remove(DeleteFav);
+                BadgeCounterService.SetCount(3, _SharedServices.ObsFavourite.Count);
                 var response = await ApiServices.ApiSerives.RemoveFromFavorites(Preferences.Get("user_Id", 0), product.ProductId);
 
             }
@@ -162,7 +164,9 @@ namespace ForBeautyMaui.ViewModels.FavouritePageViewModel
 			foreach (var item in response)
 			{
 				_SharedServices.ObsFavourite.Add(item);
-				
+                BadgeCounterService.SetCount(3, _SharedServices.ObsFavourite.Count);
+
+
 
             }
         }

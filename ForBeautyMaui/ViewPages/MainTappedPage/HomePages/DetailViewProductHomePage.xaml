@@ -3,21 +3,22 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"     
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.HomePages.DetailViewProductHomePage"
-        xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
+    xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+
     NavigationPage.BackButtonTitle=" ">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid>
             <Label Text="{Binding MoreDeatilTitle}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
                FontFamily="times"
                    FontSize="Medium"/>
-            
+
         </Grid>
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
     <ContentPage.Content>
         <Grid>
-
             <ScrollView>
                 <VerticalStackLayout>
 
@@ -202,19 +203,18 @@
                     <StackLayout  Margin="0,10,0,0" HeightRequest="250" BackgroundColor="#F6F3F0">
                         <Label Text="{x:Static Language:AppResources.YouMayAlsoLike}" FlowDirection="{Binding flowdireaction}" FontFamily="times" FontSize="Large"
                     Margin="2,15,15,15"/>
-                        <StackLayout  FlowDirection="{Binding flowdireaction}">
-                            <CollectionView Margin="0,0,10,0" ItemsSource="{Binding CollectionSeeMore}" 
+                            <CollectionView Margin="0,0,10,0" ItemsSource="{Binding CollectionSeeMore}"  FlowDirection="{Binding flowdirection}"
                                 HorizontalScrollBarVisibility="Never"
                                 SelectionMode="Single"
                                  SelectedItem="{Binding CollectionSeeMoreSelectedItem}">
                                 <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="12"/>
+                                    <GridItemsLayout Orientation="Horizontal"/>
                                 </CollectionView.ItemsLayout>
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <StackLayout Orientation="Vertical" Spacing="5" BackgroundColor="#F6F3F0"
+                                        <StackLayout Orientation="Vertical" Spacing="5" Margin="0,0,10,0" BackgroundColor="#F6F3F0"
                                                 HorizontalOptions="Start"  >
-                                            <Image HeightRequest="150" WidthRequest="150" 
+                                            <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg" HeightRequest="150" WidthRequest="150" 
                                             BackgroundColor="White" 
                                         Source="{Binding imageUrl}"
                                         Aspect="Fill"
@@ -225,7 +225,6 @@
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
-                        </StackLayout>
                     </StackLayout>
                 </VerticalStackLayout>
             </ScrollView>

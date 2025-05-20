@@ -15,7 +15,9 @@ namespace ForBeautyMaui
 
         public App()
         {
+
             InitializeComponent();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mzg2ODI1MkAzMjM5MmUzMDJlMzAzYjMyMzkzYmZvejgzMXZabTN5VTB6SkN6Vnl5SFFGWDNhOXphaEdFdjdvVzNiZnNPUzg9");
 
         }
 
@@ -24,11 +26,13 @@ namespace ForBeautyMaui
         {
             var current = Connectivity.NetworkAccess;
             SharedServices = new SharedServicesViewModel();
+            Routing.RegisterRoute("DetailCateogryNamePage", typeof(DetailCateogryNamePage));
+
 
             if (current != NetworkAccess.Internet)
             {
                 // MainPage = new NavigationPage(new ConnectionPage());
-                return new Window(new NavigationPage(new WelcomePage()));
+                return new Window(new NavigationPage(new MainLoginRegisterPage()));
 
             }
             else

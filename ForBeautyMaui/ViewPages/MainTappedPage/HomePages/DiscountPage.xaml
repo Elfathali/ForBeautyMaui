@@ -6,7 +6,7 @@
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     xmlns:language = "clr-namespace:ForBeautyMaui.Resources.Languages"
     NavigationPage.BackButtonTitle="">
-    <NavigationPage.TitleView>
+    <Shell.TitleView>
         <Grid>
             <Label Text="{x:Static language:AppResources.Discount}"
                HorizontalOptions="Center"
@@ -15,7 +15,7 @@
                    FontSize="Medium"/>
         </Grid>
 
-    </NavigationPage.TitleView>
+    </Shell.TitleView>
     <ContentPage.Content>
         <Grid>
 

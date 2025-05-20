@@ -45,8 +45,7 @@
 
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="150,150" Color="#ffffff" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -69,9 +68,12 @@
 </PropertyGroup>
 <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
   <ProvisioningType>manual</ProvisioningType>
-  <CodesignProvision>ForBeautyUser-distribution</CodesignProvision>
-  <CodesignKey>Apple Distribution: mohammed elfathali (A9C5RU754Y)</CodesignKey>
+  <CodesignProvision></CodesignProvision>
+  <CodesignKey>Apple Development: Created via API (ZVFQB7Q6H4)</CodesignKey>
 </PropertyGroup>
+<ItemGroup>
+  <None Remove="Resources\Splash\splash.svg" />
+</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="FFImageLoading.Maui" Version="1.2.7" />
@@ -80,7 +82,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="StepProgressBarControl" Version="1.0.0" />
+		<PackageReference Include="Syncfusion.Maui.Core" Version="29.2.4" />
 	</ItemGroup>
-
 </Project>
 

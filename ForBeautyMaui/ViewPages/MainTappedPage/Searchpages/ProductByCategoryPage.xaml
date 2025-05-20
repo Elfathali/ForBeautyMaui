@@ -2,17 +2,18 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:models="clr-namespace:ForBeauty.Models"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.ProductByCategoryPage">
     <Shell.TitleView>
-        <Grid>
-            <Label Text="{Binding TitleName}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               FontFamily="times"
-                   FontSize="Medium"/>
-        </Grid>
-    </Shell.TitleView>
+    <Grid>
+        <Label Text="{Binding TitleName}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           FontFamily="times"
+               FontSize="Medium"/>
+    </Grid>
+</Shell.TitleView>
     <ContentPage.Content>
         <Grid>
             <CollectionView x:Name="ProductListHomePage" VerticalScrollBarVisibility="Always"
@@ -26,68 +27,54 @@
                                          HorizontalItemSpacing="7"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
-    <DataTemplate>
-        <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="240">
-            <Border  HeightRequest="140" Stroke="White"   Margin="5" BackgroundColor="White" Padding="0" >
-            <ffimageloading:CachedImage Source="{Binding imageUrl}" LoadingPlaceholder="placeholder_image.jpg" Aspect="AspectFit" Margin="0,10,0,0" CacheType="All"/>
-            </Border>
-            <Label Text="{Binding name}" Margin="5,0,20,2" FontFamily="times" FontSize="Medium" />
-            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="5,0,20,3" />
-            <Label Text="{Binding discription}" FontSize="13" Margin="5,0,10,0" />
-            <StackLayout>
-                <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>    
-        </Grid.ColumnDefinitions>
-        <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-          <Label Text="{Binding price}" Margin="5,0,10,0" TextColor="#555555"/>
-            <Label Text="د.ل" TextColor="#555555">
-                 <Label.Triggers>
-                <DataTrigger TargetType="Label"  Binding="{Binding price}" Value="0">
-                    <Setter Property="IsVisible" Value="false"/>
-                    </DataTrigger>
-                     </Label.Triggers>
-                </Label>
-        </StackLayout>
-        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Margin="0,0,5,0" Grid.Column="0">
-            <BoxView.Triggers>
-                <DataTrigger TargetType="BoxView"  Binding="{Binding discount}" Value="0">
-                    <Setter Property="IsVisible" Value="false"/>
-                </DataTrigger>
-            </BoxView.Triggers>
-            </BoxView>
-    </Grid>
-            </StackLayout>
-            <StackLayout >
-                <StackLayout.Triggers>
-                <DataTrigger TargetType="StackLayout"  Binding="{Binding discount}" Value="0">
-                    <Setter Property="IsVisible" Value="false"/>
-                </DataTrigger>
-            </StackLayout.Triggers>
-                <Grid Margin="5,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>    
-        </Grid.ColumnDefinitions>
-        <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-            <Label Text="{Binding discount}" Margin="0,0,10,0" TextColor="Green"/>
-            <Label Text="د.ل" TextColor="Green"/>
-        </StackLayout>
-    </Grid>
-            </StackLayout>
-            </StackLayout>
-        </DataTemplate>
-                    </CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Product" >
+                        <Border Stroke="White"
+            StrokeThickness="1"
+            BackgroundColor="White"
+            Margin="5"
+            Padding="5"
+            HeightRequest="245"
+            StrokeShape="RoundRectangle 10">
+
+                            <VerticalStackLayout Spacing="4">
+
+                                <!-- Image -->
+                                <ffimageloading:CachedImage 
+                Source="{Binding imageUrl}" 
+                HeightRequest="140"
+                Aspect="AspectFill"
+                DownsampleToViewSize="True"
+                DownsampleUseDipUnits="True"
+                CacheType="All"
+                LoadingPlaceholder="placeholder_image.jpg" />
+
+                                <!-- Name -->
+                                <Label Text="{Binding name}" FontSize="Medium" FontFamily="times" />
+
+                                <!-- More Details -->
+                                <Label Text="{Binding MoreDital}" FontSize="Small" FontFamily="times" />
+
+                                <!-- Price -->
+                                <HorizontalStackLayout IsVisible="{Binding IsPriceVisible}" Spacing="2">
+                                    <Label Text="{Binding price}" TextColor="#555555" />
+                                    <Label Text="د.ل" TextColor="#555555" />
+                                </HorizontalStackLayout>
+
+                                <!-- Discount -->
+                                <HorizontalStackLayout IsVisible="{Binding IsDiscountVisible}" Spacing="2">
+                                    <Label Text="{Binding discount}" TextColor="Green" />
+                                    <Label Text="د.ل" TextColor="Green" />
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
                     </CollectionView>
 
        
-             <StackLayout IsVisible="{Binding StackActivityVisbilty}" Grid.Row="0" BackgroundColor="White">
-
-               <ActivityIndicator IsRunning="True" IsVisible="true"
-                                 HorizontalOptions="Center"
-                                  VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
+             
            
             </Grid>
     </ContentPage.Content>

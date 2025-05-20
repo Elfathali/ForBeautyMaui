@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:renders="clr-namespace:ForBeautyMaui.Renders"
+    xmlns:shimmer="clr-namespace:Syncfusion.Maui.Shimmer;assembly=Syncfusion.Maui.Core"
     xmlns:ske="clr-namespace:Maui.Skeleton;assembly=Maui.Skeleton"
     xmlns:controls="clr-namespace:Maui.Skeleton.Animations;assembly=Maui.Skeleton"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.SearchPage"
@@ -104,30 +105,34 @@
 
             </CollectionView>
 
-            <Grid x:Name="GridLoaderSearchPage"  IsVisible="False" BackgroundColor="Blue" FlowDirection="RightToLeft">
+            <shimmer:SfShimmer IsVisible="{Binding ShimmerVisibilitySearchPage}" Grid.RowSpan="2">
+                <shimmer:SfShimmer.CustomView>
+                    <StackLayout Padding="5" Spacing="15">
+
+                        <!-- Search Bar -->
+                        <shimmer:ShimmerView HeightRequest="40" ShapeType="Rectangle" Margin="0,0,0,5"/>
+                        <!-- Shimmer List of Categories -->
+                        <StackLayout Spacing="10">
+                            <!-- Repeat this block for each category row -->
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
+                            <shimmer:ShimmerView HeightRequest="90" ShapeType="Rectangle"/>
 
 
-                <!--StackLayout Spacing="13" VerticalOptions="FillAndExpand">
-                    <BoxView BackgroundColor="#E9E9E8" HeightRequest="30" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"/>
-                                <StackLayout Spacing="8" VerticalOptions="FillAndExpand">
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White"  VerticalOptions="FillAndExpand" CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand" CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"  CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"  CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"  CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"  CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"  CornerRadius="10" Margin="12,0,10,0"/>
-                                    <BoxView BackgroundColor="#E9E9E8" ske:Skeleton.Animation="Fade" ske:Skeleton.IsParent="True" ske:Skeleton.IsBusy="True" ske:Skeleton.BackgroundColor="White" VerticalOptions="FillAndExpand"  CornerRadius="10" Margin="12,0,10,0"/>
+                        </StackLayout>
 
-                                </StackLayout>
-                    
+                    </StackLayout>
+                </shimmer:SfShimmer.CustomView>
+            </shimmer:SfShimmer>
 
 
 
-                        
-                 </StackLayout-->
-            </Grid>
-            
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

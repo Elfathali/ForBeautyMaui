@@ -1,26 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ForBeautyMaui
+﻿public static class BadgeCounterService
 {
-    public static class BadgeCounterService
+    private static readonly Dictionary<int, int> _counts = new();
+    public static event EventHandler<(int index, int count)>? CountChanged;
+
+    public static void SetCount(int index, int count)
     {
-        private static int _count;
-        public static int Count 
-        {
-            get => _count;
-            private set
-            {
-                _count = value;
-                CountChanged?.Invoke(null, _count);
-            }
-        }
+        _counts[index] = count;
+        CountChanged?.Invoke(null, (index, count));
+    }
 
-    public static void SetCount(int count) => Count = count;
-
-        public static event EventHandler<int> CountChanged;
+    public static int GetCount(int index)
+    {
+        return _counts.TryGetValue(index, out var count) ? count : 0;
     }
 }

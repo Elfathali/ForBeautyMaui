@@ -1,6 +1,7 @@
 ﻿using FFImageLoading.Maui;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Handlers;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace ForBeautyMaui
 {
@@ -11,6 +12,7 @@ namespace ForBeautyMaui
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureSyncfusionCore()
                 .UseFFImageLoading()
                 .ConfigureFonts(fonts =>
                 {
@@ -19,8 +21,8 @@ namespace ForBeautyMaui
                 })
                 .ConfigureMauiHandlers(h =>
                 {
-#if  IOS
-                     h.AddHandler<Shell,Platforms.iOS.TabbarBadgeRender>();
+#if IOS
+                    h.AddHandler<Shell, ForBeautyMaui.Platforms.iOS.TabbarBadgeRender>();
 #endif
 
 

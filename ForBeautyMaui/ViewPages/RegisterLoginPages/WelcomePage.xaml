@@ -58,12 +58,7 @@
                                    CornerRadius="20"
                                    Margin="35,0,35,15"
                                    Command="{Binding CommandToRegisterPage}" >
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                            <GradientStop Color="HotPink" Offset="1.0" />
-                            <GradientStop Color="Blue" Offset="0.0" />
-                        </LinearGradientBrush>
-                    </Button.Background>
+                    
                 </Button>
 
                 <Button Text="{x:Static language:AppResources.Login}" FontFamily="times" FontSize="23"
@@ -73,13 +68,6 @@
                                    CornerRadius="20"
                                    Margin="35,0,35,15"
                                    Command="{Binding CommandToLoginPage}">
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                            <GradientStop Color="HotPink" Offset="1.0" />
-                            <GradientStop Color="Blue" Offset="0.0" />
-                        </LinearGradientBrush>
-                    </Button.Background>
-
                 </Button>
 
 
