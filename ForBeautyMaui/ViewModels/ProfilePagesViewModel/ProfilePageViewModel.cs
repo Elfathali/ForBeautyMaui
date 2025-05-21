@@ -124,7 +124,7 @@ namespace ForBeautyMaui.ViewModels.ProfilePagesViewModel
                 Preferences.Set("expiration_Time", 0);
                 Preferences.Set("Phone_NumberForToken", 0);
                 Preferences.Set("Password_ForToken", string.Empty);
-                App.Current.MainPage = new NavigationPage(new WelcomePage());
+                App.Current.MainPage = new NavigationPage(new WelcomePage(""));
             }
 
             else

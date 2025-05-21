@@ -305,11 +305,11 @@
                                        Margin="0,0,10,0"
                                        Scale="{Binding ScalexDireaction}"/>
 
-                            <BoxView HorizontalOptions="End" Grid.Column="0" BackgroundColor="Transparent">
-                                <BoxView.GestureRecognizers>
+                            <Border HorizontalOptions="{Binding BorderNewIn}" Grid.Column="0" Stroke="Transparent" HeightRequest="50" WidthRequest="100" BackgroundColor="Transparent">
+                                <Border.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="boxShowAllNewIn" Command="{Binding boxShowAllNewInTapped}"/>
-                                </BoxView.GestureRecognizers>
-                            </BoxView>
+                                </Border.GestureRecognizers>
+                            </Border>
                         </Grid>
                         <VerticalStackLayout>
 
@@ -387,7 +387,7 @@
 
 
 
-            <shimmer:SfShimmer IsVisible="{Binding ShimmerVisiblityHomePage}">
+            <shimmer:SfShimmer IsActive="{Binding ShimmerVisiblityHomePage}" IsVisible="{Binding ShimmerVisiblityHomePage}">
                 <shimmer:SfShimmer.CustomView >
                     <StackLayout Padding="5" Spacing="10">
 

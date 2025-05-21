@@ -18,9 +18,5 @@ namespace ForBeauty.Models
         public string MoreDital { get; set; }
         public string ImageUrlForGift { get; set;}
 
-
-        public bool IsDiscountVisible => discount > 0;
-        public bool IsPriceVisible => price > 0;
-
     }
 }

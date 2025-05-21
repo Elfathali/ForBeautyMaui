@@ -30,7 +30,11 @@ namespace ForBeautyMaui.ViewModels
         private bool _ErrorMessageLbl;
         private string _ErrorMessageLblText;
         private string _Copyright;
-        
+        private string _BtnLoginFontFamily ="times";
+        private string _BtnRegisterFontFamily = "times";
+
+
+
         public ICommand TapCheckCommand { get; }
         public Command CommandReadMore { get; }
         public Command CommandReadPolicy { get; }
@@ -40,7 +44,7 @@ namespace ForBeautyMaui.ViewModels
         public bool _Errorlbl;
 
 
-        public RegisterPageModelView()
+        public RegisterPageModelView(string Duraction)
         {
             BtnLoginPage = new Command(ShowLogin);
             BtnRegisterPage = new Command(ShowRegister);
@@ -55,7 +59,24 @@ namespace ForBeautyMaui.ViewModels
             IsLoginVisible = true;
             IsRegisterVisible = false;
             CopyRight();
+            LoginRegister(Duraction);
 
+
+
+        }
+        private void LoginRegister(string Duraction)
+        {
+            if (Duraction == "Login")
+            {
+                IsLoginVisible = true;
+                IsRegisterVisible = false;
+            }
+            else
+            {
+                IsLoginVisible = false;
+                IsRegisterVisible = true;
+
+            }
         }
         private void CopyRight()
         {
@@ -134,23 +155,14 @@ namespace ForBeautyMaui.ViewModels
         private void ToLoginPage()
         {
             ShowLogin();
-            Application.Current.MainPage.Navigation.PushAsync(new MainLoginRegisterPage());
+            Application.Current.MainPage.Navigation.PushAsync(new MainLoginRegisterPage("Login"));
            
         }
 
         private async void ToRegitserPage()
         {
 
-            await Application.Current.MainPage.Navigation.PushAsync(new MainLoginRegisterPage());
-
-            IsLoginVisible = false;
-            IsRegisterVisible = true;
-
-            OnPropertyChanged(nameof(IsLoginVisible));
-            OnPropertyChanged(nameof(IsRegisterVisible));
-
-
-
+            await Application.Current.MainPage.Navigation.PushAsync(new MainLoginRegisterPage("Register"));
         }
 
 
@@ -372,6 +384,25 @@ namespace ForBeautyMaui.ViewModels
                 OnPropertyChanged(nameof(IsLoginVisible));
             }
         }
+        
+        public string BtnLoginFontFamily
+        {
+            get => _BtnLoginFontFamily;
+            set 
+            {
+                _BtnLoginFontFamily = value;
+                OnPropertyChanged(nameof(BtnLoginFontFamily));
+            }
+        }
+        public string BtnRegisterFontFamily
+        {
+            get => _BtnRegisterFontFamily;
+            set
+            {
+                _BtnRegisterFontFamily = value;
+                OnPropertyChanged(nameof(BtnRegisterFontFamily));
+            }
+        }
 
         public bool IsRegisterVisible
         {
@@ -394,12 +425,17 @@ namespace ForBeautyMaui.ViewModels
         {
             IsLoginVisible = true;
             IsRegisterVisible = false;
+            BtnLoginFontFamily = "times-bold";
+            BtnRegisterFontFamily = "times";
         }
 
-        private void ShowRegister()
+        private void  ShowRegister()
         {
             IsRegisterVisible = true;
             IsLoginVisible = false;
+            BtnLoginFontFamily = "times";
+            BtnRegisterFontFamily = "times-bold";
+
         }
         public Color CheckBoxBackgroundColor => IsCheck ? Colors.Black : Colors.White;
 

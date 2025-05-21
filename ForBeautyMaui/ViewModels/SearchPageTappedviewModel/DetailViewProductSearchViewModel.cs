@@ -273,7 +273,7 @@ namespace ForBeautyMaui.ViewModels.SearchPageTappedviewModel
                 var CheckAccessToken = Preferences.Get("access_token", string.Empty);
                 if (CheckAccessToken == string.Empty)
                 {
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new WelcomePage()));
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new WelcomePage("")));
                     return;
                 }
                 //lottieLoading.IsVisible = true;

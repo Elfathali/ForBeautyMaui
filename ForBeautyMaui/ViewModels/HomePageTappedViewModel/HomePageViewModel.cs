@@ -31,7 +31,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
         private string _LblBrand5;
         private string _LblBrand6;
         private double _ScalexDireaction;
-        private LayoutOptions _BoxViewNewIn;
+        private LayoutOptions _BorderNewIn;
         private Product _ProductListBestCategory;
 
         private Categories _selectedCategory;
@@ -560,13 +560,13 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
                 LblWelcomeNameHomePage = string.Format(AppResources.HelloWorld +" "+ username+" !");
             }
         }
-        public LayoutOptions BoxViewNewIn
+        public LayoutOptions BorderNewIn
         {
-            get => _BoxViewNewIn;
+            get => _BorderNewIn;
             set
             {
-                _BoxViewNewIn = value;
-                OnPropertyChanged(nameof(BoxViewNewIn));
+                _BorderNewIn = value;
+                OnPropertyChanged(nameof(BorderNewIn));
             }
         }
         private void flowdirections()
@@ -574,7 +574,7 @@ namespace ForBeautyMaui.ViewModels.HomePageTappedViewModel
             string currentLanguage = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
             flowdirecation = currentLanguage == "ar" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             ScalexDireaction = currentLanguage == "ar" ? 1 :-1;
-            BoxViewNewIn = currentLanguage == "ar" ? LayoutOptions.Start : LayoutOptions.End;
+            BorderNewIn = currentLanguage == "ar" ? LayoutOptions.Start : LayoutOptions.End;
         }
 
         private async void ShowDiscountProduct()

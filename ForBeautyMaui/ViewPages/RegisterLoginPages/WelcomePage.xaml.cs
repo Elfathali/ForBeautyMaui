@@ -4,10 +4,10 @@ namespace ForBeautyMaui.ViewPages
 {	
 	public partial class WelcomePage : ContentPage
 	{	
-		public WelcomePage ()
+		public WelcomePage (string Duration)
 		{
 			InitializeComponent ();
-            BindingContext = new RegisterPageModelView();
+            BindingContext = new RegisterPageModelView(Duration);
 		}
 
        

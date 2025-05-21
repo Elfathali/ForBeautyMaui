@@ -32,7 +32,7 @@ namespace ForBeautyMaui
             if (current != NetworkAccess.Internet)
             {
                 // MainPage = new NavigationPage(new ConnectionPage());
-                return new Window(new NavigationPage(new MainLoginRegisterPage()));
+                return new Window(new NavigationPage(new MainLoginRegisterPage("Login")));
 
             }
             else
@@ -48,7 +48,7 @@ namespace ForBeautyMaui
                 else
                 {
 
-                    return new Window(new NavigationPage(new WelcomePage()));
+                    return new Window(new NavigationPage(new WelcomePage("")));
 
 
                 }
@@ -65,7 +65,7 @@ namespace ForBeautyMaui
                     await mpage.DisplayAlert("", "تم تغير الاعدادات, يرجي إعادة تسجيل الدخول ", "موافق");
                     Preferences.Set("access_token", string.Empty);
                     Preferences.Set("expiration_Time", 0);
-                    MainPage = new NavigationPage(new WelcomePage());
+                    MainPage = new NavigationPage(new WelcomePage(""));
 
                 }
             }

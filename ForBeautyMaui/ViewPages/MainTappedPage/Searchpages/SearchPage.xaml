@@ -105,7 +105,7 @@
 
             </CollectionView>
 
-            <shimmer:SfShimmer IsVisible="{Binding ShimmerVisibilitySearchPage}" Grid.RowSpan="2">
+            <shimmer:SfShimmer IsActive="{Binding ShimmerVisibilitySearchPage}" IsVisible="{Binding ShimmerVisibilitySearchPage}" Grid.RowSpan="2">
                 <shimmer:SfShimmer.CustomView>
                     <StackLayout Padding="5" Spacing="15">
 
