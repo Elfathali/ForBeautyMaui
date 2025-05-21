@@ -7,7 +7,7 @@
     <Shell.TitleView>
         <Grid>
             <Label Text="{Binding TitleName}"
-               FontSize="Large"
+               FontSize="Medium"
                FontFamily="times"
                VerticalOptions="Center"
                HorizontalOptions="Center"/>
@@ -29,41 +29,19 @@
                     <CollectionView.ItemTemplate>
     <DataTemplate>
                         
-                            <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="240">
-            <Border   HeightRequest="140" Stroke="White"   Margin="5" BackgroundColor="White" Padding="0" >
+                            <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="240" FlowDirection="RightToLeft">
+            <Border   HeightRequest="140" Stroke="White"   Margin="5" BackgroundColor="White" Padding="5" >
             <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg" Source="{Binding imageUrl}" Aspect="AspectFit" Margin="0,10,0,0" 
                                        />
             </Border>
-            <Label Text="{Binding name}" Margin="5,0,20,2" FontFamily="times" FontSize="Medium" />
-            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="5,0,20,3" />
-            <Label Text="{Binding discription}" FontSize="13" Margin="5,0,10,0" />
-            <StackLayout>
+                            <Label Text="{Binding name}" Margin="5,0,20,2" FontFamily="times" FontSize="Medium" />
+                            <Label Text="{Binding MoreDital}" FontFamily="times" FontSize="Small" Margin="5,0,20,3" />
+                            <StackLayout>
                 <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>    
         </Grid.ColumnDefinitions>
-        <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
-            <Label Text="{Binding price}" Margin="5,0,10,0" TextColor="#555555">
-                 <Label.Triggers>
-                <DataTrigger TargetType="Label"  Binding="{Binding price}" Value="0">
-                    <Setter Property="Text" Value="    🤩جائزة🤩"/>
-                    <Setter Property="TextColor" Value="DarkGreen"/>
-                    <Setter Property="FontAttributes" Value="Bold"/>
-                    <Setter Property="FontFamily" Value="times"/>
-                    <Setter Property="FontSize" Value="Large"/>
-
-                </DataTrigger>
-                     </Label.Triggers>
-                </Label>
-            <Label Text="د.ل" TextColor="#555555">
-                 <Label.Triggers>
-                <DataTrigger TargetType="Label"  Binding="{Binding price}" Value="0">
-                    <Setter Property="IsVisible" Value="false"/>
-                    </DataTrigger>
-                     </Label.Triggers>
-                </Label>
-        </StackLayout>
         <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Margin="5,0,5,0" Grid.Column="0">
             <BoxView.Triggers>
                 <DataTrigger TargetType="BoxView"  Binding="{Binding discount}" Value="0">

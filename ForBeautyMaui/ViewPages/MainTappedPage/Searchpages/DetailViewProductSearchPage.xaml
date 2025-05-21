@@ -2,66 +2,70 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns:Language="clr-namespace:ForBeautyMaui.Resources.Languages"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
     x:Class="ForBeautyMaui.ViewPages.MainTappedPage.Searchpages.DetailViewProductSearchPage">
     <Shell.TitleView>
-        <Grid >
-           
-            <Label Text="{Binding MoreDital}"
-                   FontFamily="times"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-           FontSize="Medium"/>
+        <Grid>
+            <Label Text="{Binding MoreDeatilTitle}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           FontFamily="times"
+               FontSize="Medium"/>
+
         </Grid>
     </Shell.TitleView>
-
     <ContentPage.Content>
-          <StackLayout x:Name="DetailViewProductSearchPages" Grid.Row="1" VerticalOptions="Start">
-                    <ScrollView x:Name="scrollditalGridView">
-                        <StackLayout>
+        <Grid>
+            <ScrollView>
+                <VerticalStackLayout>
+
+
+
                     <Grid>
-                    <CarouselView ItemsSource="{Binding CarouselImages}" HeightRequest="350" IndicatorView="{x:Reference indicatorImage}"
+                        <CarouselView ItemsSource="{Binding CarouselImages}" HeightRequest="350" IndicatorView="{x:Reference indicatorImage}"
                                     Loop="False" IsSwipeEnabled="True"
                                     HorizontalScrollBarVisibility="Never">
-                        <CarouselView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="70"/> 
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                <StackLayout Grid.Row="0" Grid.RowSpan="2" Margin="30">
-                                            <ffimageloading:CachedImage  Source="{Binding ImageUrl}" CacheType="All" LoadingPlaceholder="placeholder_image.jpg"
-                                                                HeightRequest="290"
-                                                                Aspect="AspectFit"/>
-                                           <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer x:Name="CarouselViewImageShowTap"/>
-                                           </StackLayout.GestureRecognizers>
-                                </StackLayout>
-                                    
-                                </Grid>
-                            </DataTemplate>
-                        </CarouselView.ItemTemplate>
-                    </CarouselView>
-                            <Image x:Name="imageFav" Source="{Binding FavouriteSource}"
-       HorizontalOptions="End"
-       Margin="0,25,25,0"
-       HeightRequest="35"
-       VerticalOptions="Start">
-    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CommandTapHearth}"/>
-    </Image.GestureRecognizers>
-</Image>
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Grid.RowSpan="2" Margin="30">
+                                            <Image Source="{Binding ImageUrl}"
+                                                                HeightRequest="290"  Aspect="AspectFit"
+                                                                />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer />
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
 
+                                    </Grid>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                        <Image x:Name="imageFavSearchPage" Source="{Binding FavouriteSource}"
+                             HorizontalOptions="End"
+                             Margin="0,25,25,0"
+                             HeightRequest="35"
+                             VerticalOptions="Start">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="ImageColorHome"  Command="{Binding CommandAddToFavourite}" />
+                            </Image.GestureRecognizers>
+                        </Image>
                         <IndicatorView x:Name="indicatorImage"
                Grid.Row="0"
                VerticalOptions="End"
                HorizontalOptions="Center"
+               Margin="0,0,0,10"
+               IndicatorSize="7"
                SelectedIndicatorColor="Black"
                 IndicatorColor="LightGray">
                         </IndicatorView>
-                        </Grid>
-                        <StackLayout Margin="0,0,12,0"
+                    </Grid>
+                    <VerticalStackLayout Margin="0,0,12,0"
                                  
                                     FlowDirection="RightToLeft">
                         <Label Text="{Binding LbllIdProduct}" FontFamily="times" FontSize="Small" TextColor="Red" IsVisible="false"/>
@@ -70,83 +74,91 @@
                         <Label Text="{Binding LblDiscreption}" FontFamily="times" FontSize="Small"
                                 TextColor="Gray"/>
 
-                    </StackLayout>
-                            <StackLayout FlowDirection="RightToLeft" Spacing="0"
-                                            Padding="0">
-                                <Frame Margin="12,12,12,0"
-                                    HasShadow="False"
-                                    BorderColor="Black"
-                                    CornerRadius="0">
-                                    <StackLayout Orientation="Horizontal">
-                                            <CheckBox Color="Black" HorizontalOptions="Start"
-                                                    Margin="0,0,-20,0"
-                                                    IsEnabled="False"
-                                                    IsChecked="True"/>
-                                        <Label Text="{Binding size}" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
-                                                    <Label x:Name="MainSizeS" IsVisible="false"/>
-                                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
-                                            <Grid Margin="0,0,10,0" ColumnSpacing="0" BackgroundColor="Transparent">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="*"/>    
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
-                                                    <StackLayout IsVisible="{Binding stackdiscount}" Orientation="Horizontal" Spacing="3" Grid.Column="0">
-                                                    <Label Text="{Binding discount}" FontSize="19" TextColor="Green"/>
-                                                <Label Text="د.ل" FontSize="19" TextColor="Green"/>
-                                                      <StackLayout.Triggers>
-                                                            <DataTrigger TargetType="StackLayout"  Binding="{Binding discount}" Value="0" >
-                                                                <Setter Property="IsVisible" Value="false"/>
-                                                            </DataTrigger>
-                                                        </StackLayout.Triggers>
+                    </VerticalStackLayout>
+                    <Grid FlowDirection="RightToLeft" Padding="0">
+                        <Border Margin="12,12,12,0" HeightRequest="75" Padding="5,5,15,5" Stroke="Black">
+                            <StackLayout Orientation="Horizontal">
+                                <Border x:Name="FrameWhiteCheckHome"  HeightRequest="15" WidthRequest="15" Stroke="Black"
+                                    
+                                 BackgroundColor="White"
+                                
+                                 Padding="3"
+                                HorizontalOptions="Start"
+                                    Margin="5,0,10,0"
+                                    VerticalOptions="Center">
+                                    <Border x:Name="FrameBlackCheckHome" Stroke="Black"
+                                     BackgroundColor="Black">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10"/>
+                                        </Border.StrokeShape>
 
-                                                </StackLayout>
-                                                    <StackLayout>
-                                                        <Grid  ColumnSpacing="0" BackgroundColor="Transparent">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="*"/>    
-                                                </Grid.ColumnDefinitions>
-                                                   <BoxView IsVisible="{Binding BoxViewPriceLine}" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Grid.Column="0">
-                                                       <BoxView.Triggers>
-                                                           <DataTrigger TargetType="BoxView" Binding="{Binding discount}" Value="0">
-                                                               <Setter Property="IsVisible" Value="false"/>
-                                                           </DataTrigger>
-                                                       </BoxView.Triggers>
-                                                    </BoxView>
-                                                <StackLayout x:Name="StackLblPriceS" Orientation="Horizontal" Spacing="3" Grid.Column="0">
-                                                    <Label Text="{Binding price}"/>
-                                                    <Label Text="د.ل"/>
-                                                </StackLayout>
-                                                           
-                                            </Grid>
-                                        </StackLayout>
+                                    </Border>
+                                </Border>
+                                <Label x:Name="MainSizeH" IsVisible="false"/>
+                                <Label Text="{Binding size}" VerticalOptions="Center" FontFamily="times" FontSize="Medium"/>
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                    <Grid ColumnSpacing="0" BackgroundColor="Transparent">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                    <StackLayout Orientation="Horizontal" Spacing="3" Grid.Column="0">
+                                        <Label Text="{Binding discount}" FontSize="19" TextColor="Green"/>
+                                        <Label Text="{x:Static Language:AppResources.Currency}" FontSize="19" TextColor="Green"/>
+                                        <StackLayout.Triggers>
+                                            <DataTrigger TargetType="StackLayout" Binding="{Binding discount}" Value="0">
+                                                <Setter Property="IsVisible" Value="false"/>
+                                            </DataTrigger>
+                                        </StackLayout.Triggers>
                                     </StackLayout>
-                                        </StackLayout>
-                            </Frame>
-                                    <StackLayout FlowDirection="RightToLeft"
+                                    <StackLayout>
+                                        <Grid  ColumnSpacing="0" BackgroundColor="Transparent">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView  HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="Black" Grid.Column="0">
+                                                <BoxView.Triggers>
+                                                    <DataTrigger TargetType="BoxView" Binding="{Binding discount}" Value="0">
+                                                        <Setter Property="IsVisible" Value="false"/>
+                                                    </DataTrigger>
+                                                </BoxView.Triggers>
+                                            </BoxView>
+                                            <StackLayout x:Name="StackLblPriceH" Orientation="Horizontal" Spacing="3" Grid.Column="0">
+                                                <Label Text="{Binding price}"/>
+                                                <Label Text="{x:Static Language:AppResources.Currency}"/>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <StackLayout FlowDirection="RightToLeft"
+                                                x:Name="stackOtherDesgin"
                                                 IsVisible="{Binding StackMoreOptionVisible}"
                                                 Margin="12,0,12,0" 
                                                 BackgroundColor="#EDEBE8"
                                                 HeightRequest="35">
-                                    <Label Text="{Binding LblMoreOptionCount}" FontFamily="times"
-                                            FontSize="Medium"
+                            <Label Text="{Binding LblMoreOptionCount}"
+                                            FontSize="16"
                                            FlowDirection="RightToLeft"
-                                            VerticalTextAlignment="Center"
+                                            VerticalTextAlignment="Center" FontFamily="times"
                                             HorizontalTextAlignment="Center"
                                             Margin="0,10,0,0"/>
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer x:Name="NewSizeColor" Command="{Binding CommandMoreOptionProduct}" />
-                                        </StackLayout.GestureRecognizers>
-                                    </StackLayout>
-                            </StackLayout>
-                            <Grid>
-                                <Button Command="{Binding ButtonAddToShopping}" BackgroundColor="Black"
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CommandMoreOptionProduct}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Grid>
+                    <Grid >
+                        <Button Command="{Binding ButtonAddToShopping}" BackgroundColor="Black"
                             TextColor="White"
                                         CornerRadius="5"
-                            Text="إضافة إلي سلة المشتريات" FontFamily="times" FontSize="Medium"
+                            Text="{x:Static Language:AppResources.AddToShoppingCart}" FontFamily="times" FontSize="Medium"
                             Margin="12,20,12,12"/>
-                                    <!--lottie:SKLottieView x:Name="lottieLoading" Source="LoadingLabel.json" 
+                        <!--lottie:SKLottieView x:Name="lottieLoadingHome" Source="LoadingLabel.json"
                                        WidthRequest="150"
                                        HeightRequest="50"
                                        VerticalOptions="Center"
@@ -154,88 +166,67 @@
                                        IsVisible="false"
                                        RepeatMode="Restart"
                                        Margin="0,10,0,0"/-->
-                                
-                                </Grid>
-                            <StackLayout Orientation="Horizontal" Spacing="10" Margin="15,12,12,12">
-                                <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" 
+                    </Grid>
+                    <StackLayout Orientation="Horizontal" Spacing="10" Margin="15,12,12,12">
+                        <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" HorizontalOptions="FillAndExpand" 
                                                 WidthRequest="126"
                                                 HeightRequest="70">
-                                    <Image Source="hatchback" HeightRequest="30"/>
-                                    <Label Text="توصيل مجاني إبتداء من 200 د.ل" FontFamily="times" FontSize="Small"
-                                            
-                                            HorizontalTextAlignment="Center"/>
-
-                                </StackLayout>
-                                <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
-                                    <Image Source="returnbox" HeightRequest="30" Margin="0,2,0,0"/>
-                                    <Label Text="استرداد في نفس " FontFamily="times" FontSize="Small"
-                                            
-                                            HorizontalTextAlignment="Center"/>
-                                    <Label Text="اليوم فقط" FontFamily="times" FontSize="Small"
+                            <Image Source="hatchback" HeightRequest="30"/>
+                            <Label Text="{x:Static Language:AppResources.FreeShopping}" FontFamily="times" FontSize="Small"
                                           
+                                            HorizontalTextAlignment="Center"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
+                            <Image Source="returnbox" HeightRequest="30" Margin="0,2,0,0"/>
+                            <Label Text="{x:Static Language:AppResources.Return1}" FontFamily="times" FontSize="Small"
+                                            
+                                            HorizontalTextAlignment="Center"/>
+                            <Label Text="{x:Static Language:AppResources.Return2}" FontFamily="times" FontSize="Small"
                                             Margin="0,-5,0,0"
                                             HorizontalTextAlignment="Center"/>
 
-                                </StackLayout>
-                                <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
-                                    <Image Source="present" HeightRequest="30"/>
-                                    <Label Text="هدية واحدة علي الاقل" FontFamily="times" FontSize="Small"
-                                            
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" BackgroundColor="#F1F1F1" WidthRequest="126" HorizontalOptions="FillAndExpand" >
+                            <Image Source="present" HeightRequest="30"/>
+                            <Label Text="{x:Static Language:AppResources.Gift1}" FontFamily="times" FontSize="Small"
+                                          
                                             HorizontalTextAlignment="Center"/>
-                                    <Label Text="للطلب إبتداء من 200 د.ل" FontFamily="times" FontSize="Small"
-                                            
+                            <Label Text="{x:Static Language:AppResources.Gift2}" FontFamily="times" FontSize="Small"
+                                           
                                             Margin="0,-5,0,0"
                                             HorizontalTextAlignment="Center"/>
-                                </StackLayout>
-                            </StackLayout>
-                            <StackLayout  Margin="0,10,0,0" HeightRequest="470" BackgroundColor="#F6F3F0">
-            <Label Text="ربما يعجبك أيضاً" FlowDirection="RightToLeft" FontFamily="times" FontSize="Large"
-                    Margin="15,40,15,15"/>
-            <StackLayout  FlowDirection="RightToLeft">
-                <CollectionView  ItemsSource="{Binding CollectionSeeMore}" 
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout  Margin="0,10,0,0" HeightRequest="250" BackgroundColor="#F6F3F0">
+                        <Label Text="{x:Static Language:AppResources.YouMayAlsoLike}" FlowDirection="{Binding flowdireaction}" FontFamily="times" FontSize="Large"
+                    Margin="2,15,15,15"/>
+                        <CollectionView Margin="0,0,10,0" ItemsSource="{Binding CollectionSeeMore}"  FlowDirection="{Binding flowdirection}"
                                 HorizontalScrollBarVisibility="Never"
                                 SelectionMode="Single"
-                                SelectedItem="{Binding CollectionSeeMoreSelectedItems ,Mode=TwoWay}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Horizontal"/>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                                <StackLayout Orientation="Vertical" Spacing="5" BackgroundColor="#F6F3F0"
+                                 SelectedItem="{Binding CollectionSeeMoreSelectedItem}">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Vertical" Spacing="5" Margin="0,0,10,0" BackgroundColor="#F6F3F0"
                                                 HorizontalOptions="Start"  >
-                                    <Image HeightRequest="150" WidthRequest="150" Margin="3,0,3,0"
-                                             
-                                        Source="{Binding imageUrl}" 
-                                        Aspect="Fill"/>
+                                        <ffimageloading:CachedImage CacheType="All" LoadingPlaceholder="placeholder_image.jpg" HeightRequest="150" WidthRequest="150" 
+                                            BackgroundColor="White" 
+                                        Source="{Binding imageUrl}"
+                                        Aspect="Fill"
+                                        />
                                         <Label Text="{Binding name}" HorizontalTextAlignment="Center"
-                                                FontFamily="times" FontSize="Medium"/>
-                                </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
-                                <StackLayout BackgroundColor="White" FlowDirection="RightToLeft" HeightRequest="250">
-                                    <Label Text="تواجه مشكلة في في العثور علي منتاجاتك ؟" HorizontalTextAlignment="Center" FontFamily="times"
-                                           FontSize="Large"
-                                           Margin="0,20,0,0" />
-                                    <Label Text="إتصل بافريق ForBeauty لمساعدتك في طلبك" FontSize="Medium" FontFamily="times"
-                                           HorizontalTextAlignment="Center"/>
-                                    <Frame HasShadow="False" 
-                           BorderColor="Black" Margin="30,15,30,0"
-                           CornerRadius="5"
-                           Padding="12">
-                        <Label  Text="إتصل بنا" HorizontalTextAlignment="Center" FontFamily="times"/>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer />
-                        </Frame.GestureRecognizers>
-                    </Frame>
-                                </StackLayout>
-        </StackLayout>
-                            <StackLayout BackgroundColor="#F6F3F0" HeightRequest="20">
+                                               FontFamily="times" FontSize="Medium"/>
                                     </StackLayout>
-                            </StackLayout>
-                        </ScrollView>
-                </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
 
